@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>GF-0657 Programación en SIG 2022-II &#8212; GF-0657 Programación en SIG 2022-II</title>
+    <title>Creación y configuración del Jupyter Book de GF-0657 Programación en SIG 2022-II &#8212; GF-0657 Programación en SIG 2022-II</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,7 +52,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Introducción a la ciencia de datos geoespaciales" href="contenido/informacion-general/programa-curso.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -87,7 +86,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="bd-sidebar noprint" id="site-navigation">
     <div class="bd-sidebar__content">
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="#">
+    <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
@@ -106,8 +105,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
                     GF-0657 Programación en SIG 2022-II
                 </a>
             </li>
@@ -213,7 +212,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/gf0657-programacionsig/2022-ii//issues/new?title=Issue%20on%20page%20%2Findex.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/gf0657-programacionsig/2022-ii//issues/new?title=Issue%20on%20page%20%2FREADME.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -241,7 +240,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/index.md"
+        <a href="_sources/README.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -301,8 +300,23 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#contacto">
-   Contacto
+  <a class="reference internal nav-link" href="#creacion-de-un-ambiente-conda">
+   1. Creación de un ambiente Conda
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creacion-del-jupyter-book-principal-y-publicacion-inicial-del-sitio-web-en-github-pages">
+   2. Creación del Jupyter Book principal y publicación inicial del sitio web en GitHub Pages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creacion-de-un-jupyter-book-para-cada-curso-y-publicacion-inicial-del-sitio-web-en-github-pages">
+   3. Creación de un Jupyter Book para cada curso y publicación inicial del sitio web en GitHub Pages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#publicacion-de-modificaciones">
+   4. Publicación de modificaciones
   </a>
  </li>
 </ul>
@@ -314,7 +328,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>GF-0657 Programación en SIG 2022-II</h1>
+                <h1>Creación y configuración del Jupyter Book de GF-0657 Programación en SIG 2022-II</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -325,8 +339,23 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#contacto">
-   Contacto
+  <a class="reference internal nav-link" href="#creacion-de-un-ambiente-conda">
+   1. Creación de un ambiente Conda
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creacion-del-jupyter-book-principal-y-publicacion-inicial-del-sitio-web-en-github-pages">
+   2. Creación del Jupyter Book principal y publicación inicial del sitio web en GitHub Pages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creacion-de-un-jupyter-book-para-cada-curso-y-publicacion-inicial-del-sitio-web-en-github-pages">
+   3. Creación de un Jupyter Book para cada curso y publicación inicial del sitio web en GitHub Pages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#publicacion-de-modificaciones">
+   4. Publicación de modificaciones
   </a>
  </li>
 </ul>
@@ -339,25 +368,121 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="gf-0657-programacion-en-sig-2022-ii">
-<h1>GF-0657 Programación en SIG 2022-II<a class="headerlink" href="#gf-0657-programacion-en-sig-2022-ii" title="Permalink to this headline">#</a></h1>
-<p>Este curso trata sobre el manejo, visualización y análisis de datos geoespaciales mediante el lenguaje de programación Python. Se estudian los fundamentos de Python, sus módulos geoespaciales y su empleo en el desarrollo de aplicaciones para sistemas de información geográfica (SIG) y para sitios web. Se presenta una visión general de cómo metodologías y técnicas de ciencia de datos pueden ser aplicadas al componente geoespacial de diversos problemas.</p>
-<p>El curso se imparte en la <a class="reference external" href="https://www.geografia.fcs.ucr.ac.cr/">Escuela de Geografía</a> de la <a class="reference external" href="https://www.ucr.ac.cr/">Universidad de Costa Rica</a> en el II ciclo lectivo de 2022.</p>
-<section id="contacto">
-<h2>Contacto<a class="headerlink" href="#contacto" title="Permalink to this headline">#</a></h2>
-<p>Si tiene alguna pregunta o comentario sobre este curso, por favor contacte a:</p>
-<blockquote>
-<div><p>Manuel Vargas - <a class="reference external" href="mailto:manuel&#46;vargas_d&#37;&#52;&#48;ucr&#46;ac&#46;cr">manuel<span>&#46;</span>vargas_d<span>&#64;</span>ucr<span>&#46;</span>ac<span>&#46;</span>cr</a><br />
-Profesor<br />
-Universidad de Costa Rica,<br />
-Ciudad Universitaria Rodrigo Facio,<br />
-San Pedro de Montes de Oca,<br />
-Costa Rica.</p>
-</div></blockquote>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />Los contenidos de este curso, a menos que se especifique de otra forma, se comparten mediante una <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">licencia de Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional</a>.</p>
-</section>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="creacion-y-configuracion-del-jupyter-book-de-gf-0657-programacion-en-sig-2022-ii">
+<h1>Creación y configuración del Jupyter Book de GF-0657 Programación en SIG 2022-II<a class="headerlink" href="#creacion-y-configuracion-del-jupyter-book-de-gf-0657-programacion-en-sig-2022-ii" title="Permalink to this headline">#</a></h1>
+<ol class="simple">
+<li><p>Creación de un ambiente Conda.</p></li>
+<li><p>Creación del Jupyter Book principal: <a class="reference external" href="http://gf0657-programacionsig.github.io">gf0657-programacionsig.github.io</a></p></li>
+<li><p>Creación de un Jupyter Book para cada curso, por ejemplo: 2022-ii, accesible en <a class="reference external" href="https://gf0657-programacionsig.github.io/2022-ii/">https://gf0657-programacionsig.github.io/2022-ii/</a></p></li>
+<li><p>Publicación de modificaciones.</p></li>
+</ol>
+<section id="creacion-de-un-ambiente-conda">
+<h2>1. Creación de un ambiente Conda<a class="headerlink" href="#creacion-de-un-ambiente-conda" title="Permalink to this headline">#</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Actualización de Conda</span>
+conda update conda
+
+<span class="c1"># Borrado del ambiente (si es que existe)</span>
+<span class="c1"># conda remove -n gf0657 --all</span>
+
+<span class="c1"># Creación del ambiente</span>
+conda create -n gf0657
+
+<span class="c1"># Activación del ambiente</span>
+conda activate gf0657
+
+<span class="c1"># Configuración del ambiente</span>
+conda config --env --add channels conda-forge
+conda config --env --set channel_priority strict
+
+<span class="c1"># Instalación de mamba</span>
+conda install mamba
+
+<span class="c1"># Instalación de módulos requeridos</span>
+mamba install git python jupyter jupyterlab jupyter-book ghp-import numpy pandas matplotlib plotly gdal fiona shapely geopandas rasterio folium streamlit
+
+<span class="c1"># Desactivación del ambiente</span>
+conda deactivate
+</pre></div>
 </div>
+</section>
+<section id="creacion-del-jupyter-book-principal-y-publicacion-inicial-del-sitio-web-en-github-pages">
+<h2>2. Creación del Jupyter Book principal y publicación inicial del sitio web en GitHub Pages<a class="headerlink" href="#creacion-del-jupyter-book-principal-y-publicacion-inicial-del-sitio-web-en-github-pages" title="Permalink to this headline">#</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda activate gf0657
+
+<span class="c1"># Creación del Jupyter Book con una plantilla inicial</span>
+jupyter-book create gf0657-programacionsig.github.io
+
+<span class="c1"># Generación de archivos HTML (en el subdirectorio _build/html)</span>
+jupyter-book build gf0657-programacionsig.github.io
+
+<span class="c1"># En este punto, debe crearse en GitHub el repositorio gf0657-programacionsig.github.io</span>
+
+<span class="c1"># Configuración del repositorio local y su branch main (para manejar los archivos fuente)</span>
+<span class="nb">cd</span> gf0657-programacionsig.github.io
+git init
+git add .
+git commit -m <span class="s2">&quot;Commit inicial&quot;</span>
+git branch -M main
+git remote add origin git@github.com:gf0657-programacionsig/gf0657-programacionsig.github.io.git
+git push -u origin main
+
+<span class="c1"># Creación del branch gh-pages (para manejar los archivos HTML publicados)</span>
+ghp-import -n -p -f _build/html
+
+<span class="c1"># En este punto, se configura el repositorio para buscar los archivos de GH Pages en la rama gh-pages</span>
+<span class="c1"># El sitio debe estar disponible en https://gf0657-programacionsig.github.io/</span>
+
+conda deactivate
+</pre></div>
+</div>
+</section>
+<section id="creacion-de-un-jupyter-book-para-cada-curso-y-publicacion-inicial-del-sitio-web-en-github-pages">
+<h2>3. Creación de un Jupyter Book para cada curso y publicación inicial del sitio web en GitHub Pages<a class="headerlink" href="#creacion-de-un-jupyter-book-para-cada-curso-y-publicacion-inicial-del-sitio-web-en-github-pages" title="Permalink to this headline">#</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda activate gf0657
+
+<span class="c1"># Creación del Jupyter Book con una plantilla inicial</span>
+jupyter-book create <span class="m">2022</span>-ii
+
+<span class="c1"># Generación de archivos HTML (en el subdirectorio _build/html)</span>
+jupyter-book build <span class="m">2022</span>-ii
+
+<span class="c1"># En este punto, se crea en GitHub el repositorio 2022-ii</span>
+
+<span class="c1"># Configuración del repositorio local y su branch main (para manejar los archivos fuente)</span>
+<span class="nb">cd</span> <span class="m">2022</span>-ii
+git init
+git add .
+git commit -m <span class="s2">&quot;Commit inicial&quot;</span>
+git branch -M main
+git remote add origin git@github.com:gf0657-programacionsig/2022-ii.git
+git push -u origin main
+
+<span class="c1"># Creación del branch gh-pages (para manejar los archivos HTML publicados)</span>
+ghp-import -n -p -f _build/html
+
+<span class="c1"># En este punto, se configura el repositorio para buscar los archivos de GH Pages en la rama gh-pages</span>
+<span class="c1"># El sitio debe estar disponible en https://gf0657-programacionsig.github.io/2022-ii/</span>
+</pre></div>
+</div>
+</section>
+<section id="publicacion-de-modificaciones">
+<h2>4. Publicación de modificaciones<a class="headerlink" href="#publicacion-de-modificaciones" title="Permalink to this headline">#</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generación de archivos HTML (debe hacerse desde el directorio padre del Jupyter Book)</span>
+jupyter-book build <span class="m">2022</span>-ii
+
+<span class="nb">cd</span> <span class="m">2022</span>-ii
+
+<span class="c1"># Aplicación de cambios en el branch main</span>
+git status
+git add .
+git commit -m <span class="s2">&quot;###Comentario###&quot;</span>
+git push
+
+<span class="c1"># Aplicación de cambios en el branch gh-pages</span>
+ghp-import -n -p -f _build/html
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -387,13 +512,6 @@ Costa Rica.</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="contenido/informacion-general/programa-curso.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introducción a la ciencia de datos geoespaciales</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>
