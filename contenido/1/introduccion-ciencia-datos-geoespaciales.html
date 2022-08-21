@@ -1,0 +1,512 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Introducción a la ciencia de datos geoespaciales &#8212; GF-0657 Programación en SIG 2022-II</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="GF-0657 Programación en SIG 2022-II" href="../../index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">GF-0657 Programación en SIG 2022-II</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    GF-0657 Programación en SIG 2022-II
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  1 - INTRODUCCIÓN
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Introducción a la ciencia de datos geoespaciales
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/gf0657-programacionsig/2022-ii/"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/gf0657-programacionsig/2022-ii//issues/new?title=Issue%20on%20page%20%2Fcontenido/1/introduccion-ciencia-datos-geoespaciales.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/contenido/1/introduccion-ciencia-datos-geoespaciales.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trabajo-previo">
+   Trabajo previo
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lecturas">
+     Lecturas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#el-componente-geoespacial-de-los-datos">
+   El componente geoespacial de los datos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sistemas-de-informacion-geografica">
+   Sistemas de información geográfica
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#el-enfoque-de-ciencia-de-datos-geoespaciales">
+   El enfoque de ciencia de datos geoespaciales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#referencias-bibliograficas">
+   Referencias bibliográficas
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Introducción a la ciencia de datos geoespaciales</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trabajo-previo">
+   Trabajo previo
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lecturas">
+     Lecturas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#el-componente-geoespacial-de-los-datos">
+   El componente geoespacial de los datos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sistemas-de-informacion-geografica">
+   Sistemas de información geográfica
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#el-enfoque-de-ciencia-de-datos-geoespaciales">
+   El enfoque de ciencia de datos geoespaciales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#referencias-bibliograficas">
+   Referencias bibliográficas
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="introduccion-a-la-ciencia-de-datos-geoespaciales">
+<h1>Introducción a la ciencia de datos geoespaciales<a class="headerlink" href="#introduccion-a-la-ciencia-de-datos-geoespaciales" title="Permalink to this headline">#</a></h1>
+<section id="trabajo-previo">
+<h2>Trabajo previo<a class="headerlink" href="#trabajo-previo" title="Permalink to this headline">#</a></h2>
+<section id="lecturas">
+<h3>Lecturas<a class="headerlink" href="#lecturas" title="Permalink to this headline">#</a></h3>
+<p>Hwang, J. P. (2021, septiembre 3). Building a Big Data Geographical Dashboard with Open-Source Tools. Plotly. <a class="reference external" href="https://medium.com/plotly/building-a-big-data-geographical-dashboard-with-open-source-tools-c5108d7d5683">https://medium.com/plotly/building-a-big-data-geographical-dashboard-with-open-source-tools-c5108d7d5683</a></p>
+<p>Rey, S. J., Arribas-Bel, D., &amp; Wolf, L. J. (2020). Geographic Data Science with Python. <a class="reference external" href="https://geographicdata.science/book/">https://geographicdata.science/book/</a> (Parte I)</p>
+<p>Wu, Q. (2021, octubre 25). A streamlit app for creating timelapse of annual Landsat imagery (1984–2021). Medium. <a class="reference external" href="https://giswqs.medium.com/a-streamlit-app-for-creating-timelapse-of-annual-landsat-imagery-1984-2021-3db407a8ac32">https://giswqs.medium.com/a-streamlit-app-for-creating-timelapse-of-annual-landsat-imagery-1984-2021-3db407a8ac32</a></p>
+</section>
+</section>
+<section id="el-componente-geoespacial-de-los-datos">
+<h2>El componente geoespacial de los datos<a class="headerlink" href="#el-componente-geoespacial-de-los-datos" title="Permalink to this headline">#</a></h2>
+<p>Una gran parte de los datos disponibles contiene algún tipo de componente geográfico o espacial<a class="footnote-reference brackets" href="#footnote-geografico-espacial" id="id1">1</a>. Este componente puede expresarse de varias formas. Por ejemplo:</p>
+<ul class="simple">
+<li><p><strong>Con nombres de lugares</strong>: <em>El <a class="reference external" href="https://es.wikipedia.org/wiki/Incilius_periglenes">sapo dorado (<em>Incilius periglenes</em>)</a> era una especie de anfibio, endémica de los bosques nubosos de altitud de Monteverde, Costa Rica.</em></p></li>
+<li><p><strong>Con direcciones</strong>: <em>La <a class="reference external" href="https://es.wikipedia.org/wiki/Sede_de_la_Organizaci%C3%B3n_de_las_Naciones_Unidas">sede de la Organización de las Naciones Unidas (ONU)</a> está ubicada en la ciudad de Nueva York, Estados Unidos, en la Primera Avenida, 750.</em></p></li>
+<li><p><strong>Con coordenadas</strong>: *La cima del <a class="reference external" href="https://es.wikipedia.org/wiki/Monte_Everest">Monte Everest</a> se localiza en las coordenadas geográficas 86°55′31″ E y 27°59′17″ N, como se muestra en la <a class="reference internal" href="#figure-mapa-nepal-everest"><span class="std std-numref">Fig. 1</span></a>.</p></li>
+</ul>
+<figure class="align-default" id="figure-mapa-nepal-everest">
+<img alt="../../_images/nepal-map.jpg" src="../../_images/nepal-map.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Mapa de Nepal que muestra la ubicación del Monte Everest en el sistema de coordenadas geográficas. Fuente: <a class="reference external" href="https://www.mapsofworld.com/">https://www.mapsofworld.com/</a>.</span><a class="headerlink" href="#figure-mapa-nepal-everest" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Las coordenadas correspondientes a lugares y direcciones pueden obtenerse a través de un proceso denominado <a class="reference external" href="https://es.wikipedia.org/wiki/Georreferenciaci%C3%B3n"><em>georreferenciación</em></a>, mediante el cual, en general, se determina la posición espacial de alguna entidad en un sistema de coordenadas. La georreferenciación puede emplearse también para obtener las coordenadas de, por ejemplo, fotografías aéreas o mapas antiguos. Es un proceso que puede resultar complejo y costoso y para el que se han desarrollado metodologías y plataformas especializadas (ej. <a class="reference external" href="https://doi.org/10.15468/doc-gg7h-s853">Chapman AD &amp; Wieczorek JR (2020) Georeferencing Best Practices</a>, <a class="reference external" href="https://www.geo-locate.org/">GEOLocate</a>, <a class="reference external" href="https://nominatim.openstreetmap.org/ui/search.html">Nominatim</a>).</p>
+<p>En la actualidad, hay una gran cantidad de fuentes que generan datos georreferenciados. Entre estas pueden mencionarse las tecnologías de <a class="reference external" href="https://ec.europa.eu/jrc/en/research-topic/earth-observation">observación de la Tierra (<em>Earth Observation</em>)</a> (ej. <a class="reference external" href="https://es.wikipedia.org/wiki/Imagen_satelital">imágenes satelitales</a>), los dispositivos móviles y los sensores remotos, entre muchas otras.</p>
+</section>
+<section id="sistemas-de-informacion-geografica">
+<h2>Sistemas de información geográfica<a class="headerlink" href="#sistemas-de-informacion-geografica" title="Permalink to this headline">#</a></h2>
+<p>A principios de la década de 1960, el geógrafo inglés <a class="reference external" href="https://es.wikipedia.org/wiki/Roger_Tomlinson">Roger Tomlinson</a> desarrolló en Canadá el que se considera el primer sistema de información geográfica. Se trataba del <a class="reference external" href="https://en.wikipedia.org/wiki/Canada_Geographic_Information_System">Canada Geographic Information System (CGIS)</a> y su objetivo fue manejar los datos del inventario geográfico canadiense y su análisis para la gestión del territorio rural. De manera casi simultánea al trabajo de Tomlinson, surgieron desarrollos similares en Estados Unidos y en el Reino Unido. El surgimiento de los sistemas de información geográfica no implicó solo el surgimiento de nuevas herramientas de software, sino también el desarrollo de técnicas que hasta entonces no habían sido necesarias <span id="id2">[]</span> como, por ejemplo, la manipulación de nuevos tipos de datos geométricos (ej. puntos, líneas, polígonos).</p>
+<p>En general, un sistema de información geográfica (SIG) maneja datos georreferenciados (i.e. ubicados en un sistema de coordenadas) y los asocia con datos convencionales, como se muestra en la <a class="reference internal" href="#figure-mapa-qgis"><span class="std std-numref">Fig. 2</span></a>.</p>
+<figure class="align-default" id="figure-mapa-qgis">
+<img alt="../../_images/mapa-qgis.png" src="../../_images/mapa-qgis.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Mapa elaborado en QGIS que muestra la ubicación de los aeródromos de Costa Rica.</span><a class="headerlink" href="#figure-mapa-qgis" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>En la actualidad, los SIG presentan los datos en capas (<em>layers</em>). Por ejemplo, el mapa de la <a class="reference internal" href="#figure-mapa-qgis"><span class="std std-numref">Fig. 2</span></a> contiene una capa base raster (la que muestra el mar y el continente), una capa de polígonos correspondiente a las provincias de Costa Rica y una capa de puntos correspondiente a los aeródromos. A la izquierda puede apreciarse la lista de esas capas y a la derecha un cuadro con información detallada sobre uno de los aeródromos.</p>
+<p>Los SIG de escritorio (ej. <a class="reference external" href="https://www.esri.com/en-us/arcgis/products/arcgis-desktop/overview">ArcGIS Desktop</a>, <a class="reference external" href="https://www.qgis.org/">QGIS</a>) son herramientas con interfaces de usuario muy gráficas e intuitivas, que no requieren de conocimientos de programación de computadoras y que permiten generar cartografía de alta calidad. Sin embargo, son poco flexibles y los resultados que producen son difícilmente <a class="reference external" href="https://es.wikipedia.org/wiki/Reproducibilidad_y_repetibilidad">reproducibles</a>.</p>
+</section>
+<section id="el-enfoque-de-ciencia-de-datos-geoespaciales">
+<h2>El enfoque de ciencia de datos geoespaciales<a class="headerlink" href="#el-enfoque-de-ciencia-de-datos-geoespaciales" title="Permalink to this headline">#</a></h2>
+<p>Durante la última década, el uso de SIG se ha complementado con el de <a class="reference external" href="https://es.wikipedia.org/wiki/Ciencia_de_datos">ciencia de datos</a>, lo que posibilitado enriquecer la visualización y el análisis de datos geoespaciales mediante lenguajes de programación como <a class="reference external" href="https://www.python.org/">Python</a>, <a class="reference external" href="https://www.r-project.org/">R</a> o <a class="reference external" href="http://www.ecma-international.org/publications-and-standards/standards/ecma-262/">JavaScript</a>, entre otros.</p>
+<p>El uso de técnicas de ciencia de datos y de otros campos relacionados (ej. <a class="reference external" href="https://es.wikipedia.org/wiki/Aprendizaje_autom%C3%A1tico">aprendizaje automatizado</a>, <a class="reference external" href="https://es.wikipedia.org/wiki/Macrodatos"><em>big data</em></a>) ha permitido aplicar a los datos geoespaciales técnicas y metodologías como <a class="reference external" href="https://es.wikipedia.org/wiki/An%C3%A1lisis_de_la_regresi%C3%B3n">análisis de regresión</a> y <a class="reference external" href="https://es.wikipedia.org/wiki/Clasificaci%C3%B3n_estad%C3%ADstica">clasificación estadística</a>.</p>
+</section>
+<section id="referencias-bibliograficas">
+<h2>Referencias bibliográficas<a class="headerlink" href="#referencias-bibliograficas" title="Permalink to this headline">#</a></h2>
+<span class="target" id="id3"></span><hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="footnote-geografico-espacial"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>El adjetivo <em>geográfico</em> se refiere a la superficie de la Tierra. Así, por ejemplo, las <em>coordenadas geográficas</em> se utilizan para ubicar cualquier punto en la superficie terrestre. El término <em>espacial</em> se emplea para referirse a cualquier espacio, no siempre localizable en el planeta Tierra. En muchas ocasiones, ambas palabras son intercambiables. Por ejemplo, muchos de los métodos utilizados para analizar datos geográficos pueden aplicarse también en espacios no geográficos como, por ejemplo, otros planetas, el cosmos, el cuerpo humano (ej. con radiografías) o secuencias genómicas. En los últimos años, se ha incrementado el uso del término <em>geoespacial</em>, el cual se eligió para el nombre de este curso, como una forma de referirse al subconjunto del espacio correspondiente a la superficie de la Tierra <span id="id4">[]</span>.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contenido/1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../../index.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">GF-0657 Programación en SIG 2022-II</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Manuel Vargas<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
