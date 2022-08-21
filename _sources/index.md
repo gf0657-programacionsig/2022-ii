@@ -2,9 +2,9 @@
 
 Este curso trata sobre el manejo, visualización y análisis de datos geoespaciales mediante el lenguaje de programación Python. Se estudian los fundamentos de Python, sus módulos geoespaciales y su empleo en el desarrollo de aplicaciones para sistemas de información geográfica (SIG) y para sitios web. Se presenta una visión general de cómo metodologías y técnicas de ciencia de datos pueden ser aplicadas al componente geoespacial de diversos problemas.
 
-El curso se imparte en la [Escuela de Geografía](https://www.geografia.fcs.ucr.ac.cr/) de la [Universidad de Costa Rica](https://www.ucr.ac.cr/) en el II ciclo lectivo de 2022.
+El curso se imparte en la [Escuela de Geografía](https://www.geografia.fcs.ucr.ac.cr/) de la [Universidad de Costa Rica](https://www.ucr.ac.cr/) en el II ciclo lectivo de 2022. Para más información sobre los contenidos, metodología, evaluación y otros temas, puede consultar el [programa del curso](https://github.com/gf0657-programacionsig/2022-ii/blob/main/contenido/informacion-general/gf0657-programacionsig-g001-2022-ii.pdf).
 
-Para más información sobre los contenidos, metodología, evaluación y otros temas, puede consultar el [programa del curso](https://github.com/gf0657-programacionsig/2022-ii/blob/main/contenido/informacion-general/gf0657-programacionsig-g001-2022-ii.pdf).
+Para consultar versiones de este curso impartidas en otros ciclos lectivos, puede visitar el [sitio web general del curso](https://gf0657-programacionsig.github.io/).
 
 #### Contacto
 
