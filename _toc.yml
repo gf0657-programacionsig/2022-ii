@@ -4,6 +4,6 @@
 format: jb-book
 root: index
 parts:
-  - caption: Información sobre el curso
+  - caption: 1 - INTRODUCCIÓN
     chapters:
-    - file: contenido/informacion-general/programa-curso
+    - file: contenido/1/introduccion-ciencia-datos-geoespaciales
