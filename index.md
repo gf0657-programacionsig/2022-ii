@@ -4,6 +4,8 @@ Este curso trata sobre el manejo, visualización y análisis de datos geoespacia
 
 El curso se imparte en la [Escuela de Geografía](https://www.geografia.fcs.ucr.ac.cr/) de la [Universidad de Costa Rica](https://www.ucr.ac.cr/) en el II ciclo lectivo de 2022.
 
+Para más información sobre los contenidos, metodología, evaluación y otros temas, puede consultar el [programa del curso](https://github.com/gf0657-programacionsig/2022-ii/blob/main/contenido/informacion-general/gf0657-programacionsig-g001-2022-ii.pdf).
+
 #### Contacto
 
 Si tiene alguna pregunta o comentario sobre este curso, por favor contacte a:
