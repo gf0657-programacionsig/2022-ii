@@ -468,19 +468,28 @@ title="Print to PDF"
 </figcaption>
 </figure>
 <p>Antes de un <em>push</em>, el usuario debe seleccionar los archivos que desea subir mediante el comando <a class="reference external" href="https://git-scm.com/docs/git-add">git add</a>, el cual pasa los archivos a un “área de espera” (<em>staging area</em>). Luego debe usarse el comando <a class="reference external" href="https://git-scm.com/docs/git-commit">git commit</a> para “guardar” los cambios en el área de espera.</p>
-<p>La relación entre estas operaciones de Git, se ilustra en la figura &#64;ref(fig:git-push-pull-commit).</p>
-<div class="highlight-{r notranslate"><div class="highlight"><pre><span></span>knitr::include_graphics(rep(&quot;img/git-push-pull-commit.png&quot;))
-</pre></div>
-</div>
-<p>En la figura &#64;ref(fig:git-stage-commit-push) se muestra el funcionamiento de Git mediante una comparación con el procesamiento de una compra en línea.</p>
-<div class="highlight-{r notranslate"><div class="highlight"><pre><span></span>knitr::include_graphics(rep(&quot;img/git-stage-commit-push.png&quot;))
-</pre></div>
-</div>
+<p>La relación entre estas operaciones de Git, se ilustra en la <a class="reference internal" href="#figure-git-push-pull-commit"><span class="std std-numref">Fig. 13</span></a>.</p>
+<figure class="align-default" id="figure-git-push-pull-commit">
+<img alt="../../_images/git-push-pull-commit.png" src="../../_images/git-push-pull-commit.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Operaciones de Git. Imagen de <a class="reference external" href="https://medium.com/&#64;stevenklavins94/version-control-part-4-c9387cf5b33e">Steven Klavins</a>.</span><a class="headerlink" href="#figure-git-push-pull-commit" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>En la <a class="reference internal" href="#figure-git-stage-commit-push"><span class="std std-numref">Fig. 14</span></a> se muestra el funcionamiento de Git mediante una comparación con el procesamiento de una compra en línea.</p>
+<figure class="align-default" id="figure-git-stage-commit-push">
+<img alt="../../_images/git-stage-commit-push.png" src="../../_images/git-stage-commit-push.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Operaciones de Git y compras en línea. Imagen de <a class="reference external" href="https://www.coursera.org/learn/reproducible-templates-analysis/lecture/NGbQv/git-and-github-part-2">Melinda Higgins</a>.</span><a class="headerlink" href="#figure-git-stage-commit-push" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Otras operaciones de Git de uso frecuente son:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://git-scm.com/docs/git-config">git config</a>: para especificar opciones globales de la sesión de Git (ej. nombre del usuario, dirección de corre electrónico).</p></li>
 <li><p><a class="reference external" href="https://git-scm.com/docs/git-clone">git clone</a>: para clonar (i.e. copiar) un repositorio remoto en la computadora local.</p></li>
 <li><p><a class="reference external" href="https://git-scm.com/docs/git-status">git status</a>: para revisar el estado de los archivos y, por ejemplo, saber cuales deben pasarse al área de espera.</p></li>
+<li><p><a class="reference external" href="https://git-scm.com/docs/git-log">git log</a>: para revisar el historial de <em>commits</em>.</p></li>
+<li><p><a class="reference external" href="https://git-scm.com/docs/git-diff">git diff</a>: para visualizar los cambios efectuados en los <em>commits</em>.</p></li>
+<li><p><a class="reference external" href="https://git-scm.com/docs/git-reset">git reset</a>: para regresar a un <em>commit</em>.</p></li>
 </ul>
 </section>
 <section id="ejemplos-de-uso">

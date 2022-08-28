@@ -41,16 +41,20 @@ Operaciones _push_ y _pull_. Imagen de [Melinda Higgins](https://www.coursera.or
 
 Antes de un _push_, el usuario debe seleccionar los archivos que desea subir mediante el comando [git add](https://git-scm.com/docs/git-add), el cual pasa los archivos a un "área de espera" (_staging area_). Luego debe usarse el comando [git commit](https://git-scm.com/docs/git-commit) para "guardar" los cambios en el área de espera.
 
-La relación entre estas operaciones de Git, se ilustra en la figura \@ref(fig:git-push-pull-commit).
+La relación entre estas operaciones de Git, se ilustra en la {numref}`figure-git-push-pull-commit`.
 
-```{r git-push-pull-commit, fig.cap='Operaciones de Git. Imagen de [Steven Klavins](https://medium.com/@stevenklavins94/version-control-part-4-c9387cf5b33e).', echo=FALSE}
-knitr::include_graphics(rep("img/git-push-pull-commit.png"))
+```{figure} img/git-push-pull-commit.png
+:name: figure-git-push-pull-commit
+
+Operaciones de Git. Imagen de [Steven Klavins](https://medium.com/@stevenklavins94/version-control-part-4-c9387cf5b33e).
 ```
 
-En la figura \@ref(fig:git-stage-commit-push) se muestra el funcionamiento de Git mediante una comparación con el procesamiento de una compra en línea.
+En la {numref}`figure-git-stage-commit-push` se muestra el funcionamiento de Git mediante una comparación con el procesamiento de una compra en línea.
 
-```{r git-stage-commit-push, fig.cap='Operaciones de Git y compras en línea. Imagen de [Melinda Higgins](https://www.coursera.org/learn/reproducible-templates-analysis/lecture/NGbQv/git-and-github-part-2).', echo=FALSE}
-knitr::include_graphics(rep("img/git-stage-commit-push.png"))
+```{figure} img/git-stage-commit-push.png
+:name: figure-git-stage-commit-push
+
+Operaciones de Git y compras en línea. Imagen de [Melinda Higgins](https://www.coursera.org/learn/reproducible-templates-analysis/lecture/NGbQv/git-and-github-part-2).
 ```
 
 Otras operaciones de Git de uso frecuente son:
@@ -58,6 +62,9 @@ Otras operaciones de Git de uso frecuente son:
 * [git config](https://git-scm.com/docs/git-config): para especificar opciones globales de la sesión de Git (ej. nombre del usuario, dirección de corre electrónico).
 * [git clone](https://git-scm.com/docs/git-clone): para clonar (i.e. copiar) un repositorio remoto en la computadora local.
 * [git status](https://git-scm.com/docs/git-status): para revisar el estado de los archivos y, por ejemplo, saber cuales deben pasarse al área de espera.
+* [git log](https://git-scm.com/docs/git-log): para revisar el historial de _commits_.
+* [git diff](https://git-scm.com/docs/git-diff): para visualizar los cambios efectuados en los _commits_.
+* [git reset](https://git-scm.com/docs/git-reset): para regresar a un _commit_.
 
 ## Ejemplos de uso
 ### Clonación de un repositorio remoto y sincronización de los cambios efectuados localmente
