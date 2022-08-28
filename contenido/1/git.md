@@ -67,7 +67,7 @@ Otras operaciones de Git de uso frecuente son:
 * [git clone](https://git-scm.com/docs/git-clone): para clonar (i.e. copiar) un repositorio remoto en la computadora local.
 * [git status](https://git-scm.com/docs/git-status): para revisar el estado de los archivos y, por ejemplo, saber cuales deben pasarse al área de espera.
 * [git log](https://git-scm.com/docs/git-log): para revisar el historial de _commits_.
-* [git diff](https://git-scm.com/docs/git-diff): para visualizar los cambios efectuados en los _commits_.
+* [git show](https://git-scm.com/docs/git-show): para visualizar los cambios efectuados en los _commits_.
 * [git reset](https://git-scm.com/docs/git-reset): para regresar al estado correspondiente a un _commit_ anterior.
 
 ## Ejemplos de uso
