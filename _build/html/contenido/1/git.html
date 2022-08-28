@@ -337,6 +337,23 @@ title="Print to PDF"
    ¿Como funciona Git?
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejemplos-de-uso">
+   Ejemplos de uso
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clonacion-de-un-repositorio-remoto-y-sincronizacion-de-los-cambios-efectuados-localmente">
+     Clonación de un repositorio remoto y sincronización de los cambios efectuados localmente
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recursos-de-interes">
+   Recursos de interés
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -383,6 +400,23 @@ title="Print to PDF"
    ¿Como funciona Git?
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejemplos-de-uso">
+   Ejemplos de uso
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clonacion-de-un-repositorio-remoto-y-sincronizacion-de-los-cambios-efectuados-localmente">
+     Clonación de un repositorio remoto y sincronización de los cambios efectuados localmente
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recursos-de-interes">
+   Recursos de interés
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -426,6 +460,65 @@ title="Print to PDF"
 <li><p><strong><em>push</em></strong>: para “subir” al repositorio remoto los cambios realizados en el repositorio local. Esta operación se realiza mediante el comando <a class="reference external" href="https://git-scm.com/docs/git-push">git push</a>. Es probable que el sistema remoto le solicite al usuario algún tipo de autenticación (ej. nombre de usuario y clave).</p></li>
 <li><p><strong><em>pull</em></strong>: para “bajar” al repositorio local los cambios realizados en el repositorio remoto. Esta operación se realiza mediante el comando <a class="reference external" href="https://git-scm.com/docs/git-pull">git pull</a>.</p></li>
 </ul>
+<p>Las operaciones <em>push</em> y <em>pull</em> se ilustran en la <a class="reference internal" href="#figure-git-push-pull"><span class="std std-numref">Fig. 12</span></a>.</p>
+<figure class="align-default" id="figure-git-push-pull">
+<img alt="../../_images/git-push-pull.png" src="../../_images/git-push-pull.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Operaciones <em>push</em> y <em>pull</em>. Imagen de <a class="reference external" href="https://www.coursera.org/learn/reproducible-templates-analysis/lecture/NGbQv/git-and-github-part-1">Melinda Higgins</a>.</span><a class="headerlink" href="#figure-git-push-pull" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Antes de un <em>push</em>, el usuario debe seleccionar los archivos que desea subir mediante el comando <a class="reference external" href="https://git-scm.com/docs/git-add">git add</a>, el cual pasa los archivos a un “área de espera” (<em>staging area</em>). Luego debe usarse el comando <a class="reference external" href="https://git-scm.com/docs/git-commit">git commit</a> para “guardar” los cambios en el área de espera.</p>
+<p>La relación entre estas operaciones de Git, se ilustra en la figura &#64;ref(fig:git-push-pull-commit).</p>
+<div class="highlight-{r notranslate"><div class="highlight"><pre><span></span>knitr::include_graphics(rep(&quot;img/git-push-pull-commit.png&quot;))
+</pre></div>
+</div>
+<p>En la figura &#64;ref(fig:git-stage-commit-push) se muestra el funcionamiento de Git mediante una comparación con el procesamiento de una compra en línea.</p>
+<div class="highlight-{r notranslate"><div class="highlight"><pre><span></span>knitr::include_graphics(rep(&quot;img/git-stage-commit-push.png&quot;))
+</pre></div>
+</div>
+<p>Otras operaciones de Git de uso frecuente son:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://git-scm.com/docs/git-config">git config</a>: para especificar opciones globales de la sesión de Git (ej. nombre del usuario, dirección de corre electrónico).</p></li>
+<li><p><a class="reference external" href="https://git-scm.com/docs/git-clone">git clone</a>: para clonar (i.e. copiar) un repositorio remoto en la computadora local.</p></li>
+<li><p><a class="reference external" href="https://git-scm.com/docs/git-status">git status</a>: para revisar el estado de los archivos y, por ejemplo, saber cuales deben pasarse al área de espera.</p></li>
+</ul>
+</section>
+<section id="ejemplos-de-uso">
+<h2>Ejemplos de uso<a class="headerlink" href="#ejemplos-de-uso" title="Permalink to this headline">#</a></h2>
+<section id="clonacion-de-un-repositorio-remoto-y-sincronizacion-de-los-cambios-efectuados-localmente">
+<h3>Clonación de un repositorio remoto y sincronización de los cambios efectuados localmente<a class="headerlink" href="#clonacion-de-un-repositorio-remoto-y-sincronizacion-de-los-cambios-efectuados-localmente" title="Permalink to this headline">#</a></h3>
+<p>Para seguir este ejemplo:</p>
+<ol class="simple">
+<li><p>Bifurque (<em>fork</em>) a su cuenta en GitHub el repositorio localizado en la dirección <a class="reference external" href="https://github.com/gf0604-procesamientodatosgeograficos/2022-i-tutorial-git-repo-ejemplo">https://github.com/gf0604-procesamientodatosgeograficos/2022-i-tutorial-git-repo-ejemplo</a>.</p></li>
+<li><p>Con la opción <em>File - New Project - Version Control - Git</em> de RStudio, clone a su computadora el repositorio que acaba de bifurcar.</p></li>
+<li><p>Con el editor de RStudio, abra el archivo <code class="docutils literal notranslate"><span class="pre">README.md</span></code>, agregue una línea y guarde el archivo.</p></li>
+<li><p>Luego, ejecute los siguientes comandos desde la la ventana <em>Terminal</em> de RStudio. Nota: las líneas que empiezan con  <code class="docutils literal notranslate"><span class="pre">#</span> </code> son comentarios.</p></li>
+</ol>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0. Especificación del nombre y de la dirección de correo del usuario.</span>
+<span class="c1"># Debe modificar la dirección de correo y el nombre del usuario con sus propios datos.</span>
+$ git config --global user.email usuario@correo.com
+$ git config --global user.name usuariogithub
+<span class="c1"># Para revisar:</span>
+$ git config --global --list
+<span class="c1"># 1. Revisión de los archivos con modificaciones.</span>
+$ git status
+<span class="c1"># 2. Adición de los archivos modificados al &quot;área de espera&quot;.</span>
+<span class="c1"># El punto (.) indica que se agregarán todos los archivos modificados.</span>
+$ git add .
+<span class="c1"># 3. Almacenamiento (commit) del conjunto de archivos modificados, junto con un mensaje explicativo.</span>
+$ git commit -m <span class="s2">&quot;Agregar línea 2&quot;</span>
+<span class="c1"># 4. &quot;Subida&quot; (push) de las modificaciones al repositorio remoto.</span>
+$ git push
+</pre></div>
+</div>
+<p>Revise los cambios aplicados en el repositorio remoto en GitHub. Si se realizan nuevos cambios en el repositorio local, deben repetirse los pasos del 1 al 4. Los comentarios en el commando <code class="docutils literal notranslate"><span class="pre">commit</span></code> deben reflejar los cambios realizados.</p>
+</section>
+</section>
+<section id="recursos-de-interes">
+<h2>Recursos de interés<a class="headerlink" href="#recursos-de-interes" title="Permalink to this headline">#</a></h2>
+<p><em>GitHub Archive Program</em>. (s. f.). GitHub Archive Program. Recuperado 10 de abril de 2022, de <a class="reference external" href="https://archiveprogram.github.com/">https://archiveprogram.github.com/</a></p>
+<p>Higgins, M. (s. f.). <em>Reproducible Templates for Analysis and Dissemination</em>. Coursera. Recuperado 11 de abril de 2022, de <a class="reference external" href="https://www.coursera.org/learn/reproducible-templates-analysis">https://www.coursera.org/learn/reproducible-templates-analysis</a></p>
+<p>Klavins, S. (2020). <em>Version Control part 1</em>. Medium. <a class="reference external" href="https://stevenklavins94.medium.com/version-control-part-1-c5f1b43127f6">https://stevenklavins94.medium.com/version-control-part-1-c5f1b43127f6</a></p>
 </section>
 </section>
 
