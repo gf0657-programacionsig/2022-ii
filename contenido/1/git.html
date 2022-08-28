@@ -525,11 +525,15 @@ git status
 git add .
 <span class="c1"># e. Grabado (commit) del conjunto de archivos modificados, junto con un mensaje explicativo:</span>
 git commit -m <span class="s2">&quot;Agregar línea 2&quot;</span>
-<span class="c1"># f. &quot;Subida&quot; (push) de las modificaciones al repositorio remoto:</span>
+<span class="c1"># f. &quot;Subida&quot; (push) de las modificaciones al repositorio remoto.</span>
+<span class="c1"># En este paso, es posible que deba utilizar su nombre de usuario/clave o su token de GitHub para autenticarse.</span>
 git push
 </pre></div>
 </div>
-<p>Revise los cambios aplicados en el repositorio remoto en GitHub. Si se realizan nuevos cambios en el repositorio local, deben repetirse los pasos del c al f para sincronizarlos con el repositorio remoto. Los comentarios en el commando <code class="docutils literal notranslate"><span class="pre">commit</span></code> deben reflejar los cambios realizados.</p>
+<ol class="simple">
+<li><p>Revise los cambios aplicados en el repositorio remoto en GitHub.</p></li>
+<li><p>Agregue más líneas al archivo del repositorio local y sincronícelo con el remoto, realizando nuevamente los pasos del c al f para cada <em>commit</em>. Recuerdo que los comentarios de cada <code class="docutils literal notranslate"><span class="pre">commit</span></code> deben reflejar los cambios que están siendo aplicados.</p></li>
+</ol>
 </section>
 </section>
 <section id="recursos-de-interes">
