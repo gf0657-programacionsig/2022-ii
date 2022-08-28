@@ -7,10 +7,11 @@
 Abba, I. V. (2021). *Git and GitHub Tutorial – Version Control for Beginners*. FreeCodeCamp.Org. https://www.freecodecamp.org/news/git-and-github-for-beginners/
 
 ### Otros
-- Instale en su computadora el sistema de control de versiones [Git](https://git-scm.com/downloads).
-- Instale en su computadora un editor de código fuente, por ejemplo:
-    - [Notepad++](https://notepad-plus-plus.org/)
-    - [Visual Studio Code](https://code.visualstudio.com/)
+Instale en su computadora el sistema de control de versiones [Git](https://git-scm.com/downloads).
+
+Instale en su computadora un editor de código fuente, por ejemplo:
+- [Notepad++](https://notepad-plus-plus.org/)
+- [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Descripción general
 [Git](https://git-scm.com/) es un sistema de [control de versiones](https://es.wikipedia.org/wiki/Control_de_versiones) diseñado para "rastrear" cambios en el código fuente durante el proceso de desarrollo de software. Sin embargo, puede ser utilizado para llevar el control de los cambios en cualquier conjunto de archivos (ej. [documentación](https://guides.github.com/features/wikis/), [música](https://techcrunch.com/2013/10/09/splice-music/)). 
