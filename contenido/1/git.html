@@ -504,30 +504,32 @@ title="Print to PDF"
 <h3>Clonación de un repositorio remoto y sincronización de los cambios efectuados localmente<a class="headerlink" href="#clonacion-de-un-repositorio-remoto-y-sincronizacion-de-los-cambios-efectuados-localmente" title="Permalink to this headline">#</a></h3>
 <p>Para seguir este ejemplo:</p>
 <ol class="simple">
-<li><p>Obtenga un <em>token</em> de GitHub en la siguiente opción de menú de su perfil de usuario: <em>Settings - Developer settings - Personal access tokens</em>. Copie el <em>token</em> en un lugar seguro, ya que lo necesitará para autenticarse en GitHub.</p></li>
+<li><p>Obtenga un <em>token</em> de GitHub en la siguiente opción de menú de su perfil de usuario: <em>Settings - Developer settings - Personal access tokens</em>. Seleccione las operaciones de tipo “repo”. Copie el <em>token</em> en un lugar seguro, ya que lo necesitará para autenticarse en GitHub.</p></li>
 <li><p>Realice un <em>fork</em> a su cuenta en GitHub del repositorio localizado en la dirección <a class="reference external" href="https://github.com/gf0657-programacionsig/2022-ii-tutorial-git-repo-ejemplo">https://github.com/gf0657-programacionsig/2022-ii-tutorial-git-repo-ejemplo</a>. Obtendrá un repositorio llamado “<a class="reference external" href="https://github.com/%5Bnombre-usuario%5D/2022-ii-tutorial-git-repo-ejemplo">https://github.com/[nombre-usuario]/2022-ii-tutorial-git-repo-ejemplo</a>”, en donde [nombre-usuario] es su nombre de usuario en GitHub.</p></li>
 <li><p>En una terminal del sistema operativo, con el comando <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/[nombre-usuario]/2022-ii-tutorial-git-repo-ejemplo</span></code>, clone a su computadora el repositorio que acaba de bifurcar.</p></li>
 <li><p>Con un editor de texto, abra el archivo <code class="docutils literal notranslate"><span class="pre">README.md</span></code>, agregue una línea y guarde el archivo.</p></li>
 <li><p>Luego, ejecute los siguientes comandos desde la terminal. Nota: las líneas que empiezan con  <code class="docutils literal notranslate"><span class="pre">#</span> </code> son comentarios.</p></li>
 </ol>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># a. Parámetros de configuración: nombre y dirección de correo del usuario.</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># a. Cambio al directorio del repositorio:</span>
+<span class="nb">cd</span> <span class="m">2022</span>-ii-tutorial-git-repo-ejemplo
+<span class="c1"># b. Parámetros de configuración: nombre y dirección de correo del usuario.</span>
 <span class="c1"># Debe cambiar [email-usuario] y [nombre-usuario] por sus propios datos.</span>
 git config --global user.email <span class="o">[</span>email-usuario<span class="o">]</span>
 git config --global user.name <span class="o">[</span>nombre-usuario<span class="o">]</span>
 <span class="c1"># Para revisar los parámetros de configuración:</span>
 git config --global --list
-<span class="c1"># b. Revisión de los archivos con modificaciones.</span>
+<span class="c1"># c. Revisión de los archivos con modificaciones.</span>
 git status
-<span class="c1"># c. Adición (add) de los archivos modificados al &quot;área de espera&quot;.</span>
+<span class="c1"># d. Adición (add) de los archivos modificados al &quot;área de espera&quot;:</span>
 <span class="c1"># El punto (.) indica que se agregarán todos los archivos modificados.</span>
 git add .
-<span class="c1"># d. Grabado (commit) del conjunto de archivos modificados, junto con un mensaje explicativo.</span>
+<span class="c1"># e. Grabado (commit) del conjunto de archivos modificados, junto con un mensaje explicativo:</span>
 git commit -m <span class="s2">&quot;Agregar línea 2&quot;</span>
-<span class="c1"># e. &quot;Subida&quot; (push) de las modificaciones al repositorio remoto.</span>
+<span class="c1"># f. &quot;Subida&quot; (push) de las modificaciones al repositorio remoto:</span>
 git push
 </pre></div>
 </div>
-<p>Revise los cambios aplicados en el repositorio remoto en GitHub. Si se realizan nuevos cambios en el repositorio local, deben repetirse los pasos del b al e para sincronizarlos con el repositorio remoto. Los comentarios en el commando <code class="docutils literal notranslate"><span class="pre">commit</span></code> deben reflejar los cambios realizados.</p>
+<p>Revise los cambios aplicados en el repositorio remoto en GitHub. Si se realizan nuevos cambios en el repositorio local, deben repetirse los pasos del c al f para sincronizarlos con el repositorio remoto. Los comentarios en el commando <code class="docutils literal notranslate"><span class="pre">commit</span></code> deben reflejar los cambios realizados.</p>
 </section>
 </section>
 <section id="recursos-de-interes">
