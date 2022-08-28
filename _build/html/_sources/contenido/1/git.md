@@ -63,6 +63,7 @@ Operaciones de Git y compras en línea. Imagen de [Melinda Higgins](https://www.
 Otras operaciones de Git de uso frecuente son:
 
 * [git config](https://git-scm.com/docs/git-config): para especificar opciones globales de la sesión de Git (ej. nombre del usuario, dirección de corre electrónico).
+* [git init](https://git-scm.com/docs/git-init): para inicializar un repositorio git.
 * [git clone](https://git-scm.com/docs/git-clone): para clonar (i.e. copiar) un repositorio remoto en la computadora local.
 * [git status](https://git-scm.com/docs/git-status): para revisar el estado de los archivos y, por ejemplo, saber cuales deben pasarse al área de espera.
 * [git log](https://git-scm.com/docs/git-log): para revisar el historial de _commits_.
