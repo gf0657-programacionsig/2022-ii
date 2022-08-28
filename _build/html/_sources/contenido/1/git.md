@@ -7,8 +7,10 @@
 Abba, I. V. (2021). *Git and GitHub Tutorial – Version Control for Beginners*. FreeCodeCamp.Org. https://www.freecodecamp.org/news/git-and-github-for-beginners/
 
 ### Otros
-Instale en su computadora el sistema de control de versiones [Git](https://git-scm.com/downloads).
-
+- Instale en su computadora el sistema de control de versiones [Git](https://git-scm.com/downloads).
+- Instale en su computadora un editor de código fuente, por ejemplo:
+    - [Notepad++](https://notepad-plus-plus.org/)
+    - [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Descripción general
 [Git](https://git-scm.com/) es un sistema de [control de versiones](https://es.wikipedia.org/wiki/Control_de_versiones) diseñado para "rastrear" cambios en el código fuente durante el proceso de desarrollo de software. Sin embargo, puede ser utilizado para llevar el control de los cambios en cualquier conjunto de archivos (ej. [documentación](https://guides.github.com/features/wikis/), [música](https://techcrunch.com/2013/10/09/splice-music/)). 
@@ -64,37 +66,38 @@ Otras operaciones de Git de uso frecuente son:
 * [git status](https://git-scm.com/docs/git-status): para revisar el estado de los archivos y, por ejemplo, saber cuales deben pasarse al área de espera.
 * [git log](https://git-scm.com/docs/git-log): para revisar el historial de _commits_.
 * [git diff](https://git-scm.com/docs/git-diff): para visualizar los cambios efectuados en los _commits_.
-* [git reset](https://git-scm.com/docs/git-reset): para regresar a un _commit_.
+* [git reset](https://git-scm.com/docs/git-reset): para regresar al estado correspondiente a un _commit_ anterior.
 
 ## Ejemplos de uso
 ### Clonación de un repositorio remoto y sincronización de los cambios efectuados localmente
 
 Para seguir este ejemplo:
 
-1. Bifurque (_fork_) a su cuenta en GitHub el repositorio localizado en la dirección [https://github.com/gf0604-procesamientodatosgeograficos/2022-i-tutorial-git-repo-ejemplo](https://github.com/gf0604-procesamientodatosgeograficos/2022-i-tutorial-git-repo-ejemplo).  
-2. Con la opción *File - New Project - Version Control - Git* de RStudio, clone a su computadora el repositorio que acaba de bifurcar.
-3. Con el editor de RStudio, abra el archivo ```README.md```, agregue una línea y guarde el archivo.  
-4. Luego, ejecute los siguientes comandos desde la la ventana _Terminal_ de RStudio. Nota: las líneas que empiezan con  ```# ``` son comentarios.  
+0. Obtenga un _token_ de GitHub en la siguiente opción de menú de su perfil de usuario: *Settings - Developer settings - Personal access tokens*. Copie el _token_ en un lugar seguro ya que lo necesitará para autenticarse en GitHub.
+1. Realice un _fork_ a su cuenta en GitHub del repositorio localizado en la dirección [https://github.com/gf0657-programacionsig/2022-ii-tutorial-git-repo-ejemplo](https://github.com/gf0657-programacionsig/2022-ii-tutorial-git-repo-ejemplo).  
+2. En una terminal del sistema operativo, con el comando `git clone https://github.com/gf0657-programacionsig/2022-ii-tutorial-git-repo-ejemplo`, clone a su computadora el repositorio que acaba de bifurcar.
+3. Con un editor de texto, abra el archivo ```README.md```, agregue una línea y guarde el archivo.  
+4. Luego, ejecute los siguientes comandos desde la terminal. Nota: las líneas que empiezan con  ```# ``` son comentarios.  
 
 ```shell
-# 0. Especificación del nombre y de la dirección de correo del usuario.
+# a. Especificación del nombre y de la dirección de correo del usuario.
 # Debe modificar la dirección de correo y el nombre del usuario con sus propios datos.
-$ git config --global user.email usuario@correo.com
-$ git config --global user.name usuariogithub
+git config --global user.email usuario@correo.com
+git config --global user.name usuariogithub
 # Para revisar:
-$ git config --global --list
-# 1. Revisión de los archivos con modificaciones.
-$ git status
-# 2. Adición de los archivos modificados al "área de espera".
+git config --global --list
+# b. Revisión de los archivos con modificaciones.
+git status
+# c. Adición de los archivos modificados al "área de espera".
 # El punto (.) indica que se agregarán todos los archivos modificados.
-$ git add .
-# 3. Almacenamiento (commit) del conjunto de archivos modificados, junto con un mensaje explicativo.
-$ git commit -m "Agregar línea 2"
-# 4. "Subida" (push) de las modificaciones al repositorio remoto.
-$ git push
+git add .
+# d. Almacenamiento (commit) del conjunto de archivos modificados, junto con un mensaje explicativo.
+git commit -m "Agregar línea 2"
+# e. "Subida" (push) de las modificaciones al repositorio remoto.
+git push
 ```
 
-Revise los cambios aplicados en el repositorio remoto en GitHub. Si se realizan nuevos cambios en el repositorio local, deben repetirse los pasos del 1 al 4. Los comentarios en el commando ```commit``` deben reflejar los cambios realizados.  
+Revise los cambios aplicados en el repositorio remoto en GitHub. Si se realizan nuevos cambios en el repositorio local, deben repetirse los pasos del b al e para sincronizarlos con el repositorio remoto. Los comentarios en el commando ```commit``` deben reflejar los cambios realizados.
 
 ## Recursos de interés
 *GitHub Archive Program*. (s. f.). GitHub Archive Program. Recuperado 10 de abril de 2022, de https://archiveprogram.github.com/

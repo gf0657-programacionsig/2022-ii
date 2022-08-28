@@ -437,7 +437,15 @@ title="Print to PDF"
 </section>
 <section id="otros">
 <h3>Otros<a class="headerlink" href="#otros" title="Permalink to this headline">#</a></h3>
-<p>Instale en su computadora el sistema de control de versiones <a class="reference external" href="https://git-scm.com/downloads">Git</a>.</p>
+<ul class="simple">
+<li><p>Instale en su computadora el sistema de control de versiones <a class="reference external" href="https://git-scm.com/downloads">Git</a>.</p></li>
+<li><p>Instale en su computadora un editor de código fuente, por ejemplo:</p>
+<ul>
+<li><p><a class="reference external" href="https://notepad-plus-plus.org/">Notepad++</a></p></li>
+<li><p><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a></p></li>
+</ul>
+</li>
+</ul>
 </section>
 </section>
 <section id="descripcion-general">
@@ -489,7 +497,7 @@ title="Print to PDF"
 <li><p><a class="reference external" href="https://git-scm.com/docs/git-status">git status</a>: para revisar el estado de los archivos y, por ejemplo, saber cuales deben pasarse al área de espera.</p></li>
 <li><p><a class="reference external" href="https://git-scm.com/docs/git-log">git log</a>: para revisar el historial de <em>commits</em>.</p></li>
 <li><p><a class="reference external" href="https://git-scm.com/docs/git-diff">git diff</a>: para visualizar los cambios efectuados en los <em>commits</em>.</p></li>
-<li><p><a class="reference external" href="https://git-scm.com/docs/git-reset">git reset</a>: para regresar a un <em>commit</em>.</p></li>
+<li><p><a class="reference external" href="https://git-scm.com/docs/git-reset">git reset</a>: para regresar al estado correspondiente a un <em>commit</em> anterior.</p></li>
 </ul>
 </section>
 <section id="ejemplos-de-uso">
@@ -498,29 +506,30 @@ title="Print to PDF"
 <h3>Clonación de un repositorio remoto y sincronización de los cambios efectuados localmente<a class="headerlink" href="#clonacion-de-un-repositorio-remoto-y-sincronizacion-de-los-cambios-efectuados-localmente" title="Permalink to this headline">#</a></h3>
 <p>Para seguir este ejemplo:</p>
 <ol class="simple">
-<li><p>Bifurque (<em>fork</em>) a su cuenta en GitHub el repositorio localizado en la dirección <a class="reference external" href="https://github.com/gf0604-procesamientodatosgeograficos/2022-i-tutorial-git-repo-ejemplo">https://github.com/gf0604-procesamientodatosgeograficos/2022-i-tutorial-git-repo-ejemplo</a>.</p></li>
-<li><p>Con la opción <em>File - New Project - Version Control - Git</em> de RStudio, clone a su computadora el repositorio que acaba de bifurcar.</p></li>
-<li><p>Con el editor de RStudio, abra el archivo <code class="docutils literal notranslate"><span class="pre">README.md</span></code>, agregue una línea y guarde el archivo.</p></li>
-<li><p>Luego, ejecute los siguientes comandos desde la la ventana <em>Terminal</em> de RStudio. Nota: las líneas que empiezan con  <code class="docutils literal notranslate"><span class="pre">#</span> </code> son comentarios.</p></li>
+<li><p>Obtenga un <em>token</em> de GitHub en la siguiente opción de menú de su perfil de usuario: <em>Settings - Developer settings - Personal access tokens</em>. Copie el <em>token</em> en un lugar seguro ya que lo necesitará para autenticarse en GitHub.</p></li>
+<li><p>Realice un <em>fork</em> a su cuenta en GitHub del repositorio localizado en la dirección <a class="reference external" href="https://github.com/gf0657-programacionsig/2022-ii-tutorial-git-repo-ejemplo">https://github.com/gf0657-programacionsig/2022-ii-tutorial-git-repo-ejemplo</a>.</p></li>
+<li><p>En una terminal del sistema operativo, con el comando <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/gf0657-programacionsig/2022-ii-tutorial-git-repo-ejemplo</span></code>, clone a su computadora el repositorio que acaba de bifurcar.</p></li>
+<li><p>Con un editor de texto, abra el archivo <code class="docutils literal notranslate"><span class="pre">README.md</span></code>, agregue una línea y guarde el archivo.</p></li>
+<li><p>Luego, ejecute los siguientes comandos desde la terminal. Nota: las líneas que empiezan con  <code class="docutils literal notranslate"><span class="pre">#</span> </code> son comentarios.</p></li>
 </ol>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0. Especificación del nombre y de la dirección de correo del usuario.</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># a. Especificación del nombre y de la dirección de correo del usuario.</span>
 <span class="c1"># Debe modificar la dirección de correo y el nombre del usuario con sus propios datos.</span>
-$ git config --global user.email usuario@correo.com
-$ git config --global user.name usuariogithub
+git config --global user.email usuario@correo.com
+git config --global user.name usuariogithub
 <span class="c1"># Para revisar:</span>
-$ git config --global --list
-<span class="c1"># 1. Revisión de los archivos con modificaciones.</span>
-$ git status
-<span class="c1"># 2. Adición de los archivos modificados al &quot;área de espera&quot;.</span>
+git config --global --list
+<span class="c1"># b. Revisión de los archivos con modificaciones.</span>
+git status
+<span class="c1"># c. Adición de los archivos modificados al &quot;área de espera&quot;.</span>
 <span class="c1"># El punto (.) indica que se agregarán todos los archivos modificados.</span>
-$ git add .
-<span class="c1"># 3. Almacenamiento (commit) del conjunto de archivos modificados, junto con un mensaje explicativo.</span>
-$ git commit -m <span class="s2">&quot;Agregar línea 2&quot;</span>
-<span class="c1"># 4. &quot;Subida&quot; (push) de las modificaciones al repositorio remoto.</span>
-$ git push
+git add .
+<span class="c1"># d. Almacenamiento (commit) del conjunto de archivos modificados, junto con un mensaje explicativo.</span>
+git commit -m <span class="s2">&quot;Agregar línea 2&quot;</span>
+<span class="c1"># e. &quot;Subida&quot; (push) de las modificaciones al repositorio remoto.</span>
+git push
 </pre></div>
 </div>
-<p>Revise los cambios aplicados en el repositorio remoto en GitHub. Si se realizan nuevos cambios en el repositorio local, deben repetirse los pasos del 1 al 4. Los comentarios en el commando <code class="docutils literal notranslate"><span class="pre">commit</span></code> deben reflejar los cambios realizados.</p>
+<p>Revise los cambios aplicados en el repositorio remoto en GitHub. Si se realizan nuevos cambios en el repositorio local, deben repetirse los pasos del b al e para sincronizarlos con el repositorio remoto. Los comentarios en el commando <code class="docutils literal notranslate"><span class="pre">commit</span></code> deben reflejar los cambios realizados.</p>
 </section>
 </section>
 <section id="recursos-de-interes">
