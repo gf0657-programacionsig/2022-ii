@@ -41,7 +41,7 @@ La sintaxis de Markdown permite especificar diferentes componentes de un documen
 -   Listas.
 
 ### Encabezados
-Pueden definirse seis niveles de encabezados, mediante símbolos de numeral (`#`) antes del texto. El primer nivel es el de tamaño de texto más grande y el sexto el más pequeño. En la parte izquierda de la @fig-md-encabezados se muestra la sintaxis Markdown de los encabezados y a la derecha la forma en que se despliegan en un documento.
+Pueden definirse seis niveles de encabezados, mediante símbolos de numeral (`#`) antes del texto. El primer nivel es el de tamaño de texto más grande y el sexto el más pequeño. En la parte izquierda de la {numref}`fig-md-encabezados` se muestra la sintaxis Markdown de los encabezados y a la derecha la forma en que se despliegan en un documento.
 
 ```{figure} img/md-encabezados.png
 :name: fig-md-encabezados
