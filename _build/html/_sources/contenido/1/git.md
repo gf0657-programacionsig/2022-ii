@@ -82,23 +82,25 @@ Para seguir este ejemplo:
 4. Luego, ejecute los siguientes comandos desde la terminal. Nota: las líneas que empiezan con  ```# ``` son comentarios.
 
 ```shell
-# a. Cambio al directorio del repositorio:
+# a. Cambio al directorio del repositorio.
 cd 2022-ii-tutorial-git-repo-ejemplo
 # b. Parámetros de configuración: nombre y dirección de correo del usuario.
-# Debe cambiar [email-usuario] y [nombre-usuario] por sus propios datos.
+#    Debe cambiar [email-usuario] y [nombre-usuario] por sus propios datos.
 git config --global user.email [email-usuario]
 git config --global user.name [nombre-usuario]
 # Para revisar los parámetros de configuración:
 git config --global --list
 # c. Revisión de los archivos con modificaciones.
 git status
-# d. Adición (add) de los archivos modificados al "área de espera":
-# El punto (.) indica que se agregarán todos los archivos modificados.
+# d. Adición (add) de los archivos modificados al "área de espera".
+#    El punto (.) indica que se agregarán todos los archivos modificados.
 git add .
-# e. Grabado (commit) del conjunto de archivos modificados, junto con un mensaje explicativo:
+# e. Grabado (commit) del conjunto de archivos modificados,
+#    junto con un mensaje explicativo:
 git commit -m "Agregar línea 2"
 # f. "Subida" (push) de las modificaciones al repositorio remoto.
-# En este paso, es posible que deba utilizar su nombre de usuario/clave o su token de GitHub para autenticarse.
+#    En este paso, es posible que deba utilizar su nombre de usuario/clave
+#    o su token de GitHub para autenticarse.
 git push
 ```
 
