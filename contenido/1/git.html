@@ -512,20 +512,25 @@ title="Print to PDF"
 </ol>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># a. Cambio al directorio del repositorio.</span>
 <span class="nb">cd</span> <span class="m">2022</span>-ii-tutorial-git-repo-ejemplo
+
 <span class="c1"># b. Parámetros de configuración: nombre y dirección de correo del usuario.</span>
 <span class="c1">#    Debe cambiar [email-usuario] y [nombre-usuario] por sus propios datos.</span>
 git config --global user.email <span class="o">[</span>email-usuario<span class="o">]</span>
 git config --global user.name <span class="o">[</span>nombre-usuario<span class="o">]</span>
 <span class="c1"># Para revisar los parámetros de configuración:</span>
 git config --global --list
+
 <span class="c1"># c. Revisión de los archivos con modificaciones.</span>
 git status
+
 <span class="c1"># d. Adición (add) de los archivos modificados al &quot;área de espera&quot;.</span>
 <span class="c1">#    El punto (.) indica que se agregarán todos los archivos modificados.</span>
 git add .
+
 <span class="c1"># e. Grabado (commit) del conjunto de archivos modificados,</span>
 <span class="c1">#    junto con un mensaje explicativo:</span>
 git commit -m <span class="s2">&quot;Agregar línea 2&quot;</span>
+
 <span class="c1"># f. &quot;Subida&quot; (push) de las modificaciones al repositorio remoto.</span>
 <span class="c1">#    En este paso, es posible que deba utilizar su nombre de usuario/clave</span>
 <span class="c1">#    o su token de GitHub para autenticarse.</span>
