@@ -3,22 +3,55 @@
 
 ## Trabajo previo
 
-### Lecturas
-Bartomeus Lab. (2016). *A reproducible workflow*. https://www.youtube.com/watch?v=s3JldKoA0zw
+### Tutoriales
+*Markdown Tutorial*. (s. f.). Recuperado 19 de marzo de 2022, de [https://www.markdowntutorial.com/](https://www.markdowntutorial.com/)
 
-FOSS4G. (2021). *FOSS4G2021—Open source for open spatial data science—Anita Graser*. https://www.youtube.com/watch?v=ZjXb53pOor0
+### Otros recursos
+*Markdown Guide*. (s. f.). Recuperado 10 de abril de 2022, de [https://www.markdownguide.org/](https://www.markdownguide.org/)
 
-Hwang, J. P. (2021). Building a Big Data Geographical Dashboard with Open-Source Tools. *Medium*. https://medium.com/plotly/building-a-big-data-geographical-dashboard-with-open-source-tools-c5108d7d5683
 
-Krugman, P. (2013). Opinion | The Excel Depression. *The New York Times*. https://www.nytimes.com/2013/04/19/opinion/krugman-the-excel-depression.html
+## Resumen
+Markdown es un lenguaje de marcado ligero ampliamente utilizado en comunicación científica, documentación de programas e investigación reproducible.
 
-Peng, R. D. (2011). Reproducible Research in Computational Science. *Science, 334*(6060), 1226-1227. https://doi.org/10.1126/science.1213847
 
-Rey, S. J., Arribas-Bel, D., & Wolf, L. J. (2020). *Geographic Data Science with Python*. https://geographicdata.science/book/ (Parte I)
+## Descripción general
+[Markdown](https://daringfireball.net/projects/markdown/) es un [lenguaje de marcado](https://es.wikipedia.org/wiki/Lenguaje_de_marcado) creado en 2004 por John Gruber. Las "marcas" se utilizan para brindar información acerca de la presentación (ej. negritas, itálicas) o la estructura (ej. títulos, encabezados) de un documento. Se caracteriza por ser más sencillo de leer y de usar que otros lenguajes de marcado (ej. [Lenguaje de marcado de Hipertexto o HTML](https://es.wikipedia.org/wiki/HTML)), por lo que se considera un [lenguaje de marcado ligero](https://es.wikipedia.org/wiki/Lenguaje_de_marcas_ligero). Los documentos escritos en Markdown pueden exportarse a una gran variedad de formatos (ej. HTML, DOC, PDF, LaTex) para ser usados en libros, presentaciones o páginas web, entre otros. Markdown es ampliamente utilizado en comunicación científica, documentación de programas e investigación reproducible.
 
-Singleton, A. D., Spielman, S., & Brunsdon, C. (2016). Establishing a framework for Open Geographic Information science. *International Journal of Geographical Information Science, 30*(8), 1507-1521. https://doi.org/10.1080/13658816.2015.1137579
 
-Wu, Q. (2021, octubre 25). A streamlit app for creating timelapse of annual Landsat imagery (1984–2021). *Medium*. https://giswqs.medium.com/a-streamlit-app-for-creating-timelapse-of-annual-landsat-imagery-1984-2021-3db407a8ac32
+## Variaciones
+Las variaciones de Markdown, también llamadas *flavors*, son extensiones o modificaciones de la especificación original. Entre las más populares están:
+
+- [R Markdown](https://rmarkdown.rstudio.com/): para el lenguaje R.
+- [GitHub Flavored Markdown](https://help.github.com/en/github/writing-on-github): para la plataforma GitHub.
+- [Python Markdown](https://github.com/Python-Markdown/markdown): para el lenguaje Python.
+- [Pandoc's Markdown](https://pandoc.org/MANUAL.html#pandocs-markdown): para el programa [Pandoc](https://pandoc.org/) de conversión entre formatos.
+- [Kramdown](https://kramdown.gettalong.org/quickref.html): para el lenguaje Ruby.
+
+Puede verse una lista más extensa en <https://github.com/commonmark/commonmark-spec/wiki/markdown-flavors>.
+
+
+## Sintaxis
+La sintaxis de Markdown permite especificar diferentes componentes de un documento, entre los que están:
+
+-   Encabezados.
+-   Estilos (ej. negritas, itálicas).
+-   Citas textuales.
+-   Enlaces a otros documentos (ej. páginas web).
+-   Imágenes.
+-   Listas.
+
+### Encabezados
+Pueden definirse seis niveles de encabezados, mediante símbolos de numeral (`#`) antes del texto. El primer nivel es el de tamaño de texto más grande y el sexto el más pequeño. En la parte izquierda de la @fig-md-encabezados se muestra la sintaxis Markdown de los encabezados y a la derecha la forma en que se despliegan en un documento.
+
+```{figure} img/md-encabezados.png
+:name: fig-md-encabezados
+
+Sintaxis de Markdown - encabezados.
+```
+
+
+
+
 
 
 ## El componente geoespacial de los datos
