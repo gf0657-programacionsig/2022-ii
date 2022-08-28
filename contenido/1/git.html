@@ -453,7 +453,7 @@ title="Print to PDF"
 <li><p>La capacidad de recuperar versiones anteriores de los archivos.</p></li>
 <li><p>La capacidad de integrar modificaciones efectuadas por varias personas en el mismo conjunto de archivos.</p></li>
 <li><p>La capacidad de mantener varias “ramas” (<em>branches</em>) de un producto (ej. “estable”, “evaluación”, “inestable”, como en el caso de <a class="reference external" href="https://www.debian.org/releases/">Debian Linux</a>, <a class="reference external" href="https://grass.osgeo.org/download/software/sources/">GRASS GIS</a> y muchos otros proyectos de software libre).</p></li>
-<li><p>Facilidades para mantener redundancia y respaldos de los archivos (ej. <a class="reference external" href="https://archiveprogram.github.com/">Programa de respaldos de GitHub</a>).</p></li>
+<li><p>Facilidades para mantener redundancia y respaldos de los archivos (ej. <a class="reference external" href="https://archiveprogram.github.com/">Programa de respaldos de GitHub</a>). Esta es una facilidad que implementan algunos servicios en la nube.</p></li>
 </ul>
 <p>Git fue diseñado por Linus Torvalds en 2005 durante del desarrollo del <em>kernel</em> del sistema operativo Linux. Se caracteriza por ser un <a class="reference external" href="https://es.wikipedia.org/wiki/Control_de_versiones_distribuido">sistema de control de versiones distribuido</a>, lo que significa que el código fuente puede estar alojado en la estación de trabajo de cualquier miembro del equipo de desarrollo (i.e. no tiene que existir un repositorio central).</p>
 <p>El protocolo de Git es utilizado en varios sitios que proveen servicios de alojamiento de software, entre los que están <a class="reference external" href="https://sourceforge.net/">SourceForge</a>, <a class="reference external" href="https://bitbucket.org/">Bitbucket</a>, <a class="reference external" href="https://about.gitlab.com/">GitLab</a> y <a class="reference external" href="https://github.com/">GitHub</a>.</p>
@@ -472,7 +472,7 @@ title="Print to PDF"
 <p><span class="caption-number">Fig. 12 </span><span class="caption-text">Operaciones <em>push</em> y <em>pull</em>. Imagen de <a class="reference external" href="https://www.coursera.org/learn/reproducible-templates-analysis/lecture/NGbQv/git-and-github-part-1">Melinda Higgins</a>.</span><a class="headerlink" href="#figure-git-push-pull" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Antes de un <em>push</em>, el usuario debe seleccionar los archivos que desea subir mediante el comando <a class="reference external" href="https://git-scm.com/docs/git-add">git add</a>, el cual pasa los archivos a un “área de espera” (<em>staging area</em>). Luego debe usarse el comando <a class="reference external" href="https://git-scm.com/docs/git-commit">git commit</a> para “guardar” los cambios en el área de espera.</p>
+<p>Antes de un <em>push</em>, el usuario debe seleccionar los archivos que desea subir mediante el comando <a class="reference external" href="https://git-scm.com/docs/git-add">git add</a>, el cual pasa los archivos a un “área de espera” (<em>staging area</em>). Luego debe usarse el comando <a class="reference external" href="https://git-scm.com/docs/git-commit">git commit</a> para “guardar” los cambios pendientes en el área de espera. Cada <em>commit</em> guarda el estado del conjunto de archivos en un momento específico (<em>snapshot</em>).</p>
 <p>La relación entre estas operaciones de Git, se ilustra en la <a class="reference internal" href="#figure-git-push-pull-commit"><span class="std std-numref">Fig. 13</span></a>.</p>
 <figure class="align-default" id="figure-git-push-pull-commit">
 <img alt="../../_images/git-push-pull-commit.png" src="../../_images/git-push-pull-commit.png" />
@@ -503,22 +503,20 @@ title="Print to PDF"
 <h3>Clonación de un repositorio remoto y sincronización de los cambios efectuados localmente<a class="headerlink" href="#clonacion-de-un-repositorio-remoto-y-sincronizacion-de-los-cambios-efectuados-localmente" title="Permalink to this headline">#</a></h3>
 <p>Para seguir este ejemplo:</p>
 <ol class="simple">
-<li><p>Obtenga un <em>token</em> de GitHub en la siguiente opción de menú de su perfil de usuario: <em>Settings - Developer settings - Personal access tokens</em>. Copie el <em>token</em> en un lugar seguro ya que lo necesitará para autenticarse en GitHub.</p></li>
-<li><p>Realice un <em>fork</em> a su cuenta en GitHub del repositorio localizado en la dirección <a class="reference external" href="https://github.com/gf0657-programacionsig/2022-ii-tutorial-git-repo-ejemplo">https://github.com/gf0657-programacionsig/2022-ii-tutorial-git-repo-ejemplo</a>.</p></li>
-<li><p>En una terminal del sistema operativo, con el comando <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/gf0657-programacionsig/2022-ii-tutorial-git-repo-ejemplo</span></code>, clone a su computadora el repositorio que acaba de bifurcar.</p></li>
+<li><p>Obtenga un <em>token</em> de GitHub en la siguiente opción de menú de su perfil de usuario: <em>Settings - Developer settings - Personal access tokens</em>. Copie el <em>token</em> en un lugar seguro, ya que lo necesitará para autenticarse en GitHub.</p></li>
+<li><p>Realice un <em>fork</em> a su cuenta en GitHub del repositorio localizado en la dirección <a class="reference external" href="https://github.com/gf0657-programacionsig/2022-ii-tutorial-git-repo-ejemplo">https://github.com/gf0657-programacionsig/2022-ii-tutorial-git-repo-ejemplo</a>. Obtendrá un repositorio llamado “<a class="reference external" href="https://github.com/">https://github.com/</a><nombre-usuario>/2022-ii-tutorial-git-repo-ejemplo”, en donde <nombre-usuario> es su nombre de usuario en GitHub.</p></li>
+<li><p>En una terminal del sistema operativo, con el comando <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/&lt;nombre-usuario&gt;/2022-ii-tutorial-git-repo-ejemplo</span></code>, clone a su computadora el repositorio que acaba de bifurcar.</p></li>
 <li><p>Con un editor de texto, abra el archivo <code class="docutils literal notranslate"><span class="pre">README.md</span></code>, agregue una línea y guarde el archivo.</p></li>
 <li><p>Luego, ejecute los siguientes comandos desde la terminal. Nota: las líneas que empiezan con  <code class="docutils literal notranslate"><span class="pre">#</span> </code> son comentarios.</p></li>
 </ol>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># a. Especificación del nombre y de la dirección de correo del usuario.</span>
-<span class="c1"># Debe modificar la dirección de correo y el nombre del usuario con sus propios datos.</span>
-git config --global user.email usuario@correo.com
-git config --global user.name usuariogithub
-<span class="c1"># Para revisar:</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># a. Parámetros de configuración: nombre y dirección de correo del usuario. Debe cambiar &lt;email-usuario&gt; y &lt;nombre-usuario&gt; por sus propios datos.</span>
+git config --global user.email &lt;email-usuario&gt;
+git config --global user.name &lt;nombre-usuario&gt;
+<span class="c1"># Para revisar los parámetros de configuración:</span>
 git config --global --list
 <span class="c1"># b. Revisión de los archivos con modificaciones.</span>
 git status
-<span class="c1"># c. Adición de los archivos modificados al &quot;área de espera&quot;.</span>
-<span class="c1"># El punto (.) indica que se agregarán todos los archivos modificados.</span>
+<span class="c1"># c. Adición (add) de los archivos modificados al &quot;área de espera&quot;. El punto (.) indica que se agregarán todos los archivos modificados.</span>
 git add .
 <span class="c1"># d. Almacenamiento (commit) del conjunto de archivos modificados, junto con un mensaje explicativo.</span>
 git commit -m <span class="s2">&quot;Agregar línea 2&quot;</span>
