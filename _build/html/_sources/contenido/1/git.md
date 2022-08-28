@@ -97,11 +97,13 @@ git status
 git add .
 # e. Grabado (commit) del conjunto de archivos modificados, junto con un mensaje explicativo:
 git commit -m "Agregar línea 2"
-# f. "Subida" (push) de las modificaciones al repositorio remoto:
+# f. "Subida" (push) de las modificaciones al repositorio remoto.
+# En este paso, es posible que deba utilizar su nombre de usuario/clave o su token de GitHub para autenticarse.
 git push
 ```
 
-Revise los cambios aplicados en el repositorio remoto en GitHub. Si se realizan nuevos cambios en el repositorio local, deben repetirse los pasos del c al f para sincronizarlos con el repositorio remoto. Los comentarios en el commando ```commit``` deben reflejar los cambios realizados.
+5. Revise los cambios aplicados en el repositorio remoto en GitHub.
+6. Agregue más líneas al archivo del repositorio local y sincronícelo con el remoto, realizando nuevamente los pasos del c al f para cada _commit_. Recuerdo que los comentarios de cada ```commit``` deben reflejar los cambios que están siendo aplicados.
 
 ## Recursos de interés
 *GitHub Archive Program*. (s. f.). GitHub Archive Program. Recuperado 10 de abril de 2022, de https://archiveprogram.github.com/
