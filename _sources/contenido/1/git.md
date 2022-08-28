@@ -23,7 +23,7 @@ Un sistema de control de versiones proporciona, entre otras ventajas:
 * La capacidad de mantener varias "ramas" (_branches_) de un producto (ej. "estable", "evaluación", "inestable", como en el caso de [Debian Linux](https://www.debian.org/releases/), [GRASS GIS](https://grass.osgeo.org/download/software/sources/) y muchos otros proyectos de software libre).
 * Facilidades para mantener redundancia y respaldos de los archivos (ej. [Programa de respaldos de GitHub](https://archiveprogram.github.com/)). Esta es una facilidad que implementan algunos servicios en la nube.
 
-Git fue diseñado por Linus Torvalds en 2005 durante del desarrollo del _kernel_ del sistema operativo Linux. Se caracteriza por ser un [sistema de control de versiones distribuido](https://es.wikipedia.org/wiki/Control_de_versiones_distribuido), lo que significa que el código fuente puede estar alojado en la estación de trabajo de cualquier miembro del equipo de desarrollo (i.e. no tiene que existir un repositorio central).
+Git fue diseñado por Linus Torvalds en 2005 durante del desarrollo del _kernel_ del sistema operativo Linux. Se caracteriza por ser un [sistema de control de versiones distribuido](https://es.wikipedia.org/wiki/Control_de_versiones_distribuido), lo que significa que el código fuente puede estar alojado en la estación de trabajo de cualquier miembro del equipo de desarrollo. No se requiere de un repositorio "central", pero también se puede trabaja de esa forma.
 
 El protocolo de Git es utilizado en varios sitios que proveen servicios de alojamiento de software, entre los que están [SourceForge](https://sourceforge.net/), [Bitbucket](https://bitbucket.org/), [GitLab](https://about.gitlab.com/) y [GitHub](https://github.com/).
 
@@ -110,7 +110,7 @@ git push
 ```
 
 5. Revise los cambios aplicados en el repositorio remoto en GitHub.
-6. Agregue más líneas al archivo del repositorio local y sincronícelo con el remoto, realizando nuevamente los pasos del c al f para cada _commit_. Recuerdo que los comentarios de cada ```commit``` deben reflejar los cambios que están siendo aplicados.
+6. Agregue más líneas al archivo del repositorio local y sincronícelo con el remoto, realizando nuevamente los pasos del c al f para cada _commit_. Recuerde que los comentarios de cada ```commit``` deben reflejar los cambios que están siendo aplicados.
 
 ## Recursos de interés
 *GitHub Archive Program*. (s. f.). GitHub Archive Program. Recuperado 10 de abril de 2022, de https://archiveprogram.github.com/
