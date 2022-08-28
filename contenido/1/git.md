@@ -113,6 +113,8 @@ git push
 6. Agregue más líneas al archivo del repositorio local y sincronícelo con el remoto, realizando nuevamente los pasos del c al f para cada _commit_. Recuerde que los comentarios de cada ```commit``` deben reflejar los cambios que están siendo aplicados.
 
 ## Recursos de interés
+*Git*. (s. f.). Recuperado 28 de agosto de 2022, de https://git-scm.com/
+
 *GitHub Archive Program*. (s. f.). GitHub Archive Program. Recuperado 10 de abril de 2022, de https://archiveprogram.github.com/
 
 Higgins, M. (s. f.). *Reproducible Templates for Analysis and Dissemination*. Coursera. Recuperado 11 de abril de 2022, de https://www.coursera.org/learn/reproducible-templates-analysis
