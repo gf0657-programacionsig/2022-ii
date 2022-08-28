@@ -75,7 +75,7 @@ Otras operaciones de Git de uso frecuente son:
 Para seguir este ejemplo:
 
 0. Obtenga un _token_ de GitHub en la siguiente opción de menú de su perfil de usuario: *Settings - Developer settings - Personal access tokens*. Copie el _token_ en un lugar seguro, ya que lo necesitará para autenticarse en GitHub.
-1. Realice un _fork_ a su cuenta en GitHub del repositorio localizado en la dirección [https://github.com/gf0657-programacionsig/2022-ii-tutorial-git-repo-ejemplo](https://github.com/gf0657-programacionsig/2022-ii-tutorial-git-repo-ejemplo). Obtendrá un repositorio llamado "https://github.com/<nombre-usuario>/2022-ii-tutorial-git-repo-ejemplo", en donde <nombre-usuario> es su nombre de usuario en GitHub.
+1. Realice un _fork_ a su cuenta en GitHub del repositorio localizado en la dirección [https://github.com/gf0657-programacionsig/2022-ii-tutorial-git-repo-ejemplo](https://github.com/gf0657-programacionsig/2022-ii-tutorial-git-repo-ejemplo). Obtendrá un repositorio llamado "https://github.com/\<nombre-usuario\>/2022-ii-tutorial-git-repo-ejemplo", en donde \<nombre-usuario\> es su nombre de usuario en GitHub.
 2. En una terminal del sistema operativo, con el comando `git clone https://github.com/<nombre-usuario>/2022-ii-tutorial-git-repo-ejemplo`, clone a su computadora el repositorio que acaba de bifurcar.
 3. Con un editor de texto, abra el archivo ```README.md```, agregue una línea y guarde el archivo.
 4. Luego, ejecute los siguientes comandos desde la terminal. Nota: las líneas que empiezan con  ```# ``` son comentarios.
