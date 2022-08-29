@@ -145,7 +145,7 @@ conda create --name geopython
 # Activación del ambiente
 conda activate geopython
 
-# Configuración del ambiente
+# Configuración del ambiente (para instalar todos los módulos desde el canal conda-forge)
 conda config --env --add channels conda-forge
 conda config --env --set channel_priority strict
 
