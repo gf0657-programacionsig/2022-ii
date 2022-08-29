@@ -130,7 +130,10 @@ La página de descargas de [Anaconda](https://www.anaconda.com/distribution/)/[M
 
 Seguidamente, se detalla el procedimiento de [instalación mediante Conda](https://gdal.org/download.html#conda), el cual puede ejecutarse desde Linux, macOS o Windows. [Conda](https://conda.io/) es un administrador de paquetes que puede instalarse como parte de [Anaconda](https://anaconda.org/) o [Miniconda](https://docs.conda.io/en/latest/miniconda.html) (se recomienda esta última opción, por requerir menos recursos). Entre otras ventajas, conda permite el manejo de [ambientes (*environments*)](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html), cada uno con sus propias versiones de los paquetes instalados.
 
-Para instalar Python, Jupyter Notebook, y los módulos necesarios para el desarrollo de aplicaciones geoespaciales, ejecute los siguientes comandos desde una terminal:
+Para instalar Python, Jupyter Notebook, y los módulos necesarios para el desarrollo de aplicaciones geoespaciales:
+
+1. Instale Miniconda.
+2. Ejecute los siguientes comandos desde la línea de comandos de Miniconda, para crear un ambiente conda en este los módulos.
 
 ```shell
 # Actualización de conda
@@ -146,11 +149,11 @@ conda activate geopython
 conda config --env --add channels conda-forge
 conda config --env --set channel_priority strict
 
-# Instalación de módulos requeridos
-conda install git python jupyter numpy pandas matplotlib plotly dash gdal fiona shapely geopandas rasterio folium
+# Instalación de mamba (para instalaciones más rápidas)
+conda install mamba
 
-# Instalación de módulos opcionales
-conda install streamlit
+# Instalación de módulos requeridos
+mamba install git python jupyter jupyterlab numpy pandas matplotlib plotly gdal fiona shapely geopandas rasterio folium streamlit
 
 # Para iniciar la interfaz de Jupyter Notebook
 jupyter notebook
