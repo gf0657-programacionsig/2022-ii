@@ -14,3 +14,6 @@ parts:
     - file: contenido/2/pensamiento_computacional-arquitectura_computadoras    
     - file: contenido/2/introduccion-python
     - file: contenido/2/sintaxis-python    
+  - caption: EVALUACIONES
+    chapters:  
+    - file: contenido/6/examen_corto-01
