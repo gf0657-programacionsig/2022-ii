@@ -11,4 +11,5 @@ parts:
     - file: contenido/1/git
   - caption: 2 - EL LENGUAJE DE PROGRAMACIÓN PYTHON
     chapters:  
+    - file: contenido/2/pensamiento_computacional-arquitectura_computadoras    
     - file: contenido/2/introduccion-python
