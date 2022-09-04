@@ -13,3 +13,4 @@ parts:
     chapters:  
     - file: contenido/2/pensamiento_computacional-arquitectura_computadoras    
     - file: contenido/2/introduccion-python
+    - file: contenido/2/sintaxis-python    
