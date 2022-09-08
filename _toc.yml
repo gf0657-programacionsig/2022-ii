@@ -17,3 +17,4 @@ parts:
   - caption: EVALUACIONES
     chapters:  
     - file: contenido/6/examen_corto-01
+    - file: contenido/6/tarea-01    
