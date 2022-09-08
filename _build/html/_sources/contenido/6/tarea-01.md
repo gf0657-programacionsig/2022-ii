@@ -30,7 +30,7 @@ Debe desarrollar con Markdown un sitio web sobre un tema de su elección (un ade
 - Imágenes (al menos dos).
 - Hipervínculos (al menos dos).
 
-Puede utilizar contenido (ej. texto, imágenes) de fuentes externas, pero debe dar los créditos apropiados (al menos incluya un enlace web a la fuente).
+Puede utilizar contenido (ej. texto, imágenes) de fuentes externas, pero debe dar los créditos apropiados (proporcionar la cita bibliográfica o al menos un enlace a la fuente).
 
 El contenido del sitio debe ser **coherente** y estar **bien presentado**.
 
