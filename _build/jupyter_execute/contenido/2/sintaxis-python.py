@@ -1278,6 +1278,11 @@ with open("datos/maravillas_antiguas.csv") as archivo_entrada:
             i = i + 1
 
 
+# ## Referencias bibliográficas
+# ```{bibliography}
+# :filter: docname in docnames
+# ```
+
 # In[ ]:
 
 
