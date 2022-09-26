@@ -559,7 +559,7 @@ x
 
 # El siguiente bloque de código maneja el error mediante un bloque `try except` y evita el mensaje de error que genera el interpretador de Python, sustituyéndolo por uno más amigable.
 
-# In[34]:
+# In[ ]:
 
 
 try:
@@ -1277,6 +1277,32 @@ with open("datos/maravillas_antiguas.csv") as archivo_entrada:
                 print(linea)
             i = i + 1
 
+
+# ### Ejercicios
+
+# Los siguientes ejercicios están basados en el conjunto de datos [Titanic extended dataset (Kaggle + Wikipedia)](https://www.kaggle.com/datasets/pavlofesenko/titanic-extended). 
+# 
+# 1. Descargue el conjunto de datos y extraiga el archivo CSV con la lista completa de pasajeros (también está disponible en [datos/kaggle-wikipedia/titanic/pasajeros-titanic-todos.csv](datos/kaggle-wikipedia/titanic/pasajeros-titanic-todos.csv)).
+# 
+# 
+# 2. Revise la descripción del conjunto de datos y sus propiedades (i.e. columnas).
+# 
+# 
+# 3. Con el módulo `csv`, extraiga en archivos CSV los siguientes subconjuntos de datos y anote la cantidad de registros de cada uno.
+# 
+# - Hombres y mujeres (en archivos separados).
+# - Pasajeros en cada clase (1, 2, 3) (en archivos separados).
+# - Pasajeros que sobrevivieron y pasajeros que fallecieron (en archivos separados).
+# - Hombres que sobrevivieron y mujeres que sobrevivieron (en archivos separados).
+# - Hombres que fallecieron y mujeres que fallecieron (en archivos separados).
+# - Pasajeros en cada clase (1, 2, 3) que sobrevivieron y que fallecieron (en archivos separados).
+# - Anote la cantidad total de pasajeros que viajaban en el Titanic.
+# 
+# 
+# 4. Con base en la información recopilada, calcule:
+# 
+# - Proporción de sobrevivientes por sexo.
+# - Proporción de sobrevivientes por clase.
 
 # ## Referencias bibliográficas
 # ```{bibliography}
