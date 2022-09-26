@@ -207,7 +207,7 @@ df.plot(kind='bar', stacked='True')
 
 # ### Modelado
 
-# Seguidamente, se generará un modelo basado en [Random Forest](https://es.wikipedia.org/wiki/Random_forest). Este algoritmo de aprendizaje automatizado construye múltiples árboles de decisión, como se ejemplifica en la {numref}`figure-random-forest`.
+# Seguidamente, se generará un modelo basado en [Random Forest](https://es.wikipedia.org/wiki/Random_forest). Este algoritmo de aprendizaje automatizado construye múltiples [árboles de decisión](https://es.wikipedia.org/wiki/%C3%81rbol_de_decisi%C3%B3n), como se ejemplifica en la {numref}`figure-random-forest`.
 
 # ```{figure} img/randomforest.png
 # :name: figure-random-forest
@@ -227,7 +227,7 @@ df.plot(kind='bar', stacked='True')
 from sklearn.ensemble import RandomForestClassifier
 
 # Carga de los datos de entrenamiento en un data frame de pandas
-datos_evaluacion = pd.read_csv("https://raw.githubusercontent.com/curso-python-imn/curso-python-imn.github.io/main/datos/titanic/evaluacion.csv")
+datos_evaluacion = pd.read_csv("https://raw.githubusercontent.com/gf0657-programacionsig/2022-ii/main/contenido/3/datos/kaggle/titanic/pasajeros-titanic-evaluacion.csv")
 
 y = datos_entrenamiento["Survived"]
 
@@ -240,8 +240,8 @@ model.fit(X, y)
 predictions = model.predict(X_test)
 
 output = pd.DataFrame({'PassengerId': datos_evaluacion.PassengerId, 'Survived': predictions})
-output.to_csv('datos/salida-random-forest.csv', index=False)
-print("La salida del modelo se almacenó en el archivo datos/salida-random-forest.csv")
+output.to_csv('datos/kaggle/titanic/salida-random-forest.csv', index=False)
+print("La salida del modelo se almacenó en el archivo datos/kaggle/titanic/salida-random-forest.csv")
 
 
 # In[ ]:
