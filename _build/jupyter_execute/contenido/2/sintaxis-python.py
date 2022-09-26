@@ -1282,7 +1282,7 @@ with open("datos/maravillas_antiguas.csv") as archivo_entrada:
 
 # Los siguientes ejercicios están basados en el conjunto de datos [Titanic extended dataset (Kaggle + Wikipedia)](https://www.kaggle.com/datasets/pavlofesenko/titanic-extended). 
 # 
-# 1. Descargue el conjunto de datos y extraiga el archivo CSV con la lista completa de pasajeros (también está disponible en [datos/kaggle-wikipedia/titanic/pasajeros-titanic-todos.csv](datos/kaggle-wikipedia/titanic/pasajeros-titanic-todos.csv)).
+# 1. Descargue el conjunto de datos y extraiga el archivo CSV con la lista completa de pasajeros (también está disponible en [https://github.com/gf0657-programacionsig/2022-ii/blob/main/contenido/2/datos/kaggle-wikipedia/titanic/pasajeros-titanic-todos.csv](https://github.com/gf0657-programacionsig/2022-ii/blob/main/contenido/2/datos/kaggle-wikipedia/titanic/pasajeros-titanic-todos.csv)).
 # 
 # 
 # 2. Revise la descripción del conjunto de datos y sus propiedades (i.e. columnas).
