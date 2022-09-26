@@ -13,7 +13,10 @@ parts:
     chapters:  
     - file: contenido/2/pensamiento_computacional-arquitectura_computadoras    
     - file: contenido/2/introduccion-python
-    - file: contenido/2/sintaxis-python    
+    - file: contenido/2/sintaxis-python  
+  - caption: 3 - ANÁLISIS DE DATOS
+    chapters:  
+    - file: contenido/3/introduccion-analisis-datos-python     
   - caption: EVALUACIONES
     chapters:  
     - file: contenido/6/examen_corto-01
