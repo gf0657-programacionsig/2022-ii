@@ -751,6 +751,11 @@ title="Print to PDF"
      </li>
     </ul>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Ejercicios
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1148,6 +1153,11 @@ title="Print to PDF"
       </a>
      </li>
     </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Ejercicios
+    </a>
    </li>
   </ul>
  </li>
@@ -1938,11 +1948,6 @@ Fin del programa.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Por favor utilice un número
-</pre></div>
-</div>
-</div>
 </div>
 <p>El siguiente ejemplo maneja el mismo tipo de error. En este caso, la función <a class="reference external" href="https://docs.python.org/3/library/functions.html#input">input()</a> se utiliza para leer un número desde el teclado.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fahr_hilera</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Ingrese la temperatura en grados Fahrenheit: &#39;</span><span class="p">)</span>
@@ -2061,7 +2066,7 @@ m
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Por favor ingrese un número entre 5 y 10: 7
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Por favor ingrese un número entre 5 y 10: 5
 ¡Gracias!
 </pre></div>
 </div>
@@ -2849,7 +2854,7 @@ Primer número mayor que 20:  41
 <figure class="align-default" id="figure-operaciones-archivos-python">
 <img alt="../../_images/operaciones-archivos-python.png" src="../../_images/operaciones-archivos-python.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 21 </span><span class="caption-text">Operaciones para manejo de archivos en Python. Fuente: <span id="id8">[<a class="reference internal" href="#id27" title="Charles Severance. PY4E - Python for Everybody. URL: https://www.py4e.com/ (visited on 2022-01-01).">Sev</a>]</span>.</span><a class="headerlink" href="#figure-operaciones-archivos-python" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text">Operaciones para manejo de archivos en Python. Fuente: <span id="id8">[<a class="reference internal" href="#id28" title="Charles Severance. PY4E - Python for Everybody. URL: https://www.py4e.com/ (visited on 2022-01-01).">Sev</a>]</span>.</span><a class="headerlink" href="#figure-operaciones-archivos-python" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Estas operaciones se realizan a través de una variable llamada “manejador de archivo” (<em>file handle</em>).</p>
@@ -3012,12 +3017,37 @@ Columna:  31.214167
 </div>
 </section>
 </section>
+<section id="id9">
+<h3>Ejercicios<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<p>Los siguientes ejercicios están basados en el conjunto de datos <a class="reference external" href="https://www.kaggle.com/datasets/pavlofesenko/titanic-extended">Titanic extended dataset (Kaggle + Wikipedia)</a>.</p>
+<ol class="simple">
+<li><p>Descargue el conjunto de datos y extraiga el archivo CSV con la lista completa de pasajeros (también está disponible en <span class="xref myst">datos/kaggle-wikipedia/titanic/pasajeros-titanic-todos.csv</span>).</p></li>
+<li><p>Revise la descripción del conjunto de datos y sus propiedades (i.e. columnas).</p></li>
+<li><p>Con el módulo <code class="docutils literal notranslate"><span class="pre">csv</span></code>, extraiga en archivos CSV los siguientes subconjuntos de datos y anote la cantidad de registros de cada uno.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Hombres y mujeres (en archivos separados).</p></li>
+<li><p>Pasajeros en cada clase (1, 2, 3) (en archivos separados).</p></li>
+<li><p>Pasajeros que sobrevivieron y pasajeros que fallecieron (en archivos separados).</p></li>
+<li><p>Hombres que sobrevivieron y mujeres que sobrevivieron (en archivos separados).</p></li>
+<li><p>Hombres que fallecieron y mujeres que fallecieron (en archivos separados).</p></li>
+<li><p>Pasajeros en cada clase (1, 2, 3) que sobrevivieron y que fallecieron (en archivos separados).</p></li>
+<li><p>Anote la cantidad total de pasajeros que viajaban en el Titanic.</p></li>
+</ul>
+<ol class="simple">
+<li><p>Con base en la información recopilada, calcule:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Proporción de sobrevivientes por sexo.</p></li>
+<li><p>Proporción de sobrevivientes por clase.</p></li>
+</ul>
+</section>
 </section>
 <section id="referencias-bibliograficas">
 <h2>Referencias bibliográficas<a class="headerlink" href="#referencias-bibliograficas" title="Permalink to this headline">#</a></h2>
-<div class="docutils container" id="id9">
+<div class="docutils container" id="id10">
 <dl class="citation">
-<dt class="label" id="id27"><span class="brackets"><a class="fn-backref" href="#id8">Sev</a></span></dt>
+<dt class="label" id="id28"><span class="brackets"><a class="fn-backref" href="#id8">Sev</a></span></dt>
 <dd><p>Charles Severance. PY4E - Python for Everybody. URL: <a class="reference external" href="https://www.py4e.com/">https://www.py4e.com/</a> (visited on 2022-01-01).</p>
 </dd>
 </dl>
