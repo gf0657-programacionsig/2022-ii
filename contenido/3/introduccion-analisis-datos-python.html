@@ -1,0 +1,1204 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Introducción al análisis de datos con Python &#8212; GF-0657 Programación en SIG 2022-II</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Examen corto 01" href="../6/examen_corto-01.html" />
+    <link rel="prev" title="Sintaxis de Python" href="../2/sintaxis-python.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">GF-0657 Programación en SIG 2022-II</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    GF-0657 Programación en SIG 2022-II
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  1 - INTRODUCCIÓN
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1/introduccion-ciencia-datos-geoespaciales.html">
+   Introducción a la ciencia de datos geoespaciales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1/markdown.html">
+   Markdown - lenguaje de marcado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1/git.html">
+   Git - sistema de control de versiones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  2 - EL LENGUAJE DE PROGRAMACIÓN PYTHON
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2/pensamiento_computacional-arquitectura_computadoras.html">
+   Pensamiento computacional y arquitectura de computadoras
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2/introduccion-python.html">
+   Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2/sintaxis-python.html">
+   Sintaxis de Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  3 - ANÁLISIS DE DATOS
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Introducción al análisis de datos con Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  EVALUACIONES
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6/examen_corto-01.html">
+   Examen corto 01
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6/tarea-01.html">
+   Tarea 01
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/gf0657-programacionsig/2022-ii/master?urlpath=tree/docs/contenido/3/introduccion-analisis-datos-python.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/gf0657-programacionsig/2022-ii/"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/gf0657-programacionsig/2022-ii//issues/new?title=Issue%20on%20page%20%2Fcontenido/3/introduccion-analisis-datos-python.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/contenido/3/introduccion-analisis-datos-python.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analisis-de-datos-del-titanic">
+   Análisis de datos del Titanic
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sobre-el-titanic">
+     Sobre el Titanic
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualizacion-y-exploracion-de-datos">
+     Visualización y exploración de datos
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#carga-de-datos">
+       Carga de datos
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#despliegue-de-datos-tabulares">
+       Despliegue de datos tabulares
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exploracion">
+       Exploración
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sexo">
+         Sexo
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#edad">
+         Edad
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#clase">
+         Clase
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#graficacion">
+       Graficación
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id1">
+         Sexo
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id2">
+         Edad
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id3">
+         Clase
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelado">
+     Modelado
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Introducción al análisis de datos con Python</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analisis-de-datos-del-titanic">
+   Análisis de datos del Titanic
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sobre-el-titanic">
+     Sobre el Titanic
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualizacion-y-exploracion-de-datos">
+     Visualización y exploración de datos
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#carga-de-datos">
+       Carga de datos
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#despliegue-de-datos-tabulares">
+       Despliegue de datos tabulares
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exploracion">
+       Exploración
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sexo">
+         Sexo
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#edad">
+         Edad
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#clase">
+         Clase
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#graficacion">
+       Graficación
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id1">
+         Sexo
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id2">
+         Edad
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id3">
+         Clase
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelado">
+     Modelado
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="introduccion-al-analisis-de-datos-con-python">
+<h1>Introducción al análisis de datos con Python<a class="headerlink" href="#introduccion-al-analisis-de-datos-con-python" title="Permalink to this headline">#</a></h1>
+<p>En esta lección, se introducen algunas de las capacidades de Python para el análisis de datos, las cuales son ampliamente utilizadas en áreas como <a class="reference external" href="https://es.wikipedia.org/wiki/Aprendizaje_autom%C3%A1tico">aprendizaje automatizado</a> y <a class="reference external" href="https://es.wikipedia.org/wiki/Ciencia_de_datos">ciencia de datos</a>, entre otras.</p>
+<section id="analisis-de-datos-del-titanic">
+<h2>Análisis de datos del Titanic<a class="headerlink" href="#analisis-de-datos-del-titanic" title="Permalink to this headline">#</a></h2>
+<p>Esta sección está basada en la competencia <a class="reference external" href="https://www.kaggle.com/c/titanic/overview">Titanic - Machine Learning from Disaster</a> organizada por <a class="reference external" href="https://www.kaggle.com/">Kaggle</a>.</p>
+<section id="sobre-el-titanic">
+<h3>Sobre el Titanic<a class="headerlink" href="#sobre-el-titanic" title="Permalink to this headline">#</a></h3>
+<p>El <a class="reference external" href="https://es.wikipedia.org/wiki/RMS_Titanic">RMS Titanic</a> (<a class="reference internal" href="#figure-titanic"><span class="std std-numref">Fig. 22</span></a>) fue un transatlántico británico que se hundió en 1912 durante su viaje inaugural entre Southampton y Nueva York. <strong>Fallecieron más de 1500 personas de las 2224 que viajaban en el barco</strong>.</p>
+<p>El naufragio del Titanic conmocionó e indignó al mundo entero por el elevado número de víctimas mortales y por los errores cometidos en el accidente. Solamente portaba botes salvavidas para 1178 pasajeros, poco más de la mitad de los que iban a bordo en su viaje inaugural y un tercio de su capacidad total de 3547 personas.</p>
+<p>El Titanic es quizá el barco más famoso de la historia y su memoria se mantiene muy viva gracias a numerosos libros, canciones, películas, exposiciones y memoriales.</p>
+<figure class="align-default" id="figure-titanic">
+<img alt="../../_images/titanic.jpg" src="../../_images/titanic.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text">El RMS Titanic al salir de Southampton el 10 de abril de 1912. Fotografía de <a class="reference external" href="https://en.wikipedia.org/wiki/Francis_Godolphin_Osbourne_Stuart">Francis Godolphin Osbourne Stuart</a> compartida a través de <a class="reference external" href="https://commons.wikimedia.org/wiki/File:RMS_Titanic_3.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#figure-titanic" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>La competencia <a class="reference external" href="https://www.kaggle.com/c/titanic/overview">Titanic - Machine Learning from Disaster</a> es organizada regularmente por Kaggle. Su objetivo es desarrollar modelos para predecir cuáles pasajeros sobrevivieron y cuáles no sobrevivieron al hundimiento del Titanic.</p>
+</section>
+<section id="visualizacion-y-exploracion-de-datos">
+<h3>Visualización y exploración de datos<a class="headerlink" href="#visualizacion-y-exploracion-de-datos" title="Permalink to this headline">#</a></h3>
+<p>Para construir un modelo de sobrevivencia de los pasajeros del Titanic, se proporcionan dos archivos <a class="reference external" href="https://es.wikipedia.org/wiki/Valores_separados_por_comas">CSV (valores separados por comas)</a>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/pf3311-cienciadatosgeoespaciales/2021-iii/blob/main/contenido/b/datos/entrenamiento.csv">entrenamiento.csv</a>: contiene datos detallados sobre un subconjunto de pasajeros (891 registros), incluyendo una columna que indica si cada uno sobrevivió o no al naufragio. Este conjunto de datos se utiliza para generar el modelo.</p></li>
+<li><p><a class="reference external" href="https://github.com/pf3311-cienciadatosgeoespaciales/2021-iii/blob/main/contenido/b/datos/evaluacion.csv">evaluacion.csv</a>: contiene otro subconjunto (418 registros) con las mismas columnas del conjunto de datos de entrenamiento, excepto la que indica si el pasajero sobrevivió al naufragio. Este conjunto se utiliza para evaluar el modelo generado con los datos de entrenamiento.</p></li>
+</ul>
+<p>Para analizar los datos, se utilizará el paquete <a class="reference external" href="https://pandas.pydata.org/">pandas</a> de Python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="carga-de-datos">
+<h4>Carga de datos<a class="headerlink" href="#carga-de-datos" title="Permalink to this headline">#</a></h4>
+<p>La función <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html">read_csv()</a> carga en un <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html">DataFrame</a> el contenido de un archivo CSV.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Carga de los datos de entrenamiento en un data frame de pandas</span>
+
+<span class="n">datos_entrenamiento</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/gf0657-programacionsig/2022-ii/main/contenido/3/datos/kaggle/titanic/pasajeros-titanic-entrenamiento.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">HTTPError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Carga de los datos de entrenamiento en un data frame de pandas</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">datos_entrenamiento</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/gf0657-programacionsig/2022-ii/main/contenido/3/datos/kaggle/titanic/pasajeros-titanic-entrenamiento.csv&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/envs/gf0657/lib/python3.10/site-packages/pandas/util/_decorators.py:311,</span> in <span class="ni">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">305</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">num_allow_args</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">306</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">307</span>         <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arguments</span><span class="o">=</span><span class="n">arguments</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">308</span>         <span class="ne">FutureWarning</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">309</span>         <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">311</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/envs/gf0657/lib/python3.10/site-packages/pandas/io/parsers/readers.py:680,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">665</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">666</span>     <span class="n">dialect</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">667</span>     <span class="n">delimiter</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">676</span>     <span class="n">defaults</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;delimiter&quot;</span><span class="p">:</span> <span class="s2">&quot;,&quot;</span><span class="p">},</span>
+<span class="g g-Whitespace">    </span><span class="mi">677</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">678</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">680</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/envs/gf0657/lib/python3.10/site-packages/pandas/io/parsers/readers.py:575,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">572</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">574</span> <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">575</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">577</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">578</span>     <span class="k">return</span> <span class="n">parser</span>
+
+<span class="nn">File ~/miniconda3/envs/gf0657/lib/python3.10/site-packages/pandas/io/parsers/readers.py:934,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">931</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">933</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">--&gt; </span><span class="mi">934</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/envs/gf0657/lib/python3.10/site-packages/pandas/io/parsers/readers.py:1218,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1214</span>     <span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;rb&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1215</span> <span class="c1"># error: No overload variant of &quot;get_handle&quot; matches argument types</span>
+<span class="g g-Whitespace">   </span><span class="mi">1216</span> <span class="c1"># &quot;Union[str, PathLike[str], ReadCsvBuffer[bytes], ReadCsvBuffer[str]]&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1217</span> <span class="c1"># , &quot;str&quot;, &quot;bool&quot;, &quot;Any&quot;, &quot;Any&quot;, &quot;Any&quot;, &quot;Any&quot;, &quot;Any&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1218</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>  <span class="c1"># type: ignore[call-overload]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1219</span>     <span class="n">f</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1220</span>     <span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1221</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1222</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1223</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1224</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1225</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1226</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1227</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1228</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1229</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
+
+<span class="nn">File ~/miniconda3/envs/gf0657/lib/python3.10/site-packages/pandas/io/common.py:667,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">664</span>     <span class="n">codecs</span><span class="o">.</span><span class="n">lookup_error</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">666</span> <span class="c1"># open URLs</span>
+<span class="ne">--&gt; </span><span class="mi">667</span> <span class="n">ioargs</span> <span class="o">=</span> <span class="n">_get_filepath_or_buffer</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">668</span>     <span class="n">path_or_buf</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">669</span>     <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">670</span>     <span class="n">compression</span><span class="o">=</span><span class="n">compression</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">671</span>     <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">672</span>     <span class="n">storage_options</span><span class="o">=</span><span class="n">storage_options</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">673</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">675</span> <span class="n">handle</span> <span class="o">=</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">filepath_or_buffer</span>
+<span class="g g-Whitespace">    </span><span class="mi">676</span> <span class="n">handles</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">BaseBuffer</span><span class="p">]</span>
+
+<span class="nn">File ~/miniconda3/envs/gf0657/lib/python3.10/site-packages/pandas/io/common.py:336,</span> in <span class="ni">_get_filepath_or_buffer</span><span class="nt">(filepath_or_buffer, encoding, compression, mode, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">334</span> <span class="c1"># assuming storage_options is to be interpreted as headers</span>
+<span class="g g-Whitespace">    </span><span class="mi">335</span> <span class="n">req_info</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">storage_options</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">336</span> <span class="k">with</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">req_info</span><span class="p">)</span> <span class="k">as</span> <span class="n">req</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">337</span>     <span class="n">content_encoding</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Content-Encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">338</span>     <span class="k">if</span> <span class="n">content_encoding</span> <span class="o">==</span> <span class="s2">&quot;gzip&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">339</span>         <span class="c1"># Override compression based on Content-Encoding header</span>
+
+<span class="nn">File ~/miniconda3/envs/gf0657/lib/python3.10/site-packages/pandas/io/common.py:236,</span> in <span class="ni">urlopen</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">230</span> <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">231</span><span class="sd"> Lazy-import wrapper for stdlib urlopen, as that imports a big chunk of</span>
+<span class="g g-Whitespace">    </span><span class="mi">232</span><span class="sd"> the stdlib.</span>
+<span class="g g-Whitespace">    </span><span class="mi">233</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">234</span> <span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="ne">--&gt; </span><span class="mi">236</span> <span class="k">return</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/envs/gf0657/lib/python3.10/urllib/request.py:216,</span> in <span class="ni">urlopen</span><span class="nt">(url, data, timeout, cafile, capath, cadefault, context)</span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="n">opener</span> <span class="o">=</span> <span class="n">_opener</span>
+<span class="ne">--&gt; </span><span class="mi">216</span> <span class="k">return</span> <span class="n">opener</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/envs/gf0657/lib/python3.10/urllib/request.py:525,</span> in <span class="ni">OpenerDirector.open</span><span class="nt">(self, fullurl, data, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">523</span> <span class="k">for</span> <span class="n">processor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="p">[]):</span>
+<span class="g g-Whitespace">    </span><span class="mi">524</span>     <span class="n">meth</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">processor</span><span class="p">,</span> <span class="n">meth_name</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">525</span>     <span class="n">response</span> <span class="o">=</span> <span class="n">meth</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">527</span> <span class="k">return</span> <span class="n">response</span>
+
+<span class="nn">File ~/miniconda3/envs/gf0657/lib/python3.10/urllib/request.py:634,</span> in <span class="ni">HTTPErrorProcessor.http_response</span><span class="nt">(self, request, response)</span>
+<span class="g g-Whitespace">    </span><span class="mi">631</span> <span class="c1"># According to RFC 2616, &quot;2xx&quot; code indicates that the client&#39;s</span>
+<span class="g g-Whitespace">    </span><span class="mi">632</span> <span class="c1"># request was successfully received, understood, and accepted.</span>
+<span class="g g-Whitespace">    </span><span class="mi">633</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">200</span> <span class="o">&lt;=</span> <span class="n">code</span> <span class="o">&lt;</span> <span class="mi">300</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">634</span>     <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">635</span>         <span class="s1">&#39;http&#39;</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">hdrs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">637</span> <span class="k">return</span> <span class="n">response</span>
+
+<span class="nn">File ~/miniconda3/envs/gf0657/lib/python3.10/urllib/request.py:563,</span> in <span class="ni">OpenerDirector.error</span><span class="nt">(self, proto, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">561</span> <span class="k">if</span> <span class="n">http_err</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">562</span>     <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="s1">&#39;http_error_default&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">orig_args</span>
+<span class="ne">--&gt; </span><span class="mi">563</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_chain</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/envs/gf0657/lib/python3.10/urllib/request.py:496,</span> in <span class="ni">OpenerDirector._call_chain</span><span class="nt">(self, chain, kind, meth_name, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">494</span> <span class="k">for</span> <span class="n">handler</span> <span class="ow">in</span> <span class="n">handlers</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">495</span>     <span class="n">func</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">handler</span><span class="p">,</span> <span class="n">meth_name</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">496</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">497</span>     <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">498</span>         <span class="k">return</span> <span class="n">result</span>
+
+<span class="nn">File ~/miniconda3/envs/gf0657/lib/python3.10/urllib/request.py:643,</span> in <span class="ni">HTTPDefaultErrorHandler.http_error_default</span><span class="nt">(self, req, fp, code, msg, hdrs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">642</span> <span class="k">def</span> <span class="nf">http_error_default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">req</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">hdrs</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">643</span>     <span class="k">raise</span> <span class="n">HTTPError</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">full_url</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">hdrs</span><span class="p">,</span> <span class="n">fp</span><span class="p">)</span>
+
+<span class="ne">HTTPError</span>: HTTP Error 404: Not Found
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="despliegue-de-datos-tabulares">
+<h4>Despliegue de datos tabulares<a class="headerlink" href="#despliegue-de-datos-tabulares" title="Permalink to this headline">#</a></h4>
+<p>La función <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.head.html">head()</a> retorna las primeras filas de un DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Despliegue de las primeras filas</span>
+
+<span class="n">datos_entrenamiento</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PassengerId</th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Braund, Mr. Owen Harris</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>A/5 21171</td>
+      <td>7.2500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>PC 17599</td>
+      <td>71.2833</td>
+      <td>C85</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>Heikkinen, Miss. Laina</td>
+      <td>female</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>STON/O2. 3101282</td>
+      <td>7.9250</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
+      <td>female</td>
+      <td>35.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>113803</td>
+      <td>53.1000</td>
+      <td>C123</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Allen, Mr. William Henry</td>
+      <td>male</td>
+      <td>35.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>373450</td>
+      <td>8.0500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Las funciones <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.tail.html">tail()</a> y <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sample.html">sample()</a> funcionan de manera similar, retornando respectivamente las últimas filas y un conjunto aleatorio de filas de un DataFrame.</p>
+</section>
+<section id="exploracion">
+<h4>Exploración<a class="headerlink" href="#exploracion" title="Permalink to this headline">#</a></h4>
+<p>Se determinan las proporciones de sobrevivientes de acuerdo con diversas variables.</p>
+<section id="sexo">
+<h5>Sexo<a class="headerlink" href="#sexo" title="Permalink to this headline">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tasa de sobrevivencia de mujeres</span>
+
+<span class="n">mujeres_sobrevivientes</span> <span class="o">=</span> <span class="n">datos_entrenamiento</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">datos_entrenamiento</span><span class="o">.</span><span class="n">Sex</span> <span class="o">==</span> <span class="s1">&#39;female&#39;</span><span class="p">][</span><span class="s2">&quot;Survived&quot;</span><span class="p">]</span>
+<span class="n">tasa_sobrevivencia_mujeres</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">mujeres_sobrevivientes</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">mujeres_sobrevivientes</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Porcentaje de mujeres que sobrevivieron: </span><span class="si">{:3.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tasa_sobrevivencia_mujeres</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Porcentaje de mujeres que sobrevivieron: 0.74
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tasa de sobrevivencia de hombres</span>
+
+<span class="n">hombres_sobrevivientes</span> <span class="o">=</span> <span class="n">datos_entrenamiento</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">datos_entrenamiento</span><span class="o">.</span><span class="n">Sex</span> <span class="o">==</span> <span class="s1">&#39;male&#39;</span><span class="p">][</span><span class="s2">&quot;Survived&quot;</span><span class="p">]</span>
+<span class="n">tasa_sobrevivencia_hombres</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">hombres_sobrevivientes</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">hombres_sobrevivientes</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Porcentaje de hombres que sobrevivieron: </span><span class="si">{:3.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tasa_sobrevivencia_hombres</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Porcentaje de hombres que sobrevivieron: 0.19
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="edad">
+<h5>Edad<a class="headerlink" href="#edad" title="Permalink to this headline">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tasa de sobrevivencia de menores</span>
+
+<span class="n">sobrevivientes_menores</span> <span class="o">=</span> <span class="n">datos_entrenamiento</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">datos_entrenamiento</span><span class="o">.</span><span class="n">Age</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">][</span><span class="s2">&quot;Survived&quot;</span><span class="p">]</span>
+<span class="n">tasa_sobrevivencia_menores</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">sobrevivientes_menores</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">sobrevivientes_menores</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Porcentaje de menores de edad que sobrevivieron: </span><span class="si">{:3.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tasa_sobrevivencia_menores</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Porcentaje de menores de edad que sobrevivieron: 0.54
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tasa de sobrevivencia de mayores</span>
+
+<span class="n">sobrevivientes_mayores</span> <span class="o">=</span> <span class="n">datos_entrenamiento</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">datos_entrenamiento</span><span class="o">.</span><span class="n">Age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">][</span><span class="s2">&quot;Survived&quot;</span><span class="p">]</span>
+<span class="n">tasa_sobrevivencia_mayores</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">sobrevivientes_mayores</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">sobrevivientes_mayores</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Porcentaje de mayores de edad que sobrevivieron: </span><span class="si">{:3.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tasa_sobrevivencia_mayores</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Porcentaje de mayores de edad que sobrevivieron: 0.38
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="clase">
+<h5>Clase<a class="headerlink" href="#clase" title="Permalink to this headline">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tasa de sobrevivencia de pasajeros de primera clase</span>
+
+<span class="n">clase1_sobrevivientes</span> <span class="o">=</span> <span class="n">datos_entrenamiento</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">datos_entrenamiento</span><span class="o">.</span><span class="n">Pclass</span> <span class="o">==</span> <span class="mi">1</span><span class="p">][</span><span class="s2">&quot;Survived&quot;</span><span class="p">]</span>
+<span class="n">tasa_sobrevivencia_clase1</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">clase1_sobrevivientes</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">clase1_sobrevivientes</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Porcentaje de pasajeros de primera clase que sobrevivieron: </span><span class="si">{:3.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tasa_sobrevivencia_clase1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Porcentaje de pasajeros de primera clase que sobrevivieron: 0.63
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tasa de sobrevivencia de pasajeros de segunda clase</span>
+
+<span class="n">clase2_sobrevivientes</span> <span class="o">=</span> <span class="n">datos_entrenamiento</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">datos_entrenamiento</span><span class="o">.</span><span class="n">Pclass</span> <span class="o">==</span> <span class="mi">2</span><span class="p">][</span><span class="s2">&quot;Survived&quot;</span><span class="p">]</span>
+<span class="n">tasa_sobrevivencia_clase2</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">clase2_sobrevivientes</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">clase2_sobrevivientes</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Porcentaje de pasajeros de segunda clase que sobrevivieron: </span><span class="si">{:3.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tasa_sobrevivencia_clase2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Porcentaje de pasajeros de segunda clase que sobrevivieron: 0.47
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tasa de sobrevivencia de pasajeros de tercera clase</span>
+
+<span class="n">clase3_sobrevivientes</span> <span class="o">=</span> <span class="n">datos_entrenamiento</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">datos_entrenamiento</span><span class="o">.</span><span class="n">Pclass</span> <span class="o">==</span> <span class="mi">3</span><span class="p">][</span><span class="s2">&quot;Survived&quot;</span><span class="p">]</span>
+<span class="n">tasa_sobrevivencia_clase3</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">clase1_sobrevivientes</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">clase3_sobrevivientes</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Porcentaje de pasajeros de tercera clase que sobrevivieron: </span><span class="si">{:3.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tasa_sobrevivencia_clase3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Porcentaje de pasajeros de tercera clase que sobrevivieron: 0.28
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="graficacion">
+<h4>Graficación<a class="headerlink" href="#graficacion" title="Permalink to this headline">#</a></h4>
+<p>La función <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html">plot()</a> de Pandas genera gráficos estadísticos a partir de los datos de un DataFrame. Por defecto, utiliza la funcionalidad provista por la biblioteca <a class="reference external" href="https://matplotlib.org/">matplotlib</a>.</p>
+<section id="id1">
+<h5>Sexo<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gráfico de barras de cantidades de sobrevivientes y fallecidos por sexo</span>
+
+<span class="n">sobrevivientes</span> <span class="o">=</span> <span class="n">datos_entrenamiento</span><span class="p">[</span><span class="n">datos_entrenamiento</span><span class="p">[</span><span class="s1">&#39;Survived&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;Sex&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">fallecidos</span> <span class="o">=</span> <span class="n">datos_entrenamiento</span><span class="p">[</span><span class="n">datos_entrenamiento</span><span class="p">[</span><span class="s1">&#39;Survived&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;Sex&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">sobrevivientes</span><span class="p">,</span> <span class="n">fallecidos</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Survived&#39;</span><span class="p">,</span> <span class="s1">&#39;Dead&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">stacked</span><span class="o">=</span><span class="s1">&#39;True&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../../_images/introduccion-analisis-datos-python_33_1.png" src="../../_images/introduccion-analisis-datos-python_33_1.png" />
+</div>
+</div>
+</section>
+<section id="id2">
+<h5>Edad<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Diagrama de caja (boxplot) de la variable edad (Age)</span>
+
+<span class="n">datos_entrenamiento</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;Age&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../../_images/introduccion-analisis-datos-python_35_1.png" src="../../_images/introduccion-analisis-datos-python_35_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Diagrama de caja de la variable edad y agrupado por la variable de sobrevivencia</span>
+
+<span class="n">datos_entrenamiento</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s2">&quot;Survived&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Age&#39;}, xlabel=&#39;Survived&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/introduccion-analisis-datos-python_36_1.png" src="../../_images/introduccion-analisis-datos-python_36_1.png" />
+</div>
+</div>
+</section>
+<section id="id3">
+<h5>Clase<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gráfico de barras de cantidades de sobrevivientes y fallecidos por clase de pasajero</span>
+
+<span class="n">sobrevivientes</span> <span class="o">=</span> <span class="n">datos_entrenamiento</span><span class="p">[</span><span class="n">datos_entrenamiento</span><span class="p">[</span><span class="s1">&#39;Survived&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">fallecidos</span> <span class="o">=</span> <span class="n">datos_entrenamiento</span><span class="p">[</span><span class="n">datos_entrenamiento</span><span class="p">[</span><span class="s1">&#39;Survived&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">sobrevivientes</span><span class="p">,</span> <span class="n">fallecidos</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Survived&#39;</span><span class="p">,</span> <span class="s1">&#39;Dead&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">stacked</span><span class="o">=</span><span class="s1">&#39;True&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../../_images/introduccion-analisis-datos-python_38_1.png" src="../../_images/introduccion-analisis-datos-python_38_1.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="modelado">
+<h3>Modelado<a class="headerlink" href="#modelado" title="Permalink to this headline">#</a></h3>
+<p>Seguidamente, se generará un modelo basado en <a class="reference external" href="https://es.wikipedia.org/wiki/Random_forest">Random Forest</a>. Este algoritmo de aprendizaje automatizado construye múltiples árboles de decisión, como se ejemplifica en la <a class="reference internal" href="#figure-random-forest"><span class="std std-numref">Fig. 23</span></a>.</p>
+<figure class="align-default" id="figure-random-forest">
+<img alt="contenido/3/img/randomforest.png" src="contenido/3/img/randomforest.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 23 </span><span class="caption-text">Representación gráfica del algoritmo Random Forest. Fuente <a class="reference external" href="https://www.kaggle.com/alexisbcook/titanic-tutorial">Kaggle</a>.</span><a class="headerlink" href="#figure-random-forest" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Cada registro de datos es evaluado en los árboles de decisión y el resultado más frecuente (i.e. sobreviviente o fallecido) pasa a ser la salida para ese registro.</p>
+<p>En el siguiente bloque de código en Python, se construyen 100 árboles de decisión para generar un modelo para los datos de los pasajeros del Titanic, el cual predice si cada pasajero sobrevivió o no.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modelo generado con Radom Forest</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+
+<span class="c1"># Carga de los datos de entrenamiento en un data frame de pandas</span>
+<span class="n">datos_evaluacion</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/curso-python-imn/curso-python-imn.github.io/main/datos/titanic/evaluacion.csv&quot;</span><span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">datos_entrenamiento</span><span class="p">[</span><span class="s2">&quot;Survived&quot;</span><span class="p">]</span>
+
+<span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Pclass&quot;</span><span class="p">,</span> <span class="s2">&quot;Sex&quot;</span><span class="p">,</span> <span class="s2">&quot;SibSp&quot;</span><span class="p">,</span> <span class="s2">&quot;Parch&quot;</span><span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">datos_entrenamiento</span><span class="p">[</span><span class="n">features</span><span class="p">])</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">datos_evaluacion</span><span class="p">[</span><span class="n">features</span><span class="p">])</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;PassengerId&#39;</span><span class="p">:</span> <span class="n">datos_evaluacion</span><span class="o">.</span><span class="n">PassengerId</span><span class="p">,</span> <span class="s1">&#39;Survived&#39;</span><span class="p">:</span> <span class="n">predictions</span><span class="p">})</span>
+<span class="n">output</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;datos/salida-random-forest.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La salida del modelo se almacenó en el archivo datos/salida-random-forest.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>La salida del modelo se almacenó en el archivo datos/salida-random-forest.csv
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contenido/3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../2/sintaxis-python.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Sintaxis de Python</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../6/examen_corto-01.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Examen corto 01</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Manuel Vargas<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
