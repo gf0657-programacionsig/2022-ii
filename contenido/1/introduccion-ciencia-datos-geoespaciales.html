@@ -52,6 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Markdown - lenguaje de marcado" href="markdown.html" />
     <link rel="prev" title="GF-0657 Programación en SIG 2022-II" href="../../index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -121,6 +122,72 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Introducción a la ciencia de datos geoespaciales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown.html">
+   Markdown - lenguaje de marcado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="git.html">
+   Git - sistema de control de versiones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  2 - EL LENGUAJE DE PROGRAMACIÓN PYTHON
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2/pensamiento_computacional-arquitectura_computadoras.html">
+   Pensamiento computacional y arquitectura de computadoras
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2/introduccion-python.html">
+   Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2/sintaxis-python.html">
+   Sintaxis de Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  3 - ANÁLISIS DE DATOS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3/introduccion-analisis-datos-python.html">
+   Introducción al análisis de datos con Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  EVALUACIONES
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6/examen_corto-01.html">
+   Examen corto 01
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6/tarea-01.html">
+   Tarea 01
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6/examen_corto-02.html">
+   Examen corto 02
   </a>
  </li>
 </ul>
@@ -439,7 +506,7 @@ title="Print to PDF"
 <ul class="simple">
 <li><p><strong>Con nombres de lugares</strong>: <em>El <a class="reference external" href="https://es.wikipedia.org/wiki/Incilius_periglenes">sapo dorado (<em>Incilius periglenes</em>)</a> era una especie de anfibio, endémica de los bosques nubosos de altitud de Monteverde, Costa Rica.</em></p></li>
 <li><p><strong>Con direcciones</strong>: <em>La <a class="reference external" href="https://es.wikipedia.org/wiki/Sede_de_la_Organizaci%C3%B3n_de_las_Naciones_Unidas">sede de la Organización de las Naciones Unidas (ONU)</a> está ubicada en la ciudad de Nueva York, Estados Unidos, en la Primera Avenida, 750.</em></p></li>
-<li><p><strong>Con coordenadas</strong>: *La cima del <a class="reference external" href="https://es.wikipedia.org/wiki/Monte_Everest">Monte Everest</a> se localiza en las coordenadas geográficas 86°55′31″ E y 27°59′17″ N, como se muestra en la <a class="reference internal" href="#figure-mapa-nepal-everest"><span class="std std-numref">Fig. 1</span></a>.</p></li>
+<li><p><strong>Con coordenadas</strong>: *La cima del <a class="reference external" href="https://es.wikipedia.org/wiki/Monte_Everest">Monte Everest</a> se localiza en las coordenadas geográficas 86°55′31″ E y 27°59′17″ N, como se muestra en la <code class="xref std std-numref docutils literal notranslate"><span class="pre">figure-mapa-nepal-everest</span></code>.</p></li>
 </ul>
 <figure class="align-default" id="figure-mapa-nepal-everest">
 <img alt="../../_images/nepal-map.jpg" src="../../_images/nepal-map.jpg" />
@@ -454,14 +521,14 @@ title="Print to PDF"
 <section id="sistemas-de-informacion-geografica">
 <h2>Sistemas de información geográfica<a class="headerlink" href="#sistemas-de-informacion-geografica" title="Permalink to this headline">#</a></h2>
 <p>A principios de la década de 1960, el geógrafo inglés <a class="reference external" href="https://es.wikipedia.org/wiki/Roger_Tomlinson">Roger Tomlinson</a> desarrolló en Canadá el que se considera el primer sistema de información geográfica. Se trataba del <a class="reference external" href="https://en.wikipedia.org/wiki/Canada_Geographic_Information_System">Canada Geographic Information System (CGIS)</a> y su objetivo fue manejar los datos del inventario geográfico canadiense y su análisis para la gestión del territorio rural. De manera casi simultánea al trabajo de Tomlinson, surgieron desarrollos similares en Estados Unidos y en el Reino Unido. El surgimiento de los sistemas de información geográfica no implicó solo el surgimiento de nuevas herramientas de software, sino también el desarrollo de técnicas que hasta entonces no habían sido necesarias <span id="id2">[<a class="reference internal" href="#id19" title="Víctor Olaya. Sistemas de Información Geográfica. 2020. URL: https://volaya.github.io/libro-sig/ (visited on 2021-12-31).">Ola20</a>]</span> como, por ejemplo, la manipulación de nuevos tipos de datos geométricos (ej. puntos, líneas, polígonos).</p>
-<p>En general, un sistema de información geográfica (SIG) maneja datos georreferenciados y los asocia con datos convencionales (ej. textos, números), como se muestra en la <a class="reference internal" href="#figure-mapa-qgis"><span class="std std-numref">Fig. 2</span></a>.</p>
+<p>En general, un sistema de información geográfica (SIG) maneja datos georreferenciados y los asocia con datos convencionales (ej. textos, números), como se muestra en la <code class="xref std std-numref docutils literal notranslate"><span class="pre">figure-mapa-qgis</span></code>.</p>
 <figure class="align-default" id="figure-mapa-qgis">
 <img alt="../../_images/mapa-qgis.png" src="../../_images/mapa-qgis.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 2 </span><span class="caption-text">Mapa elaborado en QGIS que muestra la ubicación de los aeródromos de Costa Rica.</span><a class="headerlink" href="#figure-mapa-qgis" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Los SIG presentan los datos en capas (<em>layers</em>). Por ejemplo, el mapa de la <a class="reference internal" href="#figure-mapa-qgis"><span class="std std-numref">Fig. 2</span></a> contiene una capa base raster (la que muestra el mar y el continente), una capa de polígonos correspondiente a las provincias de Costa Rica y una capa de puntos correspondiente a los aeródromos. A la izquierda puede apreciarse la lista de esas capas y a la derecha un cuadro con información detallada sobre uno de los aeródromos.</p>
+<p>Los SIG presentan los datos en capas (<em>layers</em>). Por ejemplo, el mapa de la <code class="xref std std-numref docutils literal notranslate"><span class="pre">figure-mapa-qgis</span></code> contiene una capa base raster (la que muestra el mar y el continente), una capa de polígonos correspondiente a las provincias de Costa Rica y una capa de puntos correspondiente a los aeródromos. A la izquierda puede apreciarse la lista de esas capas y a la derecha un cuadro con información detallada sobre uno de los aeródromos.</p>
 <p>Los SIG de escritorio (ej. <a class="reference external" href="https://www.esri.com/en-us/arcgis/products/arcgis-desktop/overview">ArcGIS Desktop</a>, <a class="reference external" href="https://www.qgis.org/">QGIS</a>) son herramientas con interfaces de usuario muy gráficas e intuitivas, que no requieren de conocimientos de programación de computadoras y que permiten generar cartografía de alta calidad. Sin embargo, son poco flexibles y los resultados que producen son difícilmente <a class="reference external" href="https://es.wikipedia.org/wiki/Reproducibilidad_y_repetibilidad">reproducibles</a>.</p>
 </section>
 <section id="ciencia-de-datos-geoespaciales">
@@ -482,7 +549,7 @@ title="Print to PDF"
 <li><p>El proceso de <a class="reference external" href="https://es.wikipedia.org/wiki/Revisi%C3%B3n_por_pares">revisión por pares (<em>peer review process</em>)</a> y la publicación académica deben requerir la presentación de un modelo de flujo de trabajo e idealmente la disponibilidad de los materiales necesarios para la replicación.</p></li>
 <li><p>En los casos en los que la reproducibilidad total no sea posible (ej. datos sensibles), los investigadores deben esforzarse por incluir todos los aspectos que puedan de un marco de trabajo abierto.</p></li>
 </ol>
-<p>En general, el estándar mínimo de reproducibilidad requiere que los datos y el código fuente estén disponibles para otros investigadores <span id="id5">[<a class="reference internal" href="#id11" title="Roger D. Peng. Reproducible Research in Computational Science. Science, 334(6060):1226–1227, December 2011. Publisher: American Association for the Advancement of Science. URL: https://www.science.org/doi/10.1126/science.1213847 (visited on 2022-04-10), doi:10.1126/science.1213847.">Pen11</a>]</span>. Sin embargo, dependiendo de las circunstancias y recursos disponibles, existe todo un espectro de posibilidades, que se ilustra en la figura <a class="reference internal" href="#figure-espectro-reproducibilidad"><span class="std std-numref">Fig. 3</span></a>.</p>
+<p>En general, el estándar mínimo de reproducibilidad requiere que los datos y el código fuente estén disponibles para otros investigadores <span id="id5">[<a class="reference internal" href="#id11" title="Roger D. Peng. Reproducible Research in Computational Science. Science, 334(6060):1226–1227, December 2011. Publisher: American Association for the Advancement of Science. URL: https://www.science.org/doi/10.1126/science.1213847 (visited on 2022-04-10), doi:10.1126/science.1213847.">Pen11</a>]</span>. Sin embargo, dependiendo de las circunstancias y recursos disponibles, existe todo un espectro de posibilidades, que se ilustra en la figura <code class="xref std std-numref docutils literal notranslate"><span class="pre">figure-espectro-reproducibilidad</span></code>.</p>
 <figure class="align-default" id="figure-espectro-reproducibilidad">
 <img alt="../../_images/espectro-reproducibilidad.png" src="../../_images/espectro-reproducibilidad.png" />
 <figcaption>
@@ -559,6 +626,13 @@ title="Print to PDF"
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">GF-0657 Programación en SIG 2022-II</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="markdown.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Markdown - lenguaje de marcado</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
