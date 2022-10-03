@@ -1,0 +1,3000 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>pandas: paquete para análisis y manipulación de datos &#8212; GF-0657 Programación en SIG 2022-II</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Examen corto 01" href="../6/examen_corto-01.html" />
+    <link rel="prev" title="Introducción al análisis de datos con Python" href="introduccion-analisis-datos-python.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">GF-0657 Programación en SIG 2022-II</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    GF-0657 Programación en SIG 2022-II
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  1 - INTRODUCCIÓN
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1/introduccion-ciencia-datos-geoespaciales.html">
+   Introducción a la ciencia de datos geoespaciales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1/markdown.html">
+   Markdown - lenguaje de marcado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1/git.html">
+   Git - sistema de control de versiones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  2 - EL LENGUAJE DE PROGRAMACIÓN PYTHON
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2/pensamiento_computacional-arquitectura_computadoras.html">
+   Pensamiento computacional y arquitectura de computadoras
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2/introduccion-python.html">
+   Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2/sintaxis-python.html">
+   Sintaxis de Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  3 - ANÁLISIS DE DATOS
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduccion-analisis-datos-python.html">
+   Introducción al análisis de datos con Python
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   pandas: paquete para análisis y manipulación de datos
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  EVALUACIONES
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6/examen_corto-01.html">
+   Examen corto 01
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6/tarea-01.html">
+   Tarea 01
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6/examen_corto-02.html">
+   Examen corto 02
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/gf0657-programacionsig/2022-ii/master?urlpath=tree/docs/contenido/3/pandas.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/gf0657-programacionsig/2022-ii/"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/gf0657-programacionsig/2022-ii//issues/new?title=Issue%20on%20page%20%2Fcontenido/3/pandas.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/contenido/3/pandas.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#descripcion-general">
+   Descripción general
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#carga">
+   Carga
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estructuras-de-datos">
+   Estructuras de datos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#series">
+     Series
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dataframes">
+     DataFrames
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operaciones-basicas">
+   Operaciones básicas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#read-csv-carga-de-datos">
+     read_csv() - carga de datos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#info-informacion-general-sobre-un-conjunto-de-datos">
+     info() - información general sobre un conjunto de datos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#head-tail-sample-despliegue-de-filas-de-un-conjunto-de-datos">
+     head(), tail(), sample() - despliegue de filas de un conjunto de datos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#seleccion-de-columnas">
+     Selección de columnas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#seleccion-de-filas">
+     Selección de filas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operaciones-de-analisis">
+   Operaciones de análisis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#graficacion">
+     Graficación
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#carga-de-bibliotecas">
+       Carga de bibliotecas
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#estilo-de-los-graficos">
+       Estilo de los gráficos
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplos-de-graficos">
+       Ejemplos de gráficos
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#distribucion-de-registros-de-presencia-por-ano">
+         Distribución de registros de presencia por año
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#distribucion-de-registros-de-presencia-por-mes">
+         Distribución de registros de presencia por mes
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#graficacion-en-una-linea-de-tiempo">
+         Graficación en una línea de tiempo
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>pandas: paquete para análisis y manipulación de datos</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#descripcion-general">
+   Descripción general
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#carga">
+   Carga
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estructuras-de-datos">
+   Estructuras de datos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#series">
+     Series
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dataframes">
+     DataFrames
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operaciones-basicas">
+   Operaciones básicas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#read-csv-carga-de-datos">
+     read_csv() - carga de datos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#info-informacion-general-sobre-un-conjunto-de-datos">
+     info() - información general sobre un conjunto de datos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#head-tail-sample-despliegue-de-filas-de-un-conjunto-de-datos">
+     head(), tail(), sample() - despliegue de filas de un conjunto de datos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#seleccion-de-columnas">
+     Selección de columnas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#seleccion-de-filas">
+     Selección de filas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operaciones-de-analisis">
+   Operaciones de análisis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#graficacion">
+     Graficación
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#carga-de-bibliotecas">
+       Carga de bibliotecas
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#estilo-de-los-graficos">
+       Estilo de los gráficos
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplos-de-graficos">
+       Ejemplos de gráficos
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#distribucion-de-registros-de-presencia-por-ano">
+         Distribución de registros de presencia por año
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#distribucion-de-registros-de-presencia-por-mes">
+         Distribución de registros de presencia por mes
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#graficacion-en-una-linea-de-tiempo">
+         Graficación en una línea de tiempo
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="pandas-paquete-para-analisis-y-manipulacion-de-datos">
+<h1>pandas: paquete para análisis y manipulación de datos<a class="headerlink" href="#pandas-paquete-para-analisis-y-manipulacion-de-datos" title="Permalink to this headline">#</a></h1>
+<section id="descripcion-general">
+<h2>Descripción general<a class="headerlink" href="#descripcion-general" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://pandas.pydata.org/">pandas</a> es una biblioteca de Python para análisis y manipulación de datos. Proporciona estructuras de datos y operaciones para manejar tablas numéricas y series temporales. Fue creada por Wes McKinney in 2008. El nombre “pandas” hace referencia tanto a “<em>Panel Data</em>” como a “<em>Python Data Analysis</em>”.</p>
+<p>Como su estructura principal, pandas implementa el <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, el cual es un arreglo rectangular de datos, organizado en filas y columnas.</p>
+</section>
+<section id="carga">
+<h2>Carga<a class="headerlink" href="#carga" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Se acostumbra cargar pandas con el alias pd</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="estructuras-de-datos">
+<h2>Estructuras de datos<a class="headerlink" href="#estructuras-de-datos" title="Permalink to this headline">#</a></h2>
+<p>Las dos principales estructuras de datos de pandas son <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">DataFrames</span></code>.</p>
+<section id="series">
+<h3>Series<a class="headerlink" href="#series" title="Permalink to this headline">#</a></h3>
+<p>Las <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html?highlight=series#pandas.Series">Series</a> son arreglos unidimensionales que contienen datos de cualquier tipo. Se asemejan a una columna de una tabla.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definición de una serie</span>
+
+<span class="n">primos</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
+<span class="n">serie_primos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">primos</span><span class="p">)</span>
+
+<span class="n">serie_primos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     2
+1     3
+2     5
+3     7
+4    11
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cada elemento de una serie tiene un índice (i.e. posición), comenzando con 0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Primer elemento</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Primer elemento:&quot;</span><span class="p">,</span> <span class="n">serie_primos</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Segundo elemento</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Segundo elemento:&quot;</span><span class="p">,</span> <span class="n">serie_primos</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Primer elemento: 2
+Segundo elemento: 3
+</pre></div>
+</div>
+</div>
+</div>
+<p>Los índices también pueden tener etiquetas personalizadas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Índice de una serie con etiquetas personalizadas</span>
+
+<span class="n">serie_primos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">primos</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">])</span>
+
+<span class="n">serie_primos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A     2
+B     3
+C     5
+D     7
+E    11
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Elemento en el índice &quot;D&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">serie_primos</span><span class="p">[</span><span class="s2">&quot;D&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="dataframes">
+<h3>DataFrames<a class="headerlink" href="#dataframes" title="Permalink to this headline">#</a></h3>
+<p>Los <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame">DataFrames</a> son estructuras multidimensionales. Una serie puede verse como una columna de una tabla y un dataframe como una tabla completa. Un dataframe puede construirse a partir de varias series.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dataframe construído a partir de dos series</span>
+
+<span class="n">datos</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;pais&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;PA&quot;</span><span class="p">,</span> <span class="s2">&quot;CR&quot;</span><span class="p">,</span> <span class="s2">&quot;NI&quot;</span><span class="p">],</span>
+  <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">4.1</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.6</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">paises</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+
+<span class="n">paises</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pais</th>
+      <th>poblacion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>PA</td>
+      <td>4.1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>CR</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NI</td>
+      <td>6.6</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>El operador <strong>loc</strong> permite retornar una o más filas de un dataframe, de acuerdo con un índice o con un vector de índices.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Segundo elemento</span>
+<span class="n">paises</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pais          CR
+poblacion    5.0
+Name: 1, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Segundo y tercer elemento</span>
+<span class="n">paises</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pais</th>
+      <th>poblacion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>CR</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NI</td>
+      <td>6.6</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Los índices de los dataframes también pueden etiquetarse:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">paises</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;pais0&quot;</span><span class="p">,</span> <span class="s2">&quot;pais1&quot;</span><span class="p">,</span> <span class="s2">&quot;pais2&quot;</span><span class="p">])</span>
+<span class="n">paises</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pais</th>
+      <th>poblacion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>pais0</th>
+      <td>PA</td>
+      <td>4.1</td>
+    </tr>
+    <tr>
+      <th>pais1</th>
+      <td>CR</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>pais2</th>
+      <td>NI</td>
+      <td>6.6</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Elemento en &quot;pais0&quot;</span>
+<span class="n">paises</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;pais0&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pais          PA
+poblacion    4.1
+Name: pais0, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="operaciones-basicas">
+<h2>Operaciones básicas<a class="headerlink" href="#operaciones-basicas" title="Permalink to this headline">#</a></h2>
+<p>Seguidamente, se describen y ejemplifican algunas de las funciones básicas de pandas.</p>
+<p>En los siguientes ejemplos, se utilizará un conjunto de registros de presencia de felinos (familia <em>Felidae</em>) de Costa Rica, obtenido a través de una <a class="reference external" href="https://www.gbif.org/occurrence/download/0016217-210914110416597">consulta al portal de GBIF</a>.</p>
+<section id="read-csv-carga-de-datos">
+<h3>read_csv() - carga de datos<a class="headerlink" href="#read-csv-carga-de-datos" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">felinos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/gf0657-programacionsig/2022-ii/main/contenido/3/datos/gbif/felinos.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="info-informacion-general-sobre-un-conjunto-de-datos">
+<h3>info() - información general sobre un conjunto de datos<a class="headerlink" href="#info-informacion-general-sobre-un-conjunto-de-datos" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">felinos</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 150 entries, 0 to 149
+Data columns (total 50 columns):
+ #   Column                            Non-Null Count  Dtype  
+---  ------                            --------------  -----  
+ 0   gbifID                            150 non-null    int64  
+ 1   datasetKey                        150 non-null    object 
+ 2   occurrenceID                      147 non-null    object 
+ 3   kingdom                           150 non-null    object 
+ 4   phylum                            150 non-null    object 
+ 5   class                             150 non-null    object 
+ 6   order                             150 non-null    object 
+ 7   family                            150 non-null    object 
+ 8   genus                             150 non-null    object 
+ 9   species                           150 non-null    object 
+ 10  infraspecificEpithet              18 non-null     object 
+ 11  taxonRank                         150 non-null    object 
+ 12  scientificName                    150 non-null    object 
+ 13  verbatimScientificName            150 non-null    object 
+ 14  verbatimScientificNameAuthorship  16 non-null     object 
+ 15  countryCode                       150 non-null    object 
+ 16  locality                          41 non-null     object 
+ 17  stateProvince                     132 non-null    object 
+ 18  occurrenceStatus                  150 non-null    object 
+ 19  individualCount                   27 non-null     float64
+ 20  publishingOrgKey                  150 non-null    object 
+ 21  decimalLatitude                   150 non-null    float64
+ 22  decimalLongitude                  150 non-null    float64
+ 23  coordinateUncertaintyInMeters     129 non-null    float64
+ 24  coordinatePrecision               0 non-null      float64
+ 25  elevation                         3 non-null      float64
+ 26  elevationAccuracy                 3 non-null      float64
+ 27  depth                             3 non-null      float64
+ 28  depthAccuracy                     3 non-null      float64
+ 29  eventDate                         148 non-null    object 
+ 30  day                               147 non-null    float64
+ 31  month                             148 non-null    float64
+ 32  year                              148 non-null    float64
+ 33  taxonKey                          150 non-null    int64  
+ 34  speciesKey                        150 non-null    int64  
+ 35  basisOfRecord                     150 non-null    object 
+ 36  institutionCode                   137 non-null    object 
+ 37  collectionCode                    150 non-null    object 
+ 38  catalogNumber                     150 non-null    object 
+ 39  recordNumber                      4 non-null      object 
+ 40  identifiedBy                      121 non-null    object 
+ 41  dateIdentified                    109 non-null    object 
+ 42  license                           150 non-null    object 
+ 43  rightsHolder                      132 non-null    object 
+ 44  recordedBy                        135 non-null    object 
+ 45  typeStatus                        0 non-null      float64
+ 46  establishmentMeans                10 non-null     object 
+ 47  lastInterpreted                   150 non-null    object 
+ 48  mediaType                         102 non-null    object 
+ 49  issue                             137 non-null    object 
+dtypes: float64(13), int64(3), object(34)
+memory usage: 58.7+ KB
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="head-tail-sample-despliegue-de-filas-de-un-conjunto-de-datos">
+<h3>head(), tail(), sample() - despliegue de filas de un conjunto de datos<a class="headerlink" href="#head-tail-sample-despliegue-de-filas-de-un-conjunto-de-datos" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Primeros 10 registros</span>
+<span class="n">felinos</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gbifID</th>
+      <th>datasetKey</th>
+      <th>occurrenceID</th>
+      <th>kingdom</th>
+      <th>phylum</th>
+      <th>class</th>
+      <th>order</th>
+      <th>family</th>
+      <th>genus</th>
+      <th>species</th>
+      <th>...</th>
+      <th>identifiedBy</th>
+      <th>dateIdentified</th>
+      <th>license</th>
+      <th>rightsHolder</th>
+      <th>recordedBy</th>
+      <th>typeStatus</th>
+      <th>establishmentMeans</th>
+      <th>lastInterpreted</th>
+      <th>mediaType</th>
+      <th>issue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3337559907</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/90794984</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Puma</td>
+      <td>Puma concolor</td>
+      <td>...</td>
+      <td>Marvin López M.</td>
+      <td>2021-08-11T17:02:57</td>
+      <td>CC_BY_NC_4_0</td>
+      <td>Marvin López M.</td>
+      <td>Marvin López M.</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T21:26:16.096Z</td>
+      <td>StillImage</td>
+      <td>COORDINATE_ROUNDED</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3333401669</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/88270427</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Puma</td>
+      <td>Puma concolor</td>
+      <td>...</td>
+      <td>Tiziano Luka Pesci Rubilar</td>
+      <td>2021-07-23T17:52:04</td>
+      <td>CC_BY_NC_4_0</td>
+      <td>Rebeca Quirós</td>
+      <td>Rebeca Quirós</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T21:15:51.507Z</td>
+      <td>NaN</td>
+      <td>COORDINATE_ROUNDED</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3325502794</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/85490861</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Leopardus</td>
+      <td>Leopardus pardalis</td>
+      <td>...</td>
+      <td>Sofía Pastor Parajeles</td>
+      <td>2021-07-03T16:59:46</td>
+      <td>CC_BY_NC_4_0</td>
+      <td>Sofía Pastor Parajeles</td>
+      <td>Sofía Pastor Parajeles</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T20:59:21.345Z</td>
+      <td>StillImage</td>
+      <td>COORDINATE_ROUNDED</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3314547422</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/84224884</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Leopardus</td>
+      <td>Leopardus pardalis</td>
+      <td>...</td>
+      <td>Sofía Pastor Parajeles</td>
+      <td>2021-06-23T20:39:47</td>
+      <td>CC_BY_NC_4_0</td>
+      <td>Sofía Pastor Parajeles</td>
+      <td>Sofía Pastor Parajeles</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T21:25:26.648Z</td>
+      <td>StillImage</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3307298689</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/82810053</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Leopardus</td>
+      <td>Leopardus wiedii</td>
+      <td>...</td>
+      <td>David</td>
+      <td>2021-06-13T09:10:50</td>
+      <td>CC_BY_NC_4_0</td>
+      <td>David</td>
+      <td>David</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T21:25:57.478Z</td>
+      <td>StillImage</td>
+      <td>COORDINATE_ROUNDED</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 50 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Últimos 15 registros</span>
+<span class="n">felinos</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gbifID</th>
+      <th>datasetKey</th>
+      <th>occurrenceID</th>
+      <th>kingdom</th>
+      <th>phylum</th>
+      <th>class</th>
+      <th>order</th>
+      <th>family</th>
+      <th>genus</th>
+      <th>species</th>
+      <th>...</th>
+      <th>identifiedBy</th>
+      <th>dateIdentified</th>
+      <th>license</th>
+      <th>rightsHolder</th>
+      <th>recordedBy</th>
+      <th>typeStatus</th>
+      <th>establishmentMeans</th>
+      <th>lastInterpreted</th>
+      <th>mediaType</th>
+      <th>issue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>145</th>
+      <td>439779436</td>
+      <td>7e2989f0-f762-11e1-a439-00145eb45e9a</td>
+      <td>NaN</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Puma</td>
+      <td>Puma concolor</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>CC_BY_4_0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-24T03:32:37.674Z</td>
+      <td>StillImage</td>
+      <td>GEODETIC_DATUM_ASSUMED_WGS84;RECORDED_DATE_INV...</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>45869665</td>
+      <td>847e2306-f762-11e1-a439-00145eb45e9a</td>
+      <td>urn:catalog:LSUMZ:Mammals:13378</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Leopardus</td>
+      <td>Leopardus tigrinus</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>CC0_1_0</td>
+      <td>NaN</td>
+      <td>Gardner, Alfred L.</td>
+      <td>NaN</td>
+      <td>NATIVE</td>
+      <td>2021-09-24T06:03:59.587Z</td>
+      <td>NaN</td>
+      <td>INSTITUTION_COLLECTION_MISMATCH</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>45869664</td>
+      <td>847e2306-f762-11e1-a439-00145eb45e9a</td>
+      <td>urn:catalog:LSUMZ:Mammals:13377</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Leopardus</td>
+      <td>Leopardus tigrinus</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>CC0_1_0</td>
+      <td>NaN</td>
+      <td>Gardner, Alfred L.</td>
+      <td>NaN</td>
+      <td>NATIVE</td>
+      <td>2021-09-24T06:03:59.587Z</td>
+      <td>NaN</td>
+      <td>INSTITUTION_COLLECTION_MISMATCH</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>45869301</td>
+      <td>847e2306-f762-11e1-a439-00145eb45e9a</td>
+      <td>urn:catalog:LSUMZ:Mammals:10219</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Leopardus</td>
+      <td>Leopardus pardalis</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>CC0_1_0</td>
+      <td>NaN</td>
+      <td>Arnold, Keith A.</td>
+      <td>NaN</td>
+      <td>NATIVE</td>
+      <td>2021-09-24T06:03:59.952Z</td>
+      <td>NaN</td>
+      <td>INSTITUTION_COLLECTION_MISMATCH</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>45869265</td>
+      <td>847e2306-f762-11e1-a439-00145eb45e9a</td>
+      <td>urn:catalog:LSUMZ:Mammals:9289</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Leopardus</td>
+      <td>Leopardus pardalis</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>CC0_1_0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NATIVE</td>
+      <td>2021-09-24T06:03:59.933Z</td>
+      <td>NaN</td>
+      <td>INSTITUTION_COLLECTION_MISMATCH</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 50 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5 registros seleccionados aleatoriamente</span>
+<span class="n">felinos</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gbifID</th>
+      <th>datasetKey</th>
+      <th>occurrenceID</th>
+      <th>kingdom</th>
+      <th>phylum</th>
+      <th>class</th>
+      <th>order</th>
+      <th>family</th>
+      <th>genus</th>
+      <th>species</th>
+      <th>...</th>
+      <th>identifiedBy</th>
+      <th>dateIdentified</th>
+      <th>license</th>
+      <th>rightsHolder</th>
+      <th>recordedBy</th>
+      <th>typeStatus</th>
+      <th>establishmentMeans</th>
+      <th>lastInterpreted</th>
+      <th>mediaType</th>
+      <th>issue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>143</th>
+      <td>476843829</td>
+      <td>4bfac3ea-8763-4f4b-a71a-76a6f5f243d3</td>
+      <td>MCZ:Mamm:BOM-5358</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Leopardus</td>
+      <td>Leopardus wiedii</td>
+      <td>...</td>
+      <td>[no agent data]</td>
+      <td>NaN</td>
+      <td>CC_BY_NC_4_0</td>
+      <td>President and Fellows of Harvard College</td>
+      <td>William More Gabb</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-10-01T01:54:06.578Z</td>
+      <td>NaN</td>
+      <td>OCCURRENCE_STATUS_INFERRED_FROM_INDIVIDUAL_COU...</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>2850704382</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/55513804</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Puma</td>
+      <td>Puma concolor</td>
+      <td>...</td>
+      <td>Osa Conservation</td>
+      <td>2020-08-05T17:52:37</td>
+      <td>CC_BY_NC_4_0</td>
+      <td>Osa Conservation</td>
+      <td>Osa Conservation</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T21:02:25.855Z</td>
+      <td>StillImage</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>1978819696</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/18856654</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Leopardus</td>
+      <td>Leopardus pardalis</td>
+      <td>...</td>
+      <td>Jaime Marcelo Aranda Sánchez</td>
+      <td>2018-12-22T23:38:14</td>
+      <td>CC_BY_NC_4_0</td>
+      <td>kibby</td>
+      <td>kibby</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T21:10:31.178Z</td>
+      <td>StillImage</td>
+      <td>COORDINATE_ROUNDED</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>45869301</td>
+      <td>847e2306-f762-11e1-a439-00145eb45e9a</td>
+      <td>urn:catalog:LSUMZ:Mammals:10219</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Leopardus</td>
+      <td>Leopardus pardalis</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>CC0_1_0</td>
+      <td>NaN</td>
+      <td>Arnold, Keith A.</td>
+      <td>NaN</td>
+      <td>NATIVE</td>
+      <td>2021-09-24T06:03:59.952Z</td>
+      <td>NaN</td>
+      <td>INSTITUTION_COLLECTION_MISMATCH</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>2992845866</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/65864190</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Leopardus</td>
+      <td>Leopardus pardalis</td>
+      <td>...</td>
+      <td>caiman90</td>
+      <td>2020-11-30T10:21:25</td>
+      <td>CC_BY_NC_4_0</td>
+      <td>pantheracostarica</td>
+      <td>pantheracostarica</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T21:17:12.206Z</td>
+      <td>StillImage</td>
+      <td>COORDINATE_ROUNDED</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 50 columns</p>
+</div></div></div>
+</div>
+<p>Los contenidos de un data frame también pueden desplegarse al escribir su nombre en la consola de Python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">felinos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gbifID</th>
+      <th>datasetKey</th>
+      <th>occurrenceID</th>
+      <th>kingdom</th>
+      <th>phylum</th>
+      <th>class</th>
+      <th>order</th>
+      <th>family</th>
+      <th>genus</th>
+      <th>species</th>
+      <th>...</th>
+      <th>identifiedBy</th>
+      <th>dateIdentified</th>
+      <th>license</th>
+      <th>rightsHolder</th>
+      <th>recordedBy</th>
+      <th>typeStatus</th>
+      <th>establishmentMeans</th>
+      <th>lastInterpreted</th>
+      <th>mediaType</th>
+      <th>issue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3337559907</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/90794984</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Puma</td>
+      <td>Puma concolor</td>
+      <td>...</td>
+      <td>Marvin López M.</td>
+      <td>2021-08-11T17:02:57</td>
+      <td>CC_BY_NC_4_0</td>
+      <td>Marvin López M.</td>
+      <td>Marvin López M.</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T21:26:16.096Z</td>
+      <td>StillImage</td>
+      <td>COORDINATE_ROUNDED</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3333401669</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/88270427</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Puma</td>
+      <td>Puma concolor</td>
+      <td>...</td>
+      <td>Tiziano Luka Pesci Rubilar</td>
+      <td>2021-07-23T17:52:04</td>
+      <td>CC_BY_NC_4_0</td>
+      <td>Rebeca Quirós</td>
+      <td>Rebeca Quirós</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T21:15:51.507Z</td>
+      <td>NaN</td>
+      <td>COORDINATE_ROUNDED</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3325502794</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/85490861</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Leopardus</td>
+      <td>Leopardus pardalis</td>
+      <td>...</td>
+      <td>Sofía Pastor Parajeles</td>
+      <td>2021-07-03T16:59:46</td>
+      <td>CC_BY_NC_4_0</td>
+      <td>Sofía Pastor Parajeles</td>
+      <td>Sofía Pastor Parajeles</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T20:59:21.345Z</td>
+      <td>StillImage</td>
+      <td>COORDINATE_ROUNDED</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3314547422</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/84224884</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Leopardus</td>
+      <td>Leopardus pardalis</td>
+      <td>...</td>
+      <td>Sofía Pastor Parajeles</td>
+      <td>2021-06-23T20:39:47</td>
+      <td>CC_BY_NC_4_0</td>
+      <td>Sofía Pastor Parajeles</td>
+      <td>Sofía Pastor Parajeles</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T21:25:26.648Z</td>
+      <td>StillImage</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3307298689</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/82810053</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Leopardus</td>
+      <td>Leopardus wiedii</td>
+      <td>...</td>
+      <td>David</td>
+      <td>2021-06-13T09:10:50</td>
+      <td>CC_BY_NC_4_0</td>
+      <td>David</td>
+      <td>David</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T21:25:57.478Z</td>
+      <td>StillImage</td>
+      <td>COORDINATE_ROUNDED</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>439779436</td>
+      <td>7e2989f0-f762-11e1-a439-00145eb45e9a</td>
+      <td>NaN</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Puma</td>
+      <td>Puma concolor</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>CC_BY_4_0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-24T03:32:37.674Z</td>
+      <td>StillImage</td>
+      <td>GEODETIC_DATUM_ASSUMED_WGS84;RECORDED_DATE_INV...</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>45869665</td>
+      <td>847e2306-f762-11e1-a439-00145eb45e9a</td>
+      <td>urn:catalog:LSUMZ:Mammals:13378</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Leopardus</td>
+      <td>Leopardus tigrinus</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>CC0_1_0</td>
+      <td>NaN</td>
+      <td>Gardner, Alfred L.</td>
+      <td>NaN</td>
+      <td>NATIVE</td>
+      <td>2021-09-24T06:03:59.587Z</td>
+      <td>NaN</td>
+      <td>INSTITUTION_COLLECTION_MISMATCH</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>45869664</td>
+      <td>847e2306-f762-11e1-a439-00145eb45e9a</td>
+      <td>urn:catalog:LSUMZ:Mammals:13377</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Leopardus</td>
+      <td>Leopardus tigrinus</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>CC0_1_0</td>
+      <td>NaN</td>
+      <td>Gardner, Alfred L.</td>
+      <td>NaN</td>
+      <td>NATIVE</td>
+      <td>2021-09-24T06:03:59.587Z</td>
+      <td>NaN</td>
+      <td>INSTITUTION_COLLECTION_MISMATCH</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>45869301</td>
+      <td>847e2306-f762-11e1-a439-00145eb45e9a</td>
+      <td>urn:catalog:LSUMZ:Mammals:10219</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Leopardus</td>
+      <td>Leopardus pardalis</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>CC0_1_0</td>
+      <td>NaN</td>
+      <td>Arnold, Keith A.</td>
+      <td>NaN</td>
+      <td>NATIVE</td>
+      <td>2021-09-24T06:03:59.952Z</td>
+      <td>NaN</td>
+      <td>INSTITUTION_COLLECTION_MISMATCH</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>45869265</td>
+      <td>847e2306-f762-11e1-a439-00145eb45e9a</td>
+      <td>urn:catalog:LSUMZ:Mammals:9289</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Leopardus</td>
+      <td>Leopardus pardalis</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>CC0_1_0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NATIVE</td>
+      <td>2021-09-24T06:03:59.933Z</td>
+      <td>NaN</td>
+      <td>INSTITUTION_COLLECTION_MISMATCH</td>
+    </tr>
+  </tbody>
+</table>
+<p>150 rows × 50 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="seleccion-de-columnas">
+<h3>Selección de columnas<a class="headerlink" href="#seleccion-de-columnas" title="Permalink to this headline">#</a></h3>
+<p>Las columnas que se despliegan en un data frame pueden especificarse mediante una lista.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Despliegue de las columnas con el nombre científico, la especie, la fecha, el año, el mes y el día</span>
+
+<span class="n">felinos</span><span class="p">[[</span><span class="s2">&quot;scientificName&quot;</span><span class="p">,</span> <span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="s2">&quot;eventDate&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="s2">&quot;day&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>scientificName</th>
+      <th>species</th>
+      <th>eventDate</th>
+      <th>year</th>
+      <th>month</th>
+      <th>day</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Puma concolor (Linnaeus, 1771)</td>
+      <td>Puma concolor</td>
+      <td>2021-08-11T10:22:36</td>
+      <td>2021.0</td>
+      <td>8.0</td>
+      <td>11.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Puma concolor (Linnaeus, 1771)</td>
+      <td>Puma concolor</td>
+      <td>2021-07-15T16:22:29</td>
+      <td>2021.0</td>
+      <td>7.0</td>
+      <td>15.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Leopardus pardalis (Linnaeus, 1758)</td>
+      <td>Leopardus pardalis</td>
+      <td>2021-07-01T19:28:25</td>
+      <td>2021.0</td>
+      <td>7.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Leopardus pardalis (Linnaeus, 1758)</td>
+      <td>Leopardus pardalis</td>
+      <td>2021-06-23T10:55:00</td>
+      <td>2021.0</td>
+      <td>6.0</td>
+      <td>23.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Leopardus wiedii (Schinz, 1821)</td>
+      <td>Leopardus wiedii</td>
+      <td>2015-12-05T14:41:42</td>
+      <td>2015.0</td>
+      <td>12.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>Puma concolor (Linnaeus, 1771)</td>
+      <td>Puma concolor</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>Leopardus tigrinus (Schreber, 1775)</td>
+      <td>Leopardus tigrinus</td>
+      <td>1967-05-15T00:00:00</td>
+      <td>1967.0</td>
+      <td>5.0</td>
+      <td>15.0</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>Leopardus tigrinus (Schreber, 1775)</td>
+      <td>Leopardus tigrinus</td>
+      <td>1967-02-01T00:00:00</td>
+      <td>1967.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>Leopardus pardalis (Linnaeus, 1758)</td>
+      <td>Leopardus pardalis</td>
+      <td>1965-06-28T00:00:00</td>
+      <td>1965.0</td>
+      <td>6.0</td>
+      <td>28.0</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>Leopardus pardalis (Linnaeus, 1758)</td>
+      <td>Leopardus pardalis</td>
+      <td>1963-02-03T00:00:00</td>
+      <td>1963.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>150 rows × 6 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="seleccion-de-filas">
+<h3>Selección de filas<a class="headerlink" href="#seleccion-de-filas" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Selección de filas correspondientes a jaguares (*Panthera onca*)</span>
+<span class="n">jaguares</span> <span class="o">=</span> <span class="n">felinos</span><span class="p">[</span><span class="n">felinos</span><span class="p">[</span><span class="s2">&quot;species&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Panthera onca&quot;</span><span class="p">]</span>
+
+<span class="c1"># Despliegue de los primeros registros</span>
+<span class="n">jaguares</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gbifID</th>
+      <th>datasetKey</th>
+      <th>occurrenceID</th>
+      <th>kingdom</th>
+      <th>phylum</th>
+      <th>class</th>
+      <th>order</th>
+      <th>family</th>
+      <th>genus</th>
+      <th>species</th>
+      <th>...</th>
+      <th>identifiedBy</th>
+      <th>dateIdentified</th>
+      <th>license</th>
+      <th>rightsHolder</th>
+      <th>recordedBy</th>
+      <th>typeStatus</th>
+      <th>establishmentMeans</th>
+      <th>lastInterpreted</th>
+      <th>mediaType</th>
+      <th>issue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>21</th>
+      <td>3008449314</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/15270189</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Panthera</td>
+      <td>Panthera onca</td>
+      <td>...</td>
+      <td>mike_cove</td>
+      <td>2018-08-09T20:10:35</td>
+      <td>CC0_1_0</td>
+      <td>mike_cove</td>
+      <td>mike_cove</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T20:57:45.632Z</td>
+      <td>NaN</td>
+      <td>COORDINATE_ROUNDED</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>2860189171</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/58257138</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Panthera</td>
+      <td>Panthera onca</td>
+      <td>...</td>
+      <td>Kate Rothra Fleming</td>
+      <td>2020-09-01T16:56:35</td>
+      <td>CC_BY_NC_4_0</td>
+      <td>Kate Rothra Fleming</td>
+      <td>Kate Rothra Fleming</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T21:14:12.219Z</td>
+      <td>StillImage</td>
+      <td>COORDINATE_ROUNDED</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>2850700339</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/55493722</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Panthera</td>
+      <td>Panthera onca</td>
+      <td>...</td>
+      <td>Osa Conservation</td>
+      <td>2020-08-05T14:47:40</td>
+      <td>CC_BY_NC_4_0</td>
+      <td>Osa Conservation</td>
+      <td>Osa Conservation</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T21:08:25.102Z</td>
+      <td>StillImage</td>
+      <td>COORDINATE_ROUNDED</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>2802770349</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/15255648</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Panthera</td>
+      <td>Panthera onca</td>
+      <td>...</td>
+      <td>James Telford</td>
+      <td>2018-08-09T07:22:08</td>
+      <td>CC_BY_4_0</td>
+      <td>James Telford</td>
+      <td>James Telford</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T20:58:14.603Z</td>
+      <td>NaN</td>
+      <td>COORDINATE_ROUNDED</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>2629043484</td>
+      <td>09d2da7b-4699-4e45-b0da-73c982660c98</td>
+      <td>urn:catalog:KU:KUM:145971:08353198cc55c65471bf...</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Panthera</td>
+      <td>Panthera onca</td>
+      <td>...</td>
+      <td>Consuelo Lorenzo &amp; Jorge Bolaños</td>
+      <td>NaN</td>
+      <td>CC_BY_4_0</td>
+      <td>Comisión Nacional para el Conocimiento y Uso d...</td>
+      <td>NO DISPONIBLE</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T18:42:40.301Z</td>
+      <td>NaN</td>
+      <td>TYPE_STATUS_INVALID;OCCURRENCE_STATUS_INFERRED...</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 50 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Selección de filas correspondientes a jaguares (*Panthera onca*) o pumas (*Puma concolor*)</span>
+<span class="n">jaguares_pumas</span> <span class="o">=</span> <span class="n">felinos</span><span class="p">[(</span><span class="n">felinos</span><span class="p">[</span><span class="s2">&quot;species&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Panthera onca&quot;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">felinos</span><span class="p">[</span><span class="s2">&quot;species&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Puma concolor&quot;</span><span class="p">)]</span>
+
+<span class="c1"># Despliegue de los primeros registros</span>
+<span class="n">jaguares_pumas</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gbifID</th>
+      <th>datasetKey</th>
+      <th>occurrenceID</th>
+      <th>kingdom</th>
+      <th>phylum</th>
+      <th>class</th>
+      <th>order</th>
+      <th>family</th>
+      <th>genus</th>
+      <th>species</th>
+      <th>...</th>
+      <th>identifiedBy</th>
+      <th>dateIdentified</th>
+      <th>license</th>
+      <th>rightsHolder</th>
+      <th>recordedBy</th>
+      <th>typeStatus</th>
+      <th>establishmentMeans</th>
+      <th>lastInterpreted</th>
+      <th>mediaType</th>
+      <th>issue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3337559907</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/90794984</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Puma</td>
+      <td>Puma concolor</td>
+      <td>...</td>
+      <td>Marvin López M.</td>
+      <td>2021-08-11T17:02:57</td>
+      <td>CC_BY_NC_4_0</td>
+      <td>Marvin López M.</td>
+      <td>Marvin López M.</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T21:26:16.096Z</td>
+      <td>StillImage</td>
+      <td>COORDINATE_ROUNDED</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3333401669</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/88270427</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Puma</td>
+      <td>Puma concolor</td>
+      <td>...</td>
+      <td>Tiziano Luka Pesci Rubilar</td>
+      <td>2021-07-23T17:52:04</td>
+      <td>CC_BY_NC_4_0</td>
+      <td>Rebeca Quirós</td>
+      <td>Rebeca Quirós</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T21:15:51.507Z</td>
+      <td>NaN</td>
+      <td>COORDINATE_ROUNDED</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>3302057398</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/81502744</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Puma</td>
+      <td>Puma concolor</td>
+      <td>...</td>
+      <td>Michelle Monge-Velazquez</td>
+      <td>2021-06-04T00:10:47</td>
+      <td>CC_BY_NC_4_0</td>
+      <td>Michelle Monge-Velazquez</td>
+      <td>Michelle Monge-Velazquez</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T21:15:55.933Z</td>
+      <td>StillImage</td>
+      <td>COORDINATE_ROUNDED</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>3097275563</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/73407648</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Puma</td>
+      <td>Puma concolor</td>
+      <td>...</td>
+      <td>Jaime Marcelo Aranda Sánchez</td>
+      <td>2021-04-09T22:42:23</td>
+      <td>CC_BY_NC_4_0</td>
+      <td>nubegris</td>
+      <td>nubegris</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T21:15:03.814Z</td>
+      <td>StillImage</td>
+      <td>COORDINATE_ROUNDED</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>3079910798</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/73053113</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Puma</td>
+      <td>Puma concolor</td>
+      <td>...</td>
+      <td>gernotkunz</td>
+      <td>2021-04-05T21:48:18</td>
+      <td>CC_BY_NC_4_0</td>
+      <td>gernotkunz</td>
+      <td>gernotkunz</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T21:24:37.211Z</td>
+      <td>NaN</td>
+      <td>COORDINATE_ROUNDED</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>3079872785</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/73053107</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Puma</td>
+      <td>Puma concolor</td>
+      <td>...</td>
+      <td>gernotkunz</td>
+      <td>2021-04-05T21:48:17</td>
+      <td>CC_BY_NC_4_0</td>
+      <td>gernotkunz</td>
+      <td>gernotkunz</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T21:23:35.478Z</td>
+      <td>NaN</td>
+      <td>COORDINATE_ROUNDED</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>3067612232</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/66718421</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Puma</td>
+      <td>Puma concolor</td>
+      <td>...</td>
+      <td>Jeff Mollenhauer</td>
+      <td>2020-12-18T01:09:50</td>
+      <td>CC_BY_NC_4_0</td>
+      <td>Jeff Mollenhauer</td>
+      <td>Jeff Mollenhauer</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T21:09:44.468Z</td>
+      <td>StillImage</td>
+      <td>COORDINATE_ROUNDED</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>3031700803</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/68067200</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Puma</td>
+      <td>Puma concolor</td>
+      <td>...</td>
+      <td>Marian Paniagua</td>
+      <td>2021-01-14T20:04:58</td>
+      <td>CC_BY_NC_4_0</td>
+      <td>Marian Paniagua</td>
+      <td>Marian Paniagua</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T21:14:47.597Z</td>
+      <td>StillImage</td>
+      <td>COORDINATE_ROUNDED</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>3008566753</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/66811638</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Puma</td>
+      <td>Puma concolor</td>
+      <td>...</td>
+      <td>jayras</td>
+      <td>2020-12-20T05:44:17</td>
+      <td>CC_BY_NC_4_0</td>
+      <td>Pacho Gutierrez</td>
+      <td>Pacho Gutierrez</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T21:14:42.430Z</td>
+      <td>StillImage</td>
+      <td>COORDINATE_ROUNDED</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>3008449314</td>
+      <td>50c9509d-22c7-4a22-a47d-8c48425ef4a7</td>
+      <td>https://www.inaturalist.org/observations/15270189</td>
+      <td>Animalia</td>
+      <td>Chordata</td>
+      <td>Mammalia</td>
+      <td>Carnivora</td>
+      <td>Felidae</td>
+      <td>Panthera</td>
+      <td>Panthera onca</td>
+      <td>...</td>
+      <td>mike_cove</td>
+      <td>2018-08-09T20:10:35</td>
+      <td>CC0_1_0</td>
+      <td>mike_cove</td>
+      <td>mike_cove</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021-09-23T20:57:45.632Z</td>
+      <td>NaN</td>
+      <td>COORDINATE_ROUNDED</td>
+    </tr>
+  </tbody>
+</table>
+<p>10 rows × 50 columns</p>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="operaciones-de-analisis">
+<h2>Operaciones de análisis<a class="headerlink" href="#operaciones-de-analisis" title="Permalink to this headline">#</a></h2>
+<section id="graficacion">
+<h3>Graficación<a class="headerlink" href="#graficacion" title="Permalink to this headline">#</a></h3>
+<section id="carga-de-bibliotecas">
+<h4>Carga de bibliotecas<a class="headerlink" href="#carga-de-bibliotecas" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># biblioteca de graficación</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span> <span class="nn">calendar</span> <span class="c1"># biblioteca para manejo de fechas</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="estilo-de-los-graficos">
+<h4>Estilo de los gráficos<a class="headerlink" href="#estilo-de-los-graficos" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Estilo de los gráficos</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejemplos-de-graficos">
+<h4>Ejemplos de gráficos<a class="headerlink" href="#ejemplos-de-graficos" title="Permalink to this headline">#</a></h4>
+<section id="distribucion-de-registros-de-presencia-por-ano">
+<h5>Distribución de registros de presencia por año<a class="headerlink" href="#distribucion-de-registros-de-presencia-por-ano" title="Permalink to this headline">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cambio del tipo de datos del campo de fecha</span>
+<span class="n">felinos</span><span class="p">[</span><span class="s2">&quot;eventDate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">felinos</span><span class="p">[</span><span class="s2">&quot;eventDate&quot;</span><span class="p">])</span>
+
+<span class="c1"># Agrupación de los registros por año</span>
+<span class="n">felinos_registros_x_anio</span> <span class="o">=</span> <span class="n">felinos</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">felinos</span><span class="p">[</span><span class="s1">&#39;eventDate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">eventDate</span>
+
+<span class="n">felinos_registros_x_anio</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eventDate
+1839.0     6
+1928.0     2
+1931.0     1
+1932.0     2
+1933.0     1
+1939.0     1
+1954.0     2
+1958.0     1
+1963.0     2
+1964.0     1
+1965.0     2
+1967.0     2
+1970.0     1
+1993.0     2
+2002.0     1
+2005.0     1
+2007.0     1
+2008.0     1
+2009.0     6
+2010.0     3
+2011.0     2
+2012.0     6
+2013.0     6
+2014.0     3
+2015.0    10
+2016.0     8
+2017.0    15
+2018.0     4
+2019.0    20
+2020.0    23
+2021.0    12
+Name: eventDate, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tipo de datos retornado</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">felinos_registros_x_anio</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Conversión de series a dataframe</span>
+<span class="n">felinos_registros_x_anio_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;anio&#39;</span><span class="p">:</span><span class="n">felinos_registros_x_anio</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="s1">&#39;registros&#39;</span><span class="p">:</span><span class="n">felinos_registros_x_anio</span><span class="o">.</span><span class="n">values</span><span class="p">})</span> 
+
+<span class="c1"># Conversión del tipo de la columna de año</span>
+<span class="n">felinos_registros_x_anio_df</span><span class="p">[</span><span class="s2">&quot;anio&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">felinos_registros_x_anio_df</span><span class="p">[</span><span class="s2">&quot;anio&quot;</span><span class="p">],</span> <span class="n">downcast</span><span class="o">=</span><span class="s1">&#39;integer&#39;</span><span class="p">)</span>
+<span class="n">felinos_registros_x_anio_df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_precision</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">felinos_registros_x_anio_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_556380/3786505339.py:6: FutureWarning: this method is deprecated in favour of `Styler.format(precision=..)`
+  felinos_registros_x_anio_df.style.set_precision(2)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>anio</th>
+      <th>registros</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1839</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1928</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1931</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1932</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1933</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1939</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1954</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1958</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1963</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1964</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>1965</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>1967</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>1970</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>1993</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>2002</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>2005</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>2007</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>2008</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>2009</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>2010</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>2011</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>2012</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>2013</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>2014</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>2015</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>2016</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>2017</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>2018</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>2019</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>2020</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>2021</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Graficación</span>
+<span class="n">felinos_registros_x_anio_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;anio&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;registros&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">7</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+
+<span class="c1"># Título y leyendas en los ejes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Registros de presencia de Felidae (felinos) en Costa Rica por año&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Año&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Cantidad de registros&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Cantidad de registros&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/pandas_50_1.png" src="../../_images/pandas_50_1.png" />
+</div>
+</div>
+</section>
+<section id="distribucion-de-registros-de-presencia-por-mes">
+<h5>Distribución de registros de presencia por mes<a class="headerlink" href="#distribucion-de-registros-de-presencia-por-mes" title="Permalink to this headline">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Agrupación de los registros por mes</span>
+<span class="n">felinos_registros_x_mes</span> <span class="o">=</span> <span class="n">felinos</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">felinos</span><span class="p">[</span><span class="s1">&#39;eventDate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">eventDate</span>
+
+<span class="n">felinos_registros_x_mes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eventDate
+1.0     28
+2.0     15
+3.0     21
+4.0      8
+5.0      9
+6.0     15
+7.0     13
+8.0      9
+9.0      5
+10.0     8
+11.0     2
+12.0    15
+Name: eventDate, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reemplazo del número del mes por el nombre del mes</span>
+<span class="n">felinos_registros_x_mes</span><span class="o">.</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="n">calendar</span><span class="o">.</span><span class="n">month_name</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">)]</span>
+
+<span class="n">felinos_registros_x_mes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>January      28
+February     15
+March        21
+April         8
+May           9
+June         15
+July         13
+August        9
+September     5
+October       8
+November      2
+December     15
+Name: eventDate, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gráfico de barras</span>
+<span class="n">felinos_registros_x_mes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">7</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Título y leyendas en los ejes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Registros de presencia de Felidae (felinos) en Costa Rica por mes&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Mes&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Cantidad de registros&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/pandas_54_0.png" src="../../_images/pandas_54_0.png" />
+</div>
+</div>
+</section>
+<section id="graficacion-en-una-linea-de-tiempo">
+<h5>Graficación en una línea de tiempo<a class="headerlink" href="#graficacion-en-una-linea-de-tiempo" title="Permalink to this headline">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Agrupación de los registros por fecha</span>
+<span class="n">registros_x_fecha</span> <span class="o">=</span> <span class="n">felinos</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">felinos</span><span class="p">[</span><span class="s1">&#39;eventDate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">eventDate</span>
+
+<span class="n">registros_x_fecha</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eventDate
+1839-01-01    6
+1928-01-01    2
+1931-05-29    1
+1932-01-01    1
+1932-06-01    1
+             ..
+2021-06-03    1
+2021-06-23    1
+2021-07-01    1
+2021-07-15    1
+2021-08-11    1
+Name: eventDate, Length: 135, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gráfico de líneas</span>
+<span class="n">registros_x_fecha</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+
+<span class="c1"># Título y leyendas en los ejes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Registros de presencia de Felidae (felinos) en Costa Rica por fecha&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Fecha&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Cantidad de registros&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f712f526d40&gt;
+</pre></div>
+</div>
+<img alt="../../_images/pandas_57_1.png" src="../../_images/pandas_57_1.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contenido/3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="introduccion-analisis-datos-python.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introducción al análisis de datos con Python</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../6/examen_corto-01.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Examen corto 01</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Manuel Vargas<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

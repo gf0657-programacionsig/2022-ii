@@ -17,6 +17,7 @@ parts:
   - caption: 3 - ANÁLISIS DE DATOS
     chapters:  
     - file: contenido/3/introduccion-analisis-datos-python     
+    - file: contenido/3/pandas    
   - caption: EVALUACIONES
     chapters:  
     - file: contenido/6/examen_corto-01
