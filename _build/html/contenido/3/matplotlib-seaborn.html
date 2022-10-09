@@ -1,0 +1,1798 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Visualización de datos con matplotlib y seaborn &#8212; GF-0657 Programación en SIG 2022-II</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Examen corto 01" href="../6/examen_corto-01.html" />
+    <link rel="prev" title="pandas: paquete para análisis y manipulación de datos" href="pandas.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">GF-0657 Programación en SIG 2022-II</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    GF-0657 Programación en SIG 2022-II
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  1 - INTRODUCCIÓN
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1/introduccion-ciencia-datos-geoespaciales.html">
+   Introducción a la ciencia de datos geoespaciales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1/markdown.html">
+   Markdown - lenguaje de marcado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1/git.html">
+   Git - sistema de control de versiones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  2 - EL LENGUAJE DE PROGRAMACIÓN PYTHON
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2/pensamiento_computacional-arquitectura_computadoras.html">
+   Pensamiento computacional y arquitectura de computadoras
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2/introduccion-python.html">
+   Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2/sintaxis-python.html">
+   Sintaxis de Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  3 - ANÁLISIS DE DATOS
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduccion-analisis-datos-python.html">
+   Introducción al análisis de datos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   pandas: paquete para análisis y manipulación de datos
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Visualización de datos con matplotlib y seaborn
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  EVALUACIONES
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6/examen_corto-01.html">
+   Examen corto 01
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6/tarea-01.html">
+   Tarea 01
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6/examen_corto-02.html">
+   Examen corto 02
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/gf0657-programacionsig/2022-ii/master?urlpath=tree/docs/contenido/3/matplotlib-seaborn.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/gf0657-programacionsig/2022-ii/"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/gf0657-programacionsig/2022-ii//issues/new?title=Issue%20on%20page%20%2Fcontenido/3/matplotlib-seaborn.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/contenido/3/matplotlib-seaborn.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#descripcion-general">
+   Descripción general
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instalacion">
+   Instalación
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#carga">
+   Carga
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conjuntos-de-datos-para-pruebas">
+   Conjuntos de datos para pruebas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#casos-de-covid-19-en-costa-rica">
+     Casos de COVID-19 en Costa Rica
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#datos-generales">
+       Datos generales
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#carga-de-datos">
+         Carga de datos
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#datos-cantonales">
+       Datos cantonales
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id1">
+         Carga de datos
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#reduccion-de-columnas-y-eliminacion-de-filas-innecesarias">
+         Reducción de columnas y eliminación de filas innecesarias
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pasajeros-del-titanic">
+     Pasajeros del Titanic
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Carga de datos
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizaciones-de-datos">
+   Visualizaciones de datos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#histogramas">
+     Histogramas
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejercicios">
+       Ejercicios
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#graficos-de-caja">
+     Gráficos de caja
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Ejercicios
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#graficos-de-barras">
+     Gráficos de barras
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Ejercicios
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recursos-de-interes">
+   Recursos de interés
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Visualización de datos con matplotlib y seaborn</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#descripcion-general">
+   Descripción general
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instalacion">
+   Instalación
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#carga">
+   Carga
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conjuntos-de-datos-para-pruebas">
+   Conjuntos de datos para pruebas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#casos-de-covid-19-en-costa-rica">
+     Casos de COVID-19 en Costa Rica
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#datos-generales">
+       Datos generales
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#carga-de-datos">
+         Carga de datos
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#datos-cantonales">
+       Datos cantonales
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id1">
+         Carga de datos
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#reduccion-de-columnas-y-eliminacion-de-filas-innecesarias">
+         Reducción de columnas y eliminación de filas innecesarias
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pasajeros-del-titanic">
+     Pasajeros del Titanic
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Carga de datos
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizaciones-de-datos">
+   Visualizaciones de datos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#histogramas">
+     Histogramas
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejercicios">
+       Ejercicios
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#graficos-de-caja">
+     Gráficos de caja
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Ejercicios
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#graficos-de-barras">
+     Gráficos de barras
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Ejercicios
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recursos-de-interes">
+   Recursos de interés
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="visualizacion-de-datos-con-matplotlib-y-seaborn">
+<h1>Visualización de datos con matplotlib y seaborn<a class="headerlink" href="#visualizacion-de-datos-con-matplotlib-y-seaborn" title="Permalink to this headline">#</a></h1>
+<section id="descripcion-general">
+<h2>Descripción general<a class="headerlink" href="#descripcion-general" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://matplotlib.org/">matplotlib</a> es una biblioteca para crear visualizaciones de datos estáticas, animadas e interactivas en Python. Su desarrollo fue liderado por John D. Hunter y Michael Droettboom. Su primera versión se liberó en 2003. Le brinda al programador control sobre todos los detalles de un gráfico estadístico. El módulo <a class="reference external" href="https://matplotlib.org/stable/tutorials/introductory/pyplot.html">pyplot</a>, uno de los más populares de matplotlib, proporciona una interfaz de programación similar a la de <a class="reference external" href="https://es.wikipedia.org/wiki/MATLAB">MATLAB</a>. matplotlib es una de las bibliotecas más populares de graficación de Python y puede trabajar de manera integrada con <a class="reference external" href="https://pandas.pydata.org/">pandas</a> o independientemente.</p>
+<p><a class="reference external" href="https://seaborn.pydata.org/">seaborn</a> es otra biblioteca para visualización de datos. Implementa una interfaz de alto nivel para matplotlib, con el objetivo de hacerla más fácil de utilizar y mejorar el estilo (colores, formas, etc.) de los gráficos estadísticos.</p>
+</section>
+<section id="instalacion">
+<h2>Instalación<a class="headerlink" href="#instalacion" title="Permalink to this headline">#</a></h2>
+<p>Ambas bibliotecas pueden instalarse con <code class="docutils literal notranslate"><span class="pre">pip</span></code>, <code class="docutils literal notranslate"><span class="pre">conda</span></code> o <code class="docutils literal notranslate"><span class="pre">mamba</span></code>, desde la línea de comandos del sistema operativo.</p>
+<p>Instalación de matplotlib:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Con pip:</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">matplotlib</span>
+
+<span class="c1"># Con conda:</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="n">matplotlib</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+
+<span class="c1"># Con mamba:</span>
+<span class="n">mamba</span> <span class="n">install</span> <span class="n">matplotlib</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+</pre></div>
+</div>
+<p>Instalación de seaborn:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Con pip:</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">seaborn</span>
+
+<span class="c1"># Con conda:</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="n">seaborn</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+
+<span class="c1"># Con mamba:</span>
+<span class="n">mamba</span> <span class="n">install</span> <span class="n">seaborn</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+</pre></div>
+</div>
+</section>
+<section id="carga">
+<h2>Carga<a class="headerlink" href="#carga" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Carga de módulos de matplotlib</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Carga de seaborn</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># Carga de pandas</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="conjuntos-de-datos-para-pruebas">
+<h2>Conjuntos de datos para pruebas<a class="headerlink" href="#conjuntos-de-datos-para-pruebas" title="Permalink to this headline">#</a></h2>
+<section id="casos-de-covid-19-en-costa-rica">
+<h3>Casos de COVID-19 en Costa Rica<a class="headerlink" href="#casos-de-covid-19-en-costa-rica" title="Permalink to this headline">#</a></h3>
+<p>Estos datos son publicados por el Ministerio de Salud de Costa Rica en <a class="reference external" href="https://geovision.uned.ac.cr/oges/">https://geovision.uned.ac.cr/oges/</a>. Se distribuyen en archivos CSV, incluyendo un archivo de datos generales para todo el país y varios archivos con datos por cantón. La fecha de la última actualización es 2022-05-30.</p>
+<section id="datos-generales">
+<h4>Datos generales<a class="headerlink" href="#datos-generales" title="Permalink to this headline">#</a></h4>
+<section id="carga-de-datos">
+<h5>Carga de datos<a class="headerlink" href="#carga-de-datos" title="Permalink to this headline">#</a></h5>
+<p>Es un archivo que contiene una fila por día y varias columnas con cantidades de casos (positivos, fallecidos, en salón, en UCI, etc.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Datos generales para todo el país</span>
+<span class="n">covid_general</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;datos/ministerio-salud/covid/05_30_22_CSV_GENERAL.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="datos-cantonales">
+<h4>Datos cantonales<a class="headerlink" href="#datos-cantonales" title="Permalink to this headline">#</a></h4>
+<p>Son cuatro archivos con casos positivos, activos, recuperados y fallecidos. Cada archivo tiene una fila para cada uno de los 82 cantones y una fila adicional para “Otros”. Hay una columna por cada día muestreado, con la cantidad de casos del tipo respectivo.</p>
+<section id="id1">
+<h5>Carga de datos<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Casos positivos</span>
+<span class="n">covid_cantonal_positivos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;datos/ministerio-salud/covid/05_30_22_CSV_POSITIVOS.csv&quot;</span><span class="p">,</span> 
+                                       <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> 
+                                       <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;iso-8859-1&quot;</span><span class="p">)</span> <span class="c1"># para leer tildes y otros caracteres</span>
+
+<span class="c1"># Casos activos</span>
+<span class="n">covid_cantonal_activos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;datos/ministerio-salud/covid/05_30_22_CSV_ACTIVOS.csv&quot;</span><span class="p">,</span> 
+                                     <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> 
+                                     <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;iso-8859-1&quot;</span><span class="p">)</span> <span class="c1"># para leer tildes y otros caracteres</span>
+
+<span class="c1"># Casos recuperados</span>
+<span class="n">covid_cantonal_recuperados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;datos/ministerio-salud/covid/05_30_22_CSV_RECUP.csv&quot;</span><span class="p">,</span> 
+                                         <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> 
+                                         <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;iso-8859-1&quot;</span><span class="p">)</span> <span class="c1"># para leer tildes y otros caracteres</span>
+
+<span class="c1"># Casos fallecidos</span>
+<span class="n">covid_cantonal_fallecidos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;datos/ministerio-salud/covid/05_30_22_CSV_FALLECIDOS.csv&quot;</span><span class="p">,</span> 
+                                        <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> 
+                                        <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;iso-8859-1&quot;</span><span class="p">)</span> <span class="c1"># para leer tildes y otros caracteres</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para una visualización inicial de la estructura y el contenido de los datos, se despliega el conjunto de casos positivos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Casos positivos</span>
+<span class="n">covid_cantonal_positivos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cod_provin</th>
+      <th>provincia</th>
+      <th>cod_canton</th>
+      <th>canton</th>
+      <th>15/03/2020</th>
+      <th>16/03/2020</th>
+      <th>17/03/2020</th>
+      <th>18/03/2020</th>
+      <th>19/03/2020</th>
+      <th>20/03/2020</th>
+      <th>...</th>
+      <th>21/05/2022</th>
+      <th>22/05/2022</th>
+      <th>23/05/2022</th>
+      <th>24/05/2022</th>
+      <th>25/05/2022</th>
+      <th>26/05/2022</th>
+      <th>27/05/2022</th>
+      <th>28/05/2022</th>
+      <th>29/05/2022</th>
+      <th>30/05/2022</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.0</td>
+      <td>San José</td>
+      <td>112.0</td>
+      <td>Acosta</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>3967.0</td>
+      <td>3974.0</td>
+      <td>3978.0</td>
+      <td>4008.0</td>
+      <td>4012.0</td>
+      <td>4026.0</td>
+      <td>4049.0</td>
+      <td>4054.0</td>
+      <td>4081.0</td>
+      <td>4104.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.0</td>
+      <td>San José</td>
+      <td>110.0</td>
+      <td>Alajuelita</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>18696.0</td>
+      <td>18711.0</td>
+      <td>18725.0</td>
+      <td>18763.0</td>
+      <td>18802.0</td>
+      <td>18842.0</td>
+      <td>18887.0</td>
+      <td>18918.0</td>
+      <td>18952.0</td>
+      <td>18973.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.0</td>
+      <td>San José</td>
+      <td>106.0</td>
+      <td>Aserrí</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>10680.0</td>
+      <td>10704.0</td>
+      <td>10716.0</td>
+      <td>10729.0</td>
+      <td>10753.0</td>
+      <td>10782.0</td>
+      <td>10812.0</td>
+      <td>10829.0</td>
+      <td>10852.0</td>
+      <td>10880.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.0</td>
+      <td>San José</td>
+      <td>118.0</td>
+      <td>Curridabat</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>...</td>
+      <td>14183.0</td>
+      <td>14200.0</td>
+      <td>14216.0</td>
+      <td>14268.0</td>
+      <td>14329.0</td>
+      <td>14382.0</td>
+      <td>14433.0</td>
+      <td>14459.0</td>
+      <td>14486.0</td>
+      <td>14518.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.0</td>
+      <td>San José</td>
+      <td>103.0</td>
+      <td>Desamparados</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>...</td>
+      <td>42546.0</td>
+      <td>42611.0</td>
+      <td>42654.0</td>
+      <td>42762.0</td>
+      <td>42843.0</td>
+      <td>42985.0</td>
+      <td>43084.0</td>
+      <td>43147.0</td>
+      <td>43208.0</td>
+      <td>43283.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>7.0</td>
+      <td>Limón</td>
+      <td>702.0</td>
+      <td>Pococí</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>20167.0</td>
+      <td>20196.0</td>
+      <td>20210.0</td>
+      <td>20243.0</td>
+      <td>20268.0</td>
+      <td>20355.0</td>
+      <td>20379.0</td>
+      <td>20410.0</td>
+      <td>20428.0</td>
+      <td>20449.0</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>7.0</td>
+      <td>Limón</td>
+      <td>703.0</td>
+      <td>Siquirres</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>10226.0</td>
+      <td>10235.0</td>
+      <td>10248.0</td>
+      <td>10265.0</td>
+      <td>10271.0</td>
+      <td>10301.0</td>
+      <td>10315.0</td>
+      <td>10328.0</td>
+      <td>10339.0</td>
+      <td>10349.0</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>7.0</td>
+      <td>Limón</td>
+      <td>704.0</td>
+      <td>Talamanca</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>5415.0</td>
+      <td>5415.0</td>
+      <td>5419.0</td>
+      <td>5425.0</td>
+      <td>5429.0</td>
+      <td>5437.0</td>
+      <td>5444.0</td>
+      <td>5457.0</td>
+      <td>5464.0</td>
+      <td>5468.0</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>9.0</td>
+      <td>Otros</td>
+      <td>999.0</td>
+      <td>Otros</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>7.0</td>
+      <td>...</td>
+      <td>350.0</td>
+      <td>350.0</td>
+      <td>350.0</td>
+      <td>350.0</td>
+      <td>350.0</td>
+      <td>351.0</td>
+      <td>351.0</td>
+      <td>351.0</td>
+      <td>351.0</td>
+      <td>352.0</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>84 rows × 811 columns</p>
+</div></div></div>
+</div>
+<p>Puede notarse una cantidad muy grande de columnas y también la presencia de caracteres especiales (/) en muchos de los nombres de estas. También que hay una fila con un cantón correspondiente a “Otros” y otra con valores nulos.</p>
+</section>
+<section id="reduccion-de-columnas-y-eliminacion-de-filas-innecesarias">
+<h5>Reducción de columnas y eliminación de filas innecesarias<a class="headerlink" href="#reduccion-de-columnas-y-eliminacion-de-filas-innecesarias" title="Permalink to this headline">#</a></h5>
+<p>Se reduce la cantidad de columnas, de manera que solo se conservan las que corresponde a la última fecha muestreada, al nombre del cantón y al de la provincia. También se eliminan las filas con valores nulos u “Otros”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reducción de columnas</span>
+<span class="n">covid_cantonal_positivos</span> <span class="o">=</span> <span class="n">covid_cantonal_positivos</span><span class="p">[[</span><span class="s2">&quot;provincia&quot;</span><span class="p">,</span> <span class="s2">&quot;canton&quot;</span><span class="p">,</span> <span class="s2">&quot;30/05/2022&quot;</span><span class="p">]]</span>
+<span class="n">covid_cantonal_fallecidos</span> <span class="o">=</span> <span class="n">covid_cantonal_fallecidos</span><span class="p">[[</span><span class="s2">&quot;provincia&quot;</span><span class="p">,</span> <span class="s2">&quot;canton&quot;</span><span class="p">,</span> <span class="s2">&quot;30/05/2022&quot;</span><span class="p">]]</span>
+<span class="n">covid_cantonal_recuperados</span> <span class="o">=</span> <span class="n">covid_cantonal_recuperados</span><span class="p">[[</span><span class="s2">&quot;provincia&quot;</span><span class="p">,</span> <span class="s2">&quot;canton&quot;</span><span class="p">,</span> <span class="s2">&quot;30/05/2022&quot;</span><span class="p">]]</span>
+<span class="n">covid_cantonal_activos</span> <span class="o">=</span> <span class="n">covid_cantonal_activos</span><span class="p">[[</span><span class="s2">&quot;provincia&quot;</span><span class="p">,</span> <span class="s2">&quot;canton&quot;</span><span class="p">,</span> <span class="s2">&quot;30/05/2022&quot;</span><span class="p">]]</span>
+
+<span class="c1"># Eliminación de fila con valores nulos</span>
+<span class="n">covid_cantonal_positivos</span> <span class="o">=</span> <span class="n">covid_cantonal_positivos</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">covid_cantonal_fallecidos</span> <span class="o">=</span> <span class="n">covid_cantonal_fallecidos</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">covid_cantonal_recuperados</span> <span class="o">=</span> <span class="n">covid_cantonal_recuperados</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">covid_cantonal_activos</span> <span class="o">=</span> <span class="n">covid_cantonal_activos</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+
+<span class="c1"># Eliminación de fila con canton==&quot;Otros&quot;</span>
+<span class="n">covid_cantonal_positivos</span> <span class="o">=</span> <span class="n">covid_cantonal_positivos</span><span class="p">[</span><span class="n">covid_cantonal_positivos</span><span class="p">[</span><span class="s2">&quot;canton&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;Otros&quot;</span><span class="p">]</span>
+<span class="n">covid_cantonal_fallecidos</span> <span class="o">=</span> <span class="n">covid_cantonal_fallecidos</span><span class="p">[</span><span class="n">covid_cantonal_fallecidos</span><span class="p">[</span><span class="s2">&quot;canton&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;Otros&quot;</span><span class="p">]</span>
+<span class="n">covid_cantonal_recuperados</span> <span class="o">=</span> <span class="n">covid_cantonal_recuperados</span><span class="p">[</span><span class="n">covid_cantonal_recuperados</span><span class="p">[</span><span class="s2">&quot;canton&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;Otros&quot;</span><span class="p">]</span>
+<span class="n">covid_cantonal_activos</span> <span class="o">=</span> <span class="n">covid_cantonal_activos</span><span class="p">[</span><span class="n">covid_cantonal_activos</span><span class="p">[</span><span class="s2">&quot;canton&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;Otros&quot;</span><span class="p">]</span>
+
+<span class="c1"># Renombramiento de columnas</span>
+<span class="n">covid_cantonal_positivos</span> <span class="o">=</span> <span class="n">covid_cantonal_positivos</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;30/05/2022&quot;</span><span class="p">:</span> <span class="s2">&quot;positivos&quot;</span><span class="p">})</span>
+<span class="n">covid_cantonal_fallecidos</span> <span class="o">=</span> <span class="n">covid_cantonal_fallecidos</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;30/05/2022&quot;</span><span class="p">:</span> <span class="s2">&quot;fallecidos&quot;</span><span class="p">})</span>
+<span class="n">covid_cantonal_recuperados</span> <span class="o">=</span> <span class="n">covid_cantonal_recuperados</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;30/05/2022&quot;</span><span class="p">:</span> <span class="s2">&quot;recuperados&quot;</span><span class="p">})</span>
+<span class="n">covid_cantonal_activos</span> <span class="o">=</span> <span class="n">covid_cantonal_activos</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;30/05/2022&quot;</span><span class="p">:</span> <span class="s2">&quot;activos&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Despliegue de los cambios</span>
+<span class="n">covid_cantonal_positivos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>provincia</th>
+      <th>canton</th>
+      <th>positivos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>San José</td>
+      <td>Acosta</td>
+      <td>4104.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>San José</td>
+      <td>Alajuelita</td>
+      <td>18973.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>San José</td>
+      <td>Aserrí</td>
+      <td>10880.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>San José</td>
+      <td>Curridabat</td>
+      <td>14518.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>San José</td>
+      <td>Desamparados</td>
+      <td>43283.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>Limón</td>
+      <td>Limón</td>
+      <td>16822.0</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>Limón</td>
+      <td>Matina</td>
+      <td>5822.0</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>Limón</td>
+      <td>Pococí</td>
+      <td>20449.0</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>Limón</td>
+      <td>Siquirres</td>
+      <td>10349.0</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>Limón</td>
+      <td>Talamanca</td>
+      <td>5468.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>82 rows × 3 columns</p>
+</div></div></div>
+</div>
+</section>
+</section>
+</section>
+<section id="pasajeros-del-titanic">
+<h3>Pasajeros del Titanic<a class="headerlink" href="#pasajeros-del-titanic" title="Permalink to this headline">#</a></h3>
+<p>Este es el conjunto de datos de entrenamiento de la competencia <a class="reference external" href="https://www.kaggle.com/c/titanic/overview">Titanic - Machine Learning from Disaster</a> organizada por <a class="reference external" href="https://www.kaggle.com/">Kaggle</a>. El archivo también está disponible en <a class="reference external" href="https://github.com/pf3311-cienciadatosgeoespaciales/2021-iii/blob/main/contenido/b/datos/entrenamiento.csv">https://github.com/pf3311-cienciadatosgeoespaciales/2021-iii/blob/main/contenido/b/datos/entrenamiento.csv</a>.</p>
+<section id="id2">
+<h4>Carga de datos<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pasajeros en el conjunto de datos de entrenamiento</span>
+<span class="n">titanic</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;datos/kaggle/titanic/pasajeros-titanic-entrenamiento.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Despliegue de los datos</span>
+<span class="n">titanic</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PassengerId</th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Braund, Mr. Owen Harris</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>A/5 21171</td>
+      <td>7.2500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>PC 17599</td>
+      <td>71.2833</td>
+      <td>C85</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>Heikkinen, Miss. Laina</td>
+      <td>female</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>STON/O2. 3101282</td>
+      <td>7.9250</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
+      <td>female</td>
+      <td>35.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>113803</td>
+      <td>53.1000</td>
+      <td>C123</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Allen, Mr. William Henry</td>
+      <td>male</td>
+      <td>35.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>373450</td>
+      <td>8.0500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>886</th>
+      <td>887</td>
+      <td>0</td>
+      <td>2</td>
+      <td>Montvila, Rev. Juozas</td>
+      <td>male</td>
+      <td>27.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>211536</td>
+      <td>13.0000</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>887</th>
+      <td>888</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Graham, Miss. Margaret Edith</td>
+      <td>female</td>
+      <td>19.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>112053</td>
+      <td>30.0000</td>
+      <td>B42</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>888</th>
+      <td>889</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Johnston, Miss. Catherine Helen "Carrie"</td>
+      <td>female</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>2</td>
+      <td>W./C. 6607</td>
+      <td>23.4500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>889</th>
+      <td>890</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Behr, Mr. Karl Howell</td>
+      <td>male</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>111369</td>
+      <td>30.0000</td>
+      <td>C148</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>890</th>
+      <td>891</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Dooley, Mr. Patrick</td>
+      <td>male</td>
+      <td>32.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>370376</td>
+      <td>7.7500</td>
+      <td>NaN</td>
+      <td>Q</td>
+    </tr>
+  </tbody>
+</table>
+<p>891 rows × 12 columns</p>
+</div></div></div>
+</div>
+</section>
+</section>
+</section>
+<section id="visualizaciones-de-datos">
+<h2>Visualizaciones de datos<a class="headerlink" href="#visualizaciones-de-datos" title="Permalink to this headline">#</a></h2>
+<p>Las siguientes visualizaciones se implementan con los métodos de matplotlib integrados en pandas. Los gráficos resultantes se complementan con pyplot. Se desarrollan también algunos ejemplos con seaborn.</p>
+<section id="histogramas">
+<h3>Histogramas<a class="headerlink" href="#histogramas" title="Permalink to this headline">#</a></h3>
+<p>Un <a class="reference external" href="https://es.wikipedia.org/wiki/Histograma">histograma</a> es una representación gráfica de la distribución de una variable numérica en forma de barras (llamadas en inglés <em>bins</em>). La longitud de cada barra representa la frecuencia de un rango de valores de la variable. La graficación de la distribución de las variables es, frecuentemente, una de las primeras tareas que se realiza cuando se explora un conjunto de datos.</p>
+<p>En pandas, los histogramas se crean con el método <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.hist.html">pandas.DataFrame.hist()</a>. Elementos adicionales del gráfico, como el título y las etiquetas de los ejes, pueden agregarse con matplotlib.pyplot.</p>
+<p>El siguiente histograma muestra la distribución de la variable correspondiente a los casos de COVID positivos en los cantones de Costa Rica.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Histograma de casos positivos en cantones</span>
+<span class="n">covid_cantonal_positivos</span><span class="p">[</span><span class="s2">&quot;positivos&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
+    <span class="n">bins</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="c1"># Título y etiquetas en los ejes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribución de la cantidad de casos positivos de COVID en cantones de Costa Rica al 2022-05-30&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Casos&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frecuencia&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frecuencia&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/matplotlib-seaborn_38_1.png" src="../../_images/matplotlib-seaborn_38_1.png" />
+</div>
+</div>
+<p>El método <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.histplot.html">seaborn.histplot()</a> permite crear histogramas con seaborn. El argumento <code class="docutils literal notranslate"><span class="pre">kde</span></code> se utiliza para añadir una estimación de densidad del kernel (<em>Kernel Density Estimation</em>, KDE), una curva que muestra la densidad de los datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Histograma y curva de densidad</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">covid_cantonal_positivos</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;positivos&quot;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Título y etiquetas en los ejes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribución de la cantidad de casos positivos de COVID en cantones de Costa Rica al 2022-05-30&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Casos&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frecuencia&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frecuencia&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/matplotlib-seaborn_40_1.png" src="../../_images/matplotlib-seaborn_40_1.png" />
+</div>
+</div>
+<p>El argumento <code class="docutils literal notranslate"><span class="pre">hue</span></code> se usa para mostrar una división de cada <em>bin</em> de acuerdo con el valor de alguna columna.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Histograma con &quot;bins&quot; divididos por provincia </span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">covid_cantonal_positivos</span><span class="p">,</span> 
+             <span class="n">x</span><span class="o">=</span><span class="s2">&quot;positivos&quot;</span><span class="p">,</span> 
+             <span class="n">bins</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> 
+             <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;provincia&quot;</span><span class="p">,</span> 
+             <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="c1"># Título y etiquetas en los ejes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribución de la cantidad de casos positivos de COVID en cantones de Costa Rica al 2022-05-30&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Casos&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frecuencia&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frecuencia&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/matplotlib-seaborn_42_1.png" src="../../_images/matplotlib-seaborn_42_1.png" />
+</div>
+</div>
+<section id="ejercicios">
+<h4>Ejercicios<a class="headerlink" href="#ejercicios" title="Permalink to this headline">#</a></h4>
+<ol class="simple">
+<li><p>Construya un histograma que muestre la distribución de la edad de los pasajeros del Titanic. Incluya una curva de densidad.</p></li>
+<li><p>Agregue la distribución de la variable de sobrevivencia al histograma del ejercicio anterior.</p></li>
+<li><p>Construya un histograma que muestre la distribución de la cantidad de padres e hijos que viajaban con los pasajeros del Titanic. Incluya una curva de densidad.</p></li>
+<li><p>Agregue la distribución de la variable de sobrevivencia al histograma del ejercicio anterior.</p></li>
+<li><p>Construya un histograma que muestre la distribución de la cantidad de hermanos y cónyugues que viajaban con los pasajeros del Titanic. Incluya una curva de densidad.</p></li>
+<li><p>Agregue la distribución de la variable de sobrevivencia al histograma del ejercicio anterior.</p></li>
+</ol>
+</section>
+</section>
+<section id="graficos-de-caja">
+<h3>Gráficos de caja<a class="headerlink" href="#graficos-de-caja" title="Permalink to this headline">#</a></h3>
+<p>Un <a class="reference external" href="https://es.wikipedia.org/wiki/Diagrama_de_caja">gráfico de caja (<em>boxplot</em>)</a> muestra información de una variable numérica a través de su <a class="reference external" href="https://es.wikipedia.org/wiki/Mediana">mediana</a>, sus <a class="reference external" href="https://es.wikipedia.org/wiki/Cuartiles">cuartiles</a> (Q1, Q2 y Q3) y sus <a class="reference external" href="https://es.wikipedia.org/wiki/Valor_at%C3%ADpico">valores atípicos</a>.</p>
+<p>En pandas, los gráficos de caja se crean con el método <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.boxplot.html">pandas.DataFrame.boxplot()</a>.</p>
+<p>El siguiente diagrama de caja muestra la distribución de la variable correspondiente a los casos de COVID fallecidos en los cantones de Costa Rica.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gráfico de caja de casos fallecidos en cantones</span>
+<span class="n">covid_cantonal_fallecidos</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;fallecidos&quot;</span><span class="p">)</span>
+
+<span class="c1"># Título y etiquetas en los ejes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribución de la cantidad de casos fallecidos de COVID en cantones de Costa Rica al 2022-05-30&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Casos&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Casos&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/matplotlib-seaborn_48_1.png" src="../../_images/matplotlib-seaborn_48_1.png" />
+</div>
+</div>
+<p>El argumento <code class="docutils literal notranslate"><span class="pre">by</span></code> puede utilizarse para agrupar los datos por una variable adicional, como la provincia.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gráfico de caja de casos fallecidos en cantones, agrupados por provincia</span>
+<span class="n">covid_cantonal_fallecidos</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;fallecidos&quot;</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s2">&quot;provincia&quot;</span><span class="p">)</span>
+
+<span class="c1"># Título y etiquetas en los ejes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribución de la cantidad de casos fallecidos de COVID en cantones de Costa Rica al 2022-05-30&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Provincia&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Casos&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Casos&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/matplotlib-seaborn_50_1.png" src="../../_images/matplotlib-seaborn_50_1.png" />
+</div>
+</div>
+<p>El método <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.boxplot.html">seaborn.boxplot()</a> permite crear gráficos de caja con seaborn.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gráfico de caja de casos fallecidos en cantones agrupados por provincia</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">covid_cantonal_fallecidos</span><span class="p">[</span><span class="s2">&quot;fallecidos&quot;</span><span class="p">],</span> 
+            <span class="n">x</span><span class="o">=</span><span class="n">covid_cantonal_fallecidos</span><span class="p">[</span><span class="s2">&quot;provincia&quot;</span><span class="p">])</span>
+
+<span class="c1"># Título y etiquetas en los ejes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribución de la cantidad de casos fallecidos de COVID en cantones de Costa Rica al 2022-05-30&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Provincia&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Casos&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Casos&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/matplotlib-seaborn_52_1.png" src="../../_images/matplotlib-seaborn_52_1.png" />
+</div>
+</div>
+<section id="id3">
+<h4>Ejercicios<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
+<ol class="simple">
+<li><p>Construya un gráfico de caja de la edad de los pasajeros del Titanic.</p></li>
+<li><p>Agregue la distribución de la variable de sobrevivencia al gráfico del ejercicio anterior.</p></li>
+<li><p>Construya un gráfico de caja de la cantidad de padres e hijos que viajaban con los pasajeros del Titanic.</p></li>
+<li><p>Agregue la distribución de la variable de sobrevivencia al gráfico del ejercicio anterior.</p></li>
+<li><p>Construya un gráfico de caja de la cantidad de hermanos y cónyugues que viajaban con los pasajeros del Titanic.</p></li>
+<li><p>Agregue la distribución de la variable de sobrevivencia al gráfico del ejercicio anterior.</p></li>
+</ol>
+</section>
+</section>
+<section id="graficos-de-barras">
+<h3>Gráficos de barras<a class="headerlink" href="#graficos-de-barras" title="Permalink to this headline">#</a></h3>
+<p>Un <a class="reference external" href="https://es.wikipedia.org/wiki/Diagrama_de_barras">gráfico de barras</a> se compone de barras rectangulares con longitud proporcional a estadísticas (ej. frecuencias, promedios, mínimos, máximos) asociadas a una variable categórica o discreta. Las barras pueden ser horizontales o verticales y se recomienda que estén ordenadas según su longitud, a menos que exista un orden inherente a la variable (ej. el orden de los días de la semana).</p>
+<p>En pandas, los gráficos de barras se crean con los métodos <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.bar.html">pandas.DataFrame.plot.bar()</a>, para barras verticales, y <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.barh.html">pandas.DataFrame.plot.barh()</a>, para barras horizontales.</p>
+<p>El siguiente gráfico de barras verticales muestra las cantidades de casos positivos en los cantones de Limón.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Subconjunto de cantones de la provincia de Limón</span>
+<span class="n">covid_limon_positivos</span> <span class="o">=</span> <span class="n">covid_cantonal_positivos</span><span class="p">[</span><span class="n">covid_cantonal_positivos</span><span class="p">[</span><span class="s2">&quot;provincia&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Limón&quot;</span><span class="p">]</span>
+
+<span class="c1"># Se establece la columna &quot;canton&quot; como índice del dataframe</span>
+<span class="c1"># y este se ordena por la cantidad de casos positivos antes de</span>
+<span class="c1"># hacer el gráfico con plot.bar()</span>
+<span class="n">covid_limon_positivos</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;canton&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;positivos&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Cantidad de casos positivos de COVID en los cantones de la provincia de Limón al 2022-05-30&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Cantón&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Casos&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Casos&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/matplotlib-seaborn_59_1.png" src="../../_images/matplotlib-seaborn_59_1.png" />
+</div>
+</div>
+<p>El siguiente gráfico de barras horizontales muestra las cantidades de casos activos en los cantones de San José.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Subconjunto de cantones de la provincia de San José</span>
+<span class="n">covid_sanjose_activos</span> <span class="o">=</span> <span class="n">covid_cantonal_activos</span><span class="p">[</span><span class="n">covid_cantonal_activos</span><span class="p">[</span><span class="s2">&quot;provincia&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;San José&quot;</span><span class="p">]</span>
+
+<span class="c1"># Se establece la columna &quot;canton&quot; como índice del dataframe</span>
+<span class="c1"># y este se ordena por la cantidad de casos antes de</span>
+<span class="c1"># hacer el gráfico con plot.barh().</span>
+<span class="c1"># También se establece el tamaño del gráfico con figsize()</span>
+<span class="n">covid_sanjose_activos</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;canton&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;activos&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Cantidad de casos activos de COVID en los cantones de la provincia de San José al 2022-05-30&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Cantón&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Casos&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Casos&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/matplotlib-seaborn_61_1.png" src="../../_images/matplotlib-seaborn_61_1.png" />
+</div>
+</div>
+<p>En el siguiente ejemplo, se utiliza el método <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html">pandas.DataFrame.groupby()</a> para agrupar los datos por provincia y sumar los casos positivos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Suma de casos positivos por provincia</span>
+<span class="n">covid_provincial_positivos</span> <span class="o">=</span> <span class="n">covid_cantonal_positivos</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;provincia&quot;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="s2">&quot;positivos&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">covid_provincial_positivos</span>
+
+<span class="c1"># Se establece la columna &quot;provincia&quot; como índice del dataframe</span>
+<span class="c1"># y este se ordena por la cantidad de casos positivos antes de</span>
+<span class="c1"># hacer el gráfico con plot.bar()</span>
+<span class="n">covid_provincial_positivos</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;provincia&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;positivos&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Cantidad de casos positivos de COVID en provincias al 2022-05-30&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Provincia&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Casos&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Casos&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/matplotlib-seaborn_63_1.png" src="../../_images/matplotlib-seaborn_63_1.png" />
+</div>
+</div>
+<p>El método <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.barplot.html">seaborn.barplot()</a> permite crear gráficos de barras con seaborn.</p>
+<p>El siguiente gráfico muestra la proporción de sobrevivientes por sexo y clase entre los pasajeros del Titanic.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gráfico de barras</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">titanic</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Sex&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Survived&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Pclass&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Proporción de sobrevivientes del Titanic por sexo y clase&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Sexo&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Proporción de sobrevivientes&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Proporción de sobrevivientes&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/matplotlib-seaborn_66_1.png" src="../../_images/matplotlib-seaborn_66_1.png" />
+</div>
+</div>
+<section id="id4">
+<h4>Ejercicios<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h4>
+<ol class="simple">
+<li><p>Convierta el gráfico de barras del ejemplo de proporción de sobrevivientes por sexo y clase entre los pasajeros del Titanic, en un gráfico de barras apiladas.</p></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="recursos-de-interes">
+<h2>Recursos de interés<a class="headerlink" href="#recursos-de-interes" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://www.data-to-viz.com/">From data to Viz | Find the graphic you need</a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contenido/3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="pandas.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">pandas: paquete para análisis y manipulación de datos</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../6/examen_corto-01.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Examen corto 01</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Manuel Vargas<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
