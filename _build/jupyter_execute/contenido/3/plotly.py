@@ -3,6 +3,12 @@
 
 # # Visualización de datos con plotly
 
+# **NOTA IMPORTANTE**
+# 
+# Por una falla de Jupyter Book (la biblioteca usada para construir el sitio web de este curso), los gráficos en Plotly no se están desplegando, pero pueden verse en el sitio:
+# 
+# [https://nbviewer.org/github/gf0657-programacionsig/2022-ii/blob/main/contenido/3/plotly.ipynb](https://nbviewer.org/github/gf0657-programacionsig/2022-ii/blob/main/contenido/3/plotly.ipynb)
+
 # ## Descripción general
 
 # [Plotly Python](https://plotly.com/python/) es una biblioteca para gráficos interactivos que forma parte del [grupo de bibliotecas de graficación de Plotly](https://plotly.com/graphing-libraries/), el cual también incluye bibliotecas para otros lenguajes como R, Julia, F# y MATLAB. Plotly fue originalmente escrita en [JavaScript](https://en.wikipedia.org/wiki/JavaScript), por lo que es particularmente adecuada para gráficos interactivos en la Web.
