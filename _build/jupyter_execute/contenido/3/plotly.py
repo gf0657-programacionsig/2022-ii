@@ -366,7 +366,7 @@ px.box(covid_cantonal_fallecidos,
 # 5. Construya un gráfico de caja de la cantidad de hermanos y cónyugues que viajaban con los pasajeros del Titanic.
 # 6. Agregue la distribución de la variable de sobrevivencia al gráfico del ejercicio anterior.
 
-# ### Gráficos de franja (*strip*)
+# ### Gráficos de *strip*
 
 # El método [plotly.express.strip()](https://plotly.github.io/plotly.py-docs/generated/plotly.express.strip.html) implementa un gráfico de "franja" (*strip*) o de "oscilación" (*jittered*). Se recomienda revisar el [tutorial](https://plotly.com/python/strip-charts/).
 
