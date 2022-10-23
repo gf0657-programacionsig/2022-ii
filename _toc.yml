@@ -19,7 +19,10 @@ parts:
     - file: contenido/3/introduccion-analisis-datos-python     
     - file: contenido/3/pandas    
     - file: contenido/3/matplotlib-seaborn
-    - file: contenido/3/plotly        
+    - file: contenido/3/plotly    
+  - caption: 4 - PROCESAMIENTO DE DATOS GEOESPACIALES
+    chapters:  
+    - file: contenido/4/modelos-estandares-datos-geoespaciales
   - caption: EVALUACIONES
     chapters:  
     - file: contenido/6/examen_corto-01

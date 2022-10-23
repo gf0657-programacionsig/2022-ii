@@ -1,0 +1,628 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Modelos y estándares de datos geoespaciales &#8212; GF-0657 Programación en SIG 2022-II</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Examen corto 01" href="../6/examen_corto-01.html" />
+    <link rel="prev" title="Visualización de datos con plotly" href="../3/plotly.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">GF-0657 Programación en SIG 2022-II</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    GF-0657 Programación en SIG 2022-II
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  1 - INTRODUCCIÓN
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1/introduccion-ciencia-datos-geoespaciales.html">
+   Introducción a la ciencia de datos geoespaciales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1/markdown.html">
+   Markdown - lenguaje de marcado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1/git.html">
+   Git - sistema de control de versiones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  2 - EL LENGUAJE DE PROGRAMACIÓN PYTHON
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2/pensamiento_computacional-arquitectura_computadoras.html">
+   Pensamiento computacional y arquitectura de computadoras
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2/introduccion-python.html">
+   Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2/sintaxis-python.html">
+   Sintaxis de Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  3 - ANÁLISIS DE DATOS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3/introduccion-analisis-datos-python.html">
+   Introducción al análisis de datos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3/pandas.html">
+   pandas: paquete para análisis y manipulación de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3/matplotlib-seaborn.html">
+   Visualización de datos con matplotlib y seaborn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3/plotly.html">
+   Visualización de datos con plotly
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  4 - PROCESAMIENTO DE DATOS GEOESPACIALES
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Modelos y estándares de datos geoespaciales
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  EVALUACIONES
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6/examen_corto-01.html">
+   Examen corto 01
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6/tarea-01.html">
+   Tarea 01
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6/examen_corto-02.html">
+   Examen corto 02
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/gf0657-programacionsig/2022-ii/"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/gf0657-programacionsig/2022-ii//issues/new?title=Issue%20on%20page%20%2Fcontenido/4/modelos-estandares-datos-geoespaciales.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/contenido/4/modelos-estandares-datos-geoespaciales.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trabajo-previo">
+   Trabajo previo
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lecturas">
+     Lecturas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resumen">
+   Resumen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelos-de-datos">
+   Modelos de datos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#el-modelo-vectorial">
+     El modelo vectorial
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#el-estandar-simple-features">
+       El estándar Simple Features
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#el-modelo-raster">
+     El modelo raster
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Modelos y estándares de datos geoespaciales</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trabajo-previo">
+   Trabajo previo
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lecturas">
+     Lecturas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resumen">
+   Resumen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelos-de-datos">
+   Modelos de datos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#el-modelo-vectorial">
+     El modelo vectorial
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#el-estandar-simple-features">
+       El estándar Simple Features
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#el-modelo-raster">
+     El modelo raster
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="modelos-y-estandares-de-datos-geoespaciales">
+<h1>Modelos y estándares de datos geoespaciales<a class="headerlink" href="#modelos-y-estandares-de-datos-geoespaciales" title="Permalink to this headline">#</a></h1>
+<section id="trabajo-previo">
+<h2>Trabajo previo<a class="headerlink" href="#trabajo-previo" title="Permalink to this headline">#</a></h2>
+<section id="lecturas">
+<h3>Lecturas<a class="headerlink" href="#lecturas" title="Permalink to this headline">#</a></h3>
+<p>Lovelace, R., Nowosad, J., &amp; Münchow, J. (2019). Geocomputation with R. CRC Press, Taylor and Francis Group, CRC Press is an imprint of theTaylor and Francis Group, an informa Buisness, A Chapman &amp; Hall Book. <a class="reference external" href="https://geocompr.robinlovelace.net/">https://geocompr.robinlovelace.net/</a> (Capítulo 2)</p>
+<p>Olaya, V. (2020). Sistemas de Información Geográfica. <a class="reference external" href="https://volaya.github.io/libro-sig/">https://volaya.github.io/libro-sig/</a> (Parte 2, capítulo “Modelos para la información geográfica”)</p>
+</section>
+</section>
+<section id="resumen">
+<h2>Resumen<a class="headerlink" href="#resumen" title="Permalink to this headline">#</a></h2>
+<p>Se introducen los modelos vectorial y raster, así como el estándar Simple Features para datos vectoriales.</p>
+</section>
+<section id="modelos-de-datos">
+<h2>Modelos de datos<a class="headerlink" href="#modelos-de-datos" title="Permalink to this headline">#</a></h2>
+<p>Se utilizan dos modelos para la representación de datos geoespaciales: el vectorial y el raster.</p>
+<section id="el-modelo-vectorial">
+<h3>El modelo vectorial<a class="headerlink" href="#el-modelo-vectorial" title="Permalink to this headline">#</a></h3>
+<p>El modelo vectorial de datos está basado en puntos localizados en un sistema de referencia de coordenadas (CRS; en inglés, <em>Coordinate Reference System</em>). Los puntos individuales pueden representar objetos independientes (ej. un poste eléctrico, una cabina telefónica) o pueden también agruparse para formar geometrías más complejas como líneas o polígonos. Por lo general, los puntos tienen solo dos dimensiones (x, y), a las que se les puede agregar una tercera dimensión <em>z</em>, usualmente correspondiente a la altitud sobre el nivel del mar.</p>
+<section id="el-estandar-simple-features">
+<h4>El estándar Simple Features<a class="headerlink" href="#el-estandar-simple-features" title="Permalink to this headline">#</a></h4>
+<p><a class="reference external" href="https://www.ogc.org/standards/sfa">Simple Features</a> (o Simple Feature Access) es un estándar abierto de la <a class="reference external" href="https://iso.org/">Organización Internacional de Estandarización (ISO)</a> y del <a class="reference external" href="https://www.ogc.org/">Open Geospatial Consortium (OGC)</a> que especifica un modelo común de almacenamiento y acceso para geometrías de dos dimensiones (líneas, polígonos, multilíneas, multipolígonos, etc.). El estándar es implementado por muchas bibliotecas y bases de datos geoespaciales como <a class="reference external" href="https://gdal.org/">GDAL</a>, <a class="reference external" href="http://github.com/Toblerity/Fiona">Fiona (Python)</a>, <a class="reference external" href="http://github.com/Toblerity/Shapely">Shapely (Python)</a>, <a class="reference external" href="https://cran.r-project.org/web/packages/sf/index.html">sf (R)</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/PostGIS">PostgreSQL/PostGIS</a>, <a class="reference external" href="https://www.gaia-gis.it/fossil/libspatialite/">SQLite/SpatiaLite</a>, <a class="reference external" href="https://www.oracle.com/database/technologies/spatialandgraph.html">Oracle Spatial</a> y <a class="reference external" href="https://www.microsoft.com/en-us/sql-server/">Microsoft SQL Server</a>, entre muchas otras.</p>
+<p>La especificación define 17 tipos de geometrías, de las cuales siete son las más comúnmente utilizadas. Estas últimas se muestran en la <a class="reference internal" href="#figure-tipos-geometrias-sf"><span class="std std-numref">Fig. 24</span></a>.</p>
+<figure class="align-default" id="figure-tipos-geometrias-sf">
+<img alt="contenido/4/img/tipos-geometrias-sf.png" src="contenido/4/img/tipos-geometrias-sf.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Tipos de geometrías de Simple Features más usadas. Imagen de <a class="reference external" href="https://geocompr.robinlovelace.net/spatial-class.html#vector-data">Robin Lovelace et al.</a>.</span><a class="headerlink" href="#figure-tipos-geometrias-sf" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="el-modelo-raster">
+<h3>El modelo raster<a class="headerlink" href="#el-modelo-raster" title="Permalink to this headline">#</a></h3>
+<p>El modelo de datos raster usualmente consiste de un encabezado y de una matriz con celdas (también llamadas pixeles) de un mismo tamaño. El encabezado define el CRS, la extensión y el punto de origen de una capa raster. Por lo general, el origen se ubica en la esquina inferior izquierda o en la esquina superior izquierda de la matriz. La extensión se define mediante el número de filas, el número de columnas y el tamaño (resolución) de la celda.</p>
+<p>Cada celda tiene una identificación (ID) y almacena un único valor, el cual puede ser numérico o categórico, como se muestra en la <a class="reference internal" href="#figure-modelo-raster"><span class="std std-numref">Fig. 25</span></a>.</p>
+<figure class="align-default" id="figure-modelo-raster">
+<img alt="contenido/4/img/modelo-raster.png" src="contenido/4/img/modelo-raster.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">El modelo raster: (A) ID de las celdas, (B) valores de las celdas, (C) mapa raster de colores. Imagen de <a class="reference external" href="https://geocompr.robinlovelace.net/spatial-class.html#raster-data">Robin Lovelace et al.</a>.</span><a class="headerlink" href="#figure-modelo-raster" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>A diferencia del modelo vectorial, el modelo raster no necesita almacenar todas las coordenadas de cada geometría (i.e. las esquinas de las celdas), debido a que la ubicación de cada celda puede calcularse a partir de la información contenida en el encabezado. Esta simplicidad, en conjunto con el <a class="reference external" href="https://en.wikipedia.org/wiki/Map_algebra">álgebra de mapas</a>, permiten que el procesamiento de datos raster sea mucho más eficiente que el procesamiento de datos vectoriales. Por otra parte, el modelo vectorial es mucho más flexible en cuanto a las posibilidades de representación de geometrías y almacenamiento de valores, por medio de múltiples elementos de datos.</p>
+<p>Los mapas raster generalmente almacenan fenómenos continuos como elevación, precipitación, temperatura, densidad de población y datos espectrales. También es posible representar mediante raster datos discretos, tales como tipos de suelo o clases de cobertura de la tierra, como se muestra en la <a class="reference internal" href="#figure-raster-continuo-categorico"><span class="std std-numref">Fig. 26</span></a>.</p>
+<figure class="align-default" id="figure-raster-continuo-categorico">
+<img alt="contenido/4/img/raster-continuo-categorico.png" src="contenido/4/img/raster-continuo-categorico.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 26 </span><span class="caption-text">Ejemplos de mapas raster continuos y categóricos. Imagen de <a class="reference external" href="https://geocompr.robinlovelace.net/spatial-class.html#raster-data">Robin Lovelace et al.</a>.</span><a class="headerlink" href="#figure-raster-continuo-categorico" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contenido/4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../3/plotly.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Visualización de datos con plotly</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../6/examen_corto-01.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Examen corto 01</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Manuel Vargas<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
