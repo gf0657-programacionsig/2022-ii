@@ -1,333 +1,359 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # pandas: paquete para análisis y manipulación de datos
+# # geopandas: paquete para manipulación y análisis de datos vectoriales
 
 # ## Descripción general
 
-# [pandas](https://pandas.pydata.org/) es una biblioteca de Python para análisis y manipulación de datos. Proporciona estructuras de datos y operaciones para manejar tablas numéricas y series temporales. Fue creada por Wes McKinney in 2008. El nombre "pandas" hace referencia tanto a "*Panel Data*" como a "*Python Data Analysis*".
+# [Geopandas](http://geopandas.org/) es un proyecto de software libre que extiende los tipos de datos de [pandas](http://pandas.pydata.org/) para incorporar objetos geométricos (puntos, líneas, polígonos, etc), como los utilizados en el modelo vectorial. Se apoya en las bibliotecas [Fiona](https://github.com/Toblerity/Fiona/) para acceder a los datos, [Shapely](https://github.com/Toblerity/Shapely/) para realizar las operaciones geométricas y [matplotlib](https://matplotlib.org/) para graficación.
 # 
-# Como su estructura principal, pandas implementa el `DataFrame`, el cual es un arreglo rectangular de datos, organizado en filas y columnas.
+# Geopandas implementa dos estructuras principales de datos:
+# 
+# - [GeoSeries](http://geopandas.org/data_structures.html#geoseries): es un vector en el que cada elemento es un conjunto de una o varias geometrías correspondientes a una observación. Por ejemplo, un polígono que representa una provincia, una línea que representa una carretera o un punto que representa una edificación.
+# - [GeoDataFrame](http://geopandas.org/data_structures.html#geodataframe): es una estructura tabular (i.e. con filas y columnas) de datos geométricos y no geométricos (ej. textos, números). El conjunto de geometrías se implementa a través de GeoSeries.
+
+# ## Instalación
+
+# Puede instalarse con `pip`, `conda` o `mamba`, desde la línea de comandos del sistema operativo. Solo es necesario hacerlo de una forma.
+
+# ```
+# # Con pip:
+# pip install geopandas
+# 
+# # Con conda:
+# conda install geopandas -c conda-forge
+# 
+# # Con mamba:
+# mamba install geopandas -c conda-forge
+# ```
 
 # ## Carga
 
 # In[1]:
 
 
-# Se acostumbra cargar pandas con el alias pd
-
+# Carga de la biblioteca pandas con el alias pd
 import pandas as pd
 
+# Carga de geopandas
+import geopandas as gpd
 
-# ## Estructuras de datos
-# Las dos principales estructuras de datos de pandas son `Series` y `DataFrames`.
-
-# ### Series
-# Las [Series](https://pandas.pydata.org/docs/reference/api/pandas.Series.html?highlight=series#pandas.Series) son arreglos unidimensionales que contienen datos de cualquier tipo. Se asemejan a una columna de una tabla.
 
 # In[2]:
 
 
-# Definición de una serie
-
-primos = [2, 3, 5, 7, 11]
-serie_primos = pd.Series(primos)
-
-serie_primos
+# Versión de geopandas
+gpd.__version__
 
 
-# Cada elemento de una serie tiene un índice (i.e. posición), comenzando con 0.
+# ## Operaciones básicas
+
+# Seguidamente, se describen y ejemplifican algunas de las funciones básicas de geopandas.
+
+# ### read_file() - carga de datos
 
 # In[3]:
 
 
-# Primer elemento
-print("Primer elemento:", serie_primos[0])
+# Lectura de datos de países de Natural Earth,
+# uno de los conjuntos de datos de ejemplo incluídos en geopandas
 
-# Segundo elemento
-print("Segundo elemento:", serie_primos[1])
+paises = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
+
+# Visualización de los datos
+paises
 
 
-# Los índices también pueden tener etiquetas personalizadas.
+# ### info() - información general sobre un conjunto de datos
 
 # In[4]:
 
 
-# Índice de una serie con etiquetas personalizadas
+paises.info()
 
-serie_primos = pd.Series(primos, index = ["A", "B", "C", "D", "E"])
 
-serie_primos
-
+# ### describe() - información estadística
 
 # In[5]:
 
 
-# Elemento en el índice "D"
-print(serie_primos["D"])
+paises.describe()
 
 
-# ### DataFrames
-# Los [DataFrames](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame) son estructuras multidimensionales. Una serie puede verse como una columna de una tabla y un dataframe como una tabla completa. Un dataframe puede construirse a partir de varias series.
+# ### head(), tail(), sample() - despliegue de filas de un conjunto de datos
 
 # In[6]:
 
 
-# Dataframe construído a partir de dos series
+# Primeros 5 registros
+paises.head()
 
-datos = {
-  "pais": ["PA", "CR", "NI"],
-  "poblacion": [4.1, 5.0, 6.6]
-}
-
-paises = pd.DataFrame(datos)
-
-paises
-
-
-# El operador **loc** permite retornar una o más filas de un dataframe, de acuerdo con un índice o con un vector de índices.
 
 # In[7]:
 
 
-# Segundo elemento
-paises.loc[1]
+# Últimos 10 registros
+paises.tail(10)
 
 
 # In[8]:
 
 
-# Segundo y tercer elemento
-paises.loc[[1, 2]]
-
-
-# Los índices de los dataframes también pueden etiquetarse:
-
-# In[9]:
-
-
-paises = pd.DataFrame(datos, index=["pais0", "pais1", "pais2"])
-paises
-
-
-# In[10]:
-
-
-# Elemento en "pais0"
-paises.loc["pais0"]
-
-
-# ## Operaciones básicas
-
-# Seguidamente, se describen y ejemplifican algunas de las funciones básicas de pandas.
-# 
-# En los siguientes ejemplos, se utilizará un conjunto de registros de presencia de felinos (familia *Felidae*) de Costa Rica, obtenido a través de una [consulta al portal de GBIF](https://www.gbif.org/occurrence/download/0016217-210914110416597).
-
-# ### read_csv() - carga de datos
-
-# In[11]:
-
-
-felinos = pd.read_csv("https://raw.githubusercontent.com/gf0657-programacionsig/2022-ii/main/contenido/3/datos/gbif/felinos.csv", sep="\t")
-
-
-# ### info() - información general sobre un conjunto de datos
-
-# In[12]:
-
-
-felinos.info()
-
-
-# ### head(), tail(), sample() - despliegue de filas de un conjunto de datos
-
-# In[13]:
-
-
-# Primeros 10 registros
-felinos.head()
-
-
-# In[14]:
-
-
-# Últimos 15 registros
-felinos.tail()
-
-
-# In[15]:
-
-
 # 5 registros seleccionados aleatoriamente
-felinos.sample(5)
-
-
-# Los contenidos de un data frame también pueden desplegarse al escribir su nombre en la consola de Python.
-
-# In[16]:
-
-
-felinos
+paises.sample(5)
 
 
 # ### Selección de columnas
 
-# Las columnas que se despliegan en un data frame pueden especificarse mediante una lista.
+# Las columnas que se despliegan en un geodataframe pueden especificarse mediante una lista.
 
-# In[17]:
+# In[9]:
 
 
-# Despliegue de las columnas con el nombre científico, la especie, la fecha, el año, el mes y el día
-
-felinos[["scientificName", "species", "eventDate", "year", "month", "day"]]
+# Despliegue de las columnas con el nombre del país y su población
+paises[["name", "pop_est"]]
 
 
 # ### Selección de filas
 
-# In[18]:
+# In[10]:
 
 
-# Selección de filas correspondientes a jaguares (*Panthera onca*)
-jaguares = felinos[felinos["species"] == "Panthera onca"]
-
-# Despliegue de los primeros registros
-jaguares.head()
+# Países con población estimada mayor o igual a mil millones
+paises[paises["pop_est"] >= 1000000000]
 
 
-# In[19]:
+# ### Selección de filas y columnas en la misma expresión
+
+# In[11]:
 
 
-# Selección de filas correspondientes a jaguares (*Panthera onca*) o pumas (*Puma concolor*)
-jaguares_pumas = felinos[(felinos["species"] == "Panthera onca") | (felinos["species"] == "Puma concolor")]
-
-# Despliegue de los primeros registros
-jaguares_pumas.head(10)
+# Columnas de nombre del país y su población 
+# para filas con población estimada mayor o igual a mil millones
+paises.loc[paises["pop_est"] >= 1000000000, ["name", "pop_est"]]
 
 
 # ## Operaciones de análisis
 
-# ### Graficación
+# ### plot() - mapeo
 
-# #### Carga de bibliotecas
+# El método [geopandas.GeoDataFrame.plot()](https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoDataFrame.plot.html) genera un mapa de un geodataframe mediante `matplotlib`.
+
+# In[12]:
+
+
+# Mapa básico
+paises.plot()
+
+
+# Si se especifica una columna con el argumento `column`, el mapa se colorea de acuerdo con los valores de esa columna.
+
+# In[13]:
+
+
+# Mapa de coropletas de la columna
+# correspondiente al estimado de población
+paises.plot(column = "pop_est", legend=True)
+
+
+# Mapa de coropletas con una paleta de colores del sitio [ColorBrewer](https://colorbrewer2.org/), creado por [Cynthia Brewer](https://en.wikipedia.org/wiki/Cynthia_Brewer), y un esquema de clasificación basado en [cuantiles](https://es.wikipedia.org/wiki/Cuantil).
+
+# In[14]:
+
+
+# Mapa de coropletas con paleta de colores y esquema de clasificación
+paises.plot(column = "pop_est", 
+            legend=True,
+            cmap='OrRd', 
+            scheme='quantiles',
+            figsize=(20, 20)
+            )
+
+
+# Mapa con múltiples capas.
+
+# In[15]:
+
+
+# Geodataframe de ciudades de Natural Earth
+ciudades = gpd.read_file(gpd.datasets.get_path('naturalearth_cities'))
+
+# Mapa base de países
+base = paises.plot(color='white', edgecolor='black', figsize=(20, 20))
+
+# Capa de ciudades
+ciudades.plot(ax=base, marker='o', color='red', markersize=8)
+
+
+# #### Ejercicios
+
+# 1. Descargue del [Sistema Nacional de Información Territorial (SNIT)](https://www.snitcr.go.cr/) las siguientes capas, en el CRS WGS84.
+# 
+# - Provincias.
+# - Cantones.
+# - Áreas silvestres protegidas (ASP).
+# - Red vial.
+# 
+# 2. Cargue cada capa en un geodataframe.
+# 3. Examine la estructura y el contenido de cada conjunto de datos.
+# 4. Despliegue algunos mapas para cada capa, utilizando las funciones de matplotlib y geopandas.
+# 5. Genere mapas que presenten la capa de red vial con las otras tres.
+
+# ## Ejemplo de análisis: distribución de murciélagos en ASP de Costa Rica
+
+# En los siguientes ejemplos, se utilizará un conjunto de registros de presencia de murciélagos (orden *Chiroptera*) de Costa Rica, en formato CSV, obtenido a través de una [consulta al portal de la Infraestructura de Información Mundial en Biodiversidad (GBIF)](https://doi.org/10.15468/dl.g5ce3g). También se utilizará la capa de ASP del Sistema Nacional de Áreas Protegidas de Costa Rica (Sinac).
+# 
+# Como resultado, se obtiene un mapa que muestra la cantida de especies de murciélagos en cada ASP.
+
+# ### Carga de datos
+
+# #### Murciélagos
+
+# Ya que los archivos de valores separados por comas (CSV) no tienen un formato geoespacial (SHP, GPKG, GeoJSON u otro), los datos de murciélagos se cargan primero en un dataframe normal (i.e. sin geometrías).
+
+# In[16]:
+
+
+# Carga de registros de presencia de murciélagos en un dataframe
+murcielagos = pd.read_csv("datos/gbif/murcielagos.csv", sep="\t")
+
+# Despliegue de los datos
+murcielagos
+
+
+# Luego, con el método [geopandas.points_from_xy()](https://geopandas.org/en/stable/docs/reference/api/geopandas.points_from_xy.html), se crea una columna de geometrías de puntos, con base en las columnas `decimalLongitude` y `decimalLatitude`.
+
+# In[17]:
+
+
+# Geodataframe creado a partir del dataframe
+murcielagos = gpd.GeoDataFrame(murcielagos, 
+                               geometry=gpd.points_from_xy(murcielagos.decimalLongitude, 
+                                                           murcielagos.decimalLatitude),
+                               crs="EPSG:4326")
+
+# Despliegue de los datos (incluyendo geometrías)
+murcielagos
+
+
+# Ahora que los datos de murciélagos están en un geodataframe, pueden desplegarse en un mapa.
+
+# In[18]:
+
+
+# Mapa
+murcielagos.plot(figsize=(20, 20))
+
+
+# #### Áreas silvestres protegidas (ASP)
+
+# Como los datos de ASP sí están en un formato geoespacial (ej. GeoJSON), pueden cargarse directamente en un geodataframe.
+
+# In[19]:
+
+
+# Carga de polígonos de ASP
+asp = gpd.read_file("datos/sinac/asp.geojson", sep="\t")
+
+# Despliegue tabular de los datos
+asp
+
 
 # In[20]:
 
 
-import matplotlib.pyplot as plt # biblioteca de graficación
-get_ipython().run_line_magic('matplotlib', 'inline')
-
-import calendar # biblioteca para manejo de fechas
+# Mapa de ASP
+asp.plot(figsize=(20, 20))
 
 
-# #### Estilo de los gráficos
+# Ahora, ambas capas pueden mostrarse en un mismo mapa.
 
 # In[21]:
 
 
-# Estilo de los gráficos
-plt.style.use('ggplot')
+# Capa base de países
+base = asp.plot(color='white', edgecolor='black', figsize=(20, 20))
+
+# Capa de murciélagos
+murcielagos.plot(ax=base, marker='o', color='red', markersize=8)
 
 
-# #### Ejemplos de gráficos
+# ### Conteo de especies en cada ASP
 
-# ##### Distribución de registros de presencia por año
+# Con el método [geopandas.sjoin()](https://geopandas.org/en/stable/docs/reference/api/geopandas.sjoin.html), se realiza una [unión espacial o *spatial join*](https://gisgeography.com/spatial-join/) de las tablas de ASP y de murciélagos. Esto produce un geodataframe con una fila por cada registro de murciélagos, la cual contiene también la información del ASP en donde se ubica el registro. 
+# 
+# En este caso, se conservan solo las filas en donde hay intersección de las geometrías de ambas tablas. O sea, aquellos registros de murciélagos que se ubican en un ASP. Se excluyen los registros ubicados fuera de las ASP.
 
 # In[22]:
 
 
-# Cambio del tipo de datos del campo de fecha
-felinos["eventDate"] = pd.to_datetime(felinos["eventDate"])
+# Join espacial de las capas de ASP y murciélagos
+asp_murcielagos = asp.sjoin(murcielagos)
 
-# Agrupación de los registros por año
-felinos_registros_x_anio = felinos.groupby(felinos['eventDate'].dt.year).count().eventDate
-
-felinos_registros_x_anio
+asp_murcielagos
 
 
 # In[23]:
 
 
-# Tipo de datos retornado
-type(felinos_registros_x_anio)
+# Estructura
+asp_murcielagos.info()
 
 
 # In[24]:
 
 
-# Conversión de series a dataframe
-felinos_registros_x_anio_df = pd.DataFrame({'anio':felinos_registros_x_anio.index, 'registros':felinos_registros_x_anio.values}) 
+# Mapa de ASP en las que hay registros de murciélagos
+asp_murcielagos.plot(figsize=(20, 20))
 
-# Conversión del tipo de la columna de año
-felinos_registros_x_anio_df["anio"] = pd.to_numeric(felinos_registros_x_anio_df["anio"], downcast='integer')
-felinos_registros_x_anio_df.style.set_precision(2)
 
-felinos_registros_x_anio_df
-
+# Seguidamente, se cuenta la cantidad de especies que hay en cada ASP.
 
 # In[25]:
 
 
-# Graficación
-felinos_registros_x_anio_df.plot(x='anio', y='registros', kind='bar', figsize=(12,7), color='red')
+# Conteo de especies en cada ASP
+conteo_asp_especies = asp_murcielagos.groupby("nombre_asp").species.nunique()
+conteo_asp_especies = conteo_asp_especies.reset_index() # para convertir la serie a dataframe
 
-# Título y leyendas en los ejes
-plt.title('Registros de presencia de Felidae (felinos) en Costa Rica por año', fontsize=20)
-plt.xlabel('Año', fontsize=16)
-plt.ylabel('Cantidad de registros', fontsize=16)
+# Cambio de nombre de columna
+conteo_asp_especies.rename(columns = {'species': 'especies'}, inplace = True)
+
+# Despliegue de ASP por cantidad de especies
+conteo_asp_especies.sort_values(by="especies", ascending=False)
 
 
-# ##### Distribución de registros de presencia por mes
+# El método [pandas.DataFrame.join()](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html) se usa seguidamente para unir el geodataframe de ASP con el dataframe que contiene el conteo de especies por ASP. Como resultado, el geodataframe de ASP tiene ahora la columna con la cantidad de especies.
 
 # In[26]:
 
 
-# Agrupación de los registros por mes
-felinos_registros_x_mes = felinos.groupby(felinos['eventDate'].dt.month).count().eventDate
-
-felinos_registros_x_mes
+# Join para agregar la columna con el conteo a la capa de ASP
+asp_especies = asp.join(conteo_asp_especies.set_index('nombre_asp'), on='nombre_asp')
+asp_especies
 
 
 # In[27]:
 
 
-# Reemplazo del número del mes por el nombre del mes
-felinos_registros_x_mes.index=[calendar.month_name[x] for x in range(1,13)]
-
-felinos_registros_x_mes
-
-
-# In[28]:
-
-
-# Gráfico de barras
-felinos_registros_x_mes.plot(kind='bar',figsize=(12,7), color='blue', alpha=0.5)
-
-# Título y leyendas en los ejes
-plt.title('Registros de presencia de Felidae (felinos) en Costa Rica por mes', fontsize=20)
-plt.xlabel('Mes', fontsize=16)
-plt.ylabel('Cantidad de registros', fontsize=16);
+# Mapeo
+asp_especies.plot(column="especies", 
+            legend=True,
+            cmap='OrRd', 
+            scheme='quantiles',
+            figsize=(20, 20)
+            )
 
 
-# ##### Graficación en una línea de tiempo
+# ### Ejercicios
 
-# In[29]:
+# Desarrolle mapas que muestren:
+#     
+# - La cantidad de especies de murciélagos en provincias.
+# - La cantidad de especies de murciélagos en cantones.
 
-
-# Agrupación de los registros por fecha
-registros_x_fecha = felinos.groupby(felinos['eventDate'].dt.date).count().eventDate
-
-registros_x_fecha
-
-
-# In[30]:
+# In[ ]:
 
 
-# Gráfico de líneas
-registros_x_fecha.plot(figsize=(20,8), color='blue')
 
-# Título y leyendas en los ejes
-plt.title('Registros de presencia de Felidae (felinos) en Costa Rica por fecha', fontsize=20)
-plt.xlabel('Fecha',fontsize=16)
-plt.ylabel('Cantidad de registros',fontsize=16);
-plt.legend()
 
