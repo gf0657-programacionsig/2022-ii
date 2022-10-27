@@ -32,7 +32,7 @@ Debe desarrollar un programa en Python, como un cuaderno de notas de Jupyter, qu
 - Cantidades diarias de casos a nivel nacional: `05_30_22_CSV_GENERAL.csv`
 - Cantidades de casos por cantón: `05_30_22_CSV_POSITIVOS.csv`
 
-0. Debe cargar los datos en los archivos CSV a data frames de Pandas y prepararlos mediante:
+Debe cargar los datos en los archivos CSV a data frames de Pandas y prepararlos mediante:
 
 - Conversiones de tipos (ej. fechas).
 - Manejo de codificaciones de caracteres (*locales*).
