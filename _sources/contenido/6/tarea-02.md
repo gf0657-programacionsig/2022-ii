@@ -1,7 +1,7 @@
 # Tarea 02
 
 ## Fecha y hora límite de entrega
-Jueves 3 de noviembre de 2022, 04:59 a.m.
+Lunes 7 de noviembre de 2022, 07:59 a.m.
 
 ## Objetivos
 Cada estudiante debe mostrar que es capaz de:
