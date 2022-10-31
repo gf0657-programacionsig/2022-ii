@@ -192,7 +192,7 @@ ciudades.plot(ax=base, marker='o', color='red', markersize=8)
 # - Provincias.
 # - Cantones.
 # - Áreas silvestres protegidas (ASP).
-# - Red vial.
+# - Red vial (escala 1:200000).
 # 
 # 2. Cargue cada capa en un geodataframe.
 # 3. Examine la estructura y el contenido de cada conjunto de datos.
@@ -345,12 +345,35 @@ asp_especies.plot(column="especies",
             )
 
 
-# ### Ejercicios
+# ## Ejercicios
 
-# Desarrolle mapas que muestren:
-#     
-# - La cantidad de especies de murciélagos en provincias.
-# - La cantidad de especies de murciélagos en cantones.
+# Desarrolle los siguientes mapas, primero en QGIS y luego en Python con las funciones de la biblioteca GeoPandas.
+# 
+# 1. Mapa de coropletas que muestre la cantidad de casos positivos de COVID en cantones de Costa Rica.
+# 2. Mapa de coropletas que muestre la cantidad de casos positivos de COVID en provincias de Costa Rica.
+# 
+# 3. Mapa de coropletas que muestre la cantidad de especies de murciélagos en cantones de Costa Rica.
+# 4. Mapa de coropletas que muestre la cantidad de especies de murciélagos en provincias de Costa Rica.
+# 
+# 5. Mapa de coropletas que muestre la densidad de la red vial ( * ) en cantones de Costa Rica.
+# 6. Mapa de coropletas que muestre la densidad de la red vial ( * ) en provincias de Costa Rica.
+# 
+# Además de los mapas, visualice los resultados en tablas y gráficos, cuando le ayuden a verificar o comprender mejor el problema a resolver.
+# 
+# ( * ) La densidad de la red vial para un polígono se define como:  
+# **km de longitud de red vial / km2 de área**  
+# Por ejemplo, si un cantón tiene 500 km de longitud de red vial y un área de 1000 km2, la densidad de su red vial es 0.5.
+
+# ## Recursos de interés
+
+# **Unión (*join*) de datos**
+# - [How To Think Spatially with Spatial Relationships](https://gisgeography.com/spatial-relationships/)
+# - [GeoPandas - Merging Data](https://geopandas.org/en/stable/docs/user_guide/mergingdata.html)
+# - [Geopandas - Spatial Joins](https://geopandas.org/en/stable/gallery/spatial_joins.html)
+# 
+# **Agrupación de datos**
+# - [pandas GroupBy: Your Guide to Grouping Data in Python](https://realpython.com/pandas-groupby/)
+# - [pandas.DataFrame.groupby](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html)
 
 # In[ ]:
 
