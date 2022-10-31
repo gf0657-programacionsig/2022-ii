@@ -541,12 +541,17 @@ title="Print to PDF"
      Conteo de especies en cada ASP
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Ejercicios
-    </a>
-   </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Ejercicios
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recursos-de-interes">
+   Recursos de interés
+  </a>
  </li>
 </ul>
 
@@ -670,12 +675,17 @@ title="Print to PDF"
      Conteo de especies en cada ASP
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Ejercicios
-    </a>
-   </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Ejercicios
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recursos-de-interes">
+   Recursos de interés
+  </a>
  </li>
 </ul>
 
@@ -1244,49 +1254,49 @@ memory usage: 8.4+ KB
   </thead>
   <tbody>
     <tr>
-      <th>47</th>
-      <td>11333483.0</td>
-      <td>North America</td>
-      <td>Cuba</td>
-      <td>CUB</td>
-      <td>100023</td>
-      <td>POLYGON ((-82.26815 23.18861, -81.40446 23.117...</td>
-    </tr>
-    <tr>
-      <th>146</th>
-      <td>3720382.0</td>
+      <th>76</th>
+      <td>9053300.0</td>
       <td>Asia</td>
-      <td>Georgia</td>
-      <td>GEO</td>
-      <td>17477</td>
-      <td>POLYGON ((39.95501 43.43500, 40.07696 43.55310...</td>
+      <td>Israel</td>
+      <td>ISR</td>
+      <td>394652</td>
+      <td>POLYGON ((35.71992 32.70919, 35.54567 32.39399...</td>
     </tr>
     <tr>
-      <th>165</th>
-      <td>112078730.0</td>
+      <th>137</th>
+      <td>25364307.0</td>
+      <td>Oceania</td>
+      <td>Australia</td>
+      <td>AUS</td>
+      <td>1396567</td>
+      <td>MULTIPOLYGON (((147.68926 -40.80826, 148.28907...</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>51709098.0</td>
+      <td>Asia</td>
+      <td>South Korea</td>
+      <td>KOR</td>
+      <td>1646739</td>
+      <td>POLYGON ((126.17476 37.74969, 126.23734 37.840...</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>1293119.0</td>
+      <td>Asia</td>
+      <td>Timor-Leste</td>
+      <td>TLS</td>
+      <td>2017</td>
+      <td>POLYGON ((124.96868 -8.89279, 125.08625 -8.656...</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>8082366.0</td>
       <td>Africa</td>
-      <td>Ethiopia</td>
-      <td>ETH</td>
-      <td>95912</td>
-      <td>POLYGON ((47.78942 8.00300, 44.96360 5.00162, ...</td>
-    </tr>
-    <tr>
-      <th>123</th>
-      <td>10716322.0</td>
-      <td>Europe</td>
-      <td>Greece</td>
-      <td>GRC</td>
-      <td>209852</td>
-      <td>MULTIPOLYGON (((26.29000 35.29999, 26.16500 35...</td>
-    </tr>
-    <tr>
-      <th>109</th>
-      <td>2957731.0</td>
-      <td>Asia</td>
-      <td>Armenia</td>
-      <td>ARM</td>
-      <td>13672</td>
-      <td>POLYGON ((46.50572 38.77061, 46.14362 38.74120...</td>
+      <td>Togo</td>
+      <td>TGO</td>
+      <td>5490</td>
+      <td>POLYGON ((0.89956 10.99734, 0.77234 10.47081, ...</td>
     </tr>
   </tbody>
 </table>
@@ -1583,7 +1593,7 @@ memory usage: 8.4+ KB
 <li><p>Provincias.</p></li>
 <li><p>Cantones.</p></li>
 <li><p>Áreas silvestres protegidas (ASP).</p></li>
-<li><p>Red vial.</p></li>
+<li><p>Red vial (escala 1:200000).</p></li>
 </ul>
 <ol class="simple">
 <li><p>Cargue cada capa en un geodataframe.</p></li>
@@ -3746,14 +3756,36 @@ memory usage: 1.6+ MB
 </div>
 </div>
 </section>
-<section id="id1">
-<h3>Ejercicios<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
-<p>Desarrolle mapas que muestren:</p>
-<ul class="simple">
-<li><p>La cantidad de especies de murciélagos en provincias.</p></li>
-<li><p>La cantidad de especies de murciélagos en cantones.</p></li>
-</ul>
 </section>
+<section id="id1">
+<h2>Ejercicios<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<p>Desarrolle los siguientes mapas, primero en QGIS y luego en Python con las funciones de la biblioteca GeoPandas.</p>
+<ol class="simple">
+<li><p>Mapa de coropletas que muestre la cantidad de casos positivos de COVID en cantones de Costa Rica.</p></li>
+<li><p>Mapa de coropletas que muestre la cantidad de casos positivos de COVID en provincias de Costa Rica.</p></li>
+<li><p>Mapa de coropletas que muestre la cantidad de especies de murciélagos en cantones de Costa Rica.</p></li>
+<li><p>Mapa de coropletas que muestre la cantidad de especies de murciélagos en provincias de Costa Rica.</p></li>
+<li><p>Mapa de coropletas que muestre la densidad de la red vial ( * ) en cantones de Costa Rica.</p></li>
+<li><p>Mapa de coropletas que muestre la densidad de la red vial ( * ) en provincias de Costa Rica.</p></li>
+</ol>
+<p>Además de los mapas, visualice los resultados en tablas y gráficos, cuando le ayuden a verificar o comprender mejor el problema a resolver.</p>
+<p>( * ) La densidad de la red vial para un polígono se define como:<br />
+<strong>km de longitud de red vial / km2 de área</strong><br />
+Por ejemplo, si un cantón tiene 500 km de longitud de red vial y un área de 1000 km2, la densidad de su red vial es 0.5.</p>
+</section>
+<section id="recursos-de-interes">
+<h2>Recursos de interés<a class="headerlink" href="#recursos-de-interes" title="Permalink to this headline">#</a></h2>
+<p><strong>Unión (<em>join</em>) de datos</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://gisgeography.com/spatial-relationships/">How To Think Spatially with Spatial Relationships</a></p></li>
+<li><p><a class="reference external" href="https://geopandas.org/en/stable/docs/user_guide/mergingdata.html">GeoPandas - Merging Data</a></p></li>
+<li><p><a class="reference external" href="https://geopandas.org/en/stable/gallery/spatial_joins.html">Geopandas - Spatial Joins</a></p></li>
+</ul>
+<p><strong>Agrupación de datos</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://realpython.com/pandas-groupby/">pandas GroupBy: Your Guide to Grouping Data in Python</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html">pandas.DataFrame.groupby</a></p></li>
+</ul>
 </section>
 </section>
 
