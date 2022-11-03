@@ -355,7 +355,7 @@ asp_especies.plot(column="especies",
 # 3. Mapa de coropletas que muestre la cantidad de especies de murciélagos en cantones de Costa Rica.
 # 4. Mapa de coropletas que muestre la cantidad de especies de murciélagos en provincias de Costa Rica.
 # 
-# 5. Mapa de coropletas que muestre la densidad de la red vial ( * ) en cantones de Costa Rica.
+# 5. Mapa de coropletas que muestre la densidad de la red vial ( * ) en cantones de Costa Rica ( ** ).
 # 6. Mapa de coropletas que muestre la densidad de la red vial ( * ) en provincias de Costa Rica.
 # 
 # Además de los mapas, visualice los resultados en tablas y gráficos, cuando le ayuden a verificar o comprender mejor el problema a resolver.
@@ -363,6 +363,8 @@ asp_especies.plot(column="especies",
 # ( * ) La densidad de la red vial para un polígono se define como:  
 # **km de longitud de red vial / km2 de área**  
 # Por ejemplo, si un cantón tiene 500 km de longitud de red vial y un área de 1000 km2, la densidad de su red vial es 0.5.
+# 
+# ( ** ) Puede encontrar una solución al problema del cálculo de la densidad de la red vial en [https://github.com/gf0657-programacionsig/2022-ii-densidad-redvial](https://github.com/gf0657-programacionsig/2022-ii-densidad-redvial).
 
 # ## Recursos de interés
 
@@ -374,6 +376,9 @@ asp_especies.plot(column="especies",
 # **Agrupación de datos**
 # - [pandas GroupBy: Your Guide to Grouping Data in Python](https://realpython.com/pandas-groupby/)
 # - [pandas.DataFrame.groupby](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html)
+# 
+# **Superposición (*overlay*) de datos**  
+# - [geopandas.overlay](https://geopandas.org/en/stable/docs/reference/api/geopandas.overlay.html)
 
 # In[ ]:
 
