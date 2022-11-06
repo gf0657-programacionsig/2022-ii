@@ -30,5 +30,6 @@ parts:
     - file: contenido/6/examen_corto-01
     - file: contenido/6/tarea-01    
     - file: contenido/6/examen_corto-02        
-    - file: contenido/6/examen_corto-03    
-    - file: contenido/6/tarea-02        
+    - file: contenido/6/examen_corto-03
+    - file: contenido/6/tarea-02
+    - file: contenido/6/examen_corto-04    
