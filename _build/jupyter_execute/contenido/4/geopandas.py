@@ -27,6 +27,22 @@
 # mamba install geopandas -c conda-forge
 # ```
 
+# **Para Google Colab, se recomienda la siguiente secuencia de comandos:**
+
+# ```
+# # Instalación de libspatialindex-dev y rtree
+# # Debe realizarse antes de la instalación de geopandas
+# !apt install libspatialindex-dev
+# !pip install --upgrade rtree
+# 
+# # Instalación de geopandas y otros módulos módulos
+# !pip install --upgrade geopandas
+# !pip install --upgrade pyshp
+# !pip install --upgrade shapely
+# !pip install --upgrade mapclassify
+# !pip install --upgrade descartes
+# ```
+
 # ## Carga
 
 # In[1]:

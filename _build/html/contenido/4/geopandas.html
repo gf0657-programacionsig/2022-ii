@@ -731,6 +731,20 @@ title="Print to PDF"
 <span class="n">mamba</span> <span class="n">install</span> <span class="n">geopandas</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
 </pre></div>
 </div>
+<p><strong>Para Google Colab, se recomienda la siguiente secuencia de comandos:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Instalación de libspatialindex-dev y rtree
+# Debe realizarse antes de la instalación de geopandas
+!apt install libspatialindex-dev
+!pip install --upgrade rtree
+
+# Instalación de geopandas y otros módulos módulos
+!pip install --upgrade geopandas
+!pip install --upgrade pyshp
+!pip install --upgrade shapely
+!pip install --upgrade mapclassify
+!pip install --upgrade descartes
+</pre></div>
+</div>
 </section>
 <section id="carga">
 <h2>Carga<a class="headerlink" href="#carga" title="Permalink to this headline">#</a></h2>
@@ -1264,49 +1278,49 @@ memory usage: 8.4+ KB
   </thead>
   <tbody>
     <tr>
-      <th>77</th>
-      <td>6855713.0</td>
-      <td>Asia</td>
-      <td>Lebanon</td>
-      <td>LBN</td>
-      <td>51991</td>
-      <td>POLYGON ((35.82110 33.27743, 35.55280 33.26427...</td>
-    </tr>
-    <tr>
-      <th>149</th>
-      <td>433285.0</td>
-      <td>Asia</td>
-      <td>Brunei</td>
-      <td>BRN</td>
-      <td>13469</td>
-      <td>POLYGON ((115.45071 5.44773, 115.40570 4.95523...</td>
-    </tr>
-    <tr>
-      <th>42</th>
-      <td>581363.0</td>
-      <td>South America</td>
-      <td>Suriname</td>
-      <td>SUR</td>
-      <td>3697</td>
-      <td>POLYGON ((-54.52475 2.31185, -55.09759 2.52375...</td>
-    </tr>
-    <tr>
-      <th>150</th>
-      <td>2087946.0</td>
-      <td>Europe</td>
-      <td>Slovenia</td>
-      <td>SVN</td>
-      <td>54174</td>
-      <td>POLYGON ((13.80648 46.50931, 14.63247 46.43182...</td>
-    </tr>
-    <tr>
-      <th>166</th>
-      <td>973560.0</td>
+      <th>52</th>
+      <td>19658031.0</td>
       <td>Africa</td>
-      <td>Djibouti</td>
-      <td>DJI</td>
-      <td>3324</td>
-      <td>POLYGON ((42.35156 12.54223, 42.77964 12.45542...</td>
+      <td>Mali</td>
+      <td>MLI</td>
+      <td>17279</td>
+      <td>POLYGON ((-11.51394 12.44299, -11.46790 12.754...</td>
+    </tr>
+    <tr>
+      <th>161</th>
+      <td>1198575.0</td>
+      <td>Asia</td>
+      <td>Cyprus</td>
+      <td>CYP</td>
+      <td>24948</td>
+      <td>POLYGON ((32.73178 35.14003, 32.91957 35.08783...</td>
+    </tr>
+    <tr>
+      <th>137</th>
+      <td>25364307.0</td>
+      <td>Oceania</td>
+      <td>Australia</td>
+      <td>AUS</td>
+      <td>1396567</td>
+      <td>MULTIPOLYGON (((147.68926 -40.80826, 148.28907...</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>23310715.0</td>
+      <td>Africa</td>
+      <td>Niger</td>
+      <td>NER</td>
+      <td>12911</td>
+      <td>POLYGON ((14.85130 22.86295, 15.09689 21.30852...</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>3720382.0</td>
+      <td>Asia</td>
+      <td>Georgia</td>
+      <td>GEO</td>
+      <td>17477</td>
+      <td>POLYGON ((39.95501 43.43500, 40.07696 43.55310...</td>
     </tr>
   </tbody>
 </table>
@@ -1534,7 +1548,7 @@ memory usage: 8.4+ KB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="../../_images/geopandas_31_1.png" src="../../_images/geopandas_31_1.png" />
+<img alt="../../_images/geopandas_33_1.png" src="../../_images/geopandas_33_1.png" />
 </div>
 </div>
 <p>Si se especifica una columna con el argumento <code class="docutils literal notranslate"><span class="pre">column</span></code>, el mapa se colorea de acuerdo con los valores de esa columna.</p>
@@ -1550,7 +1564,7 @@ memory usage: 8.4+ KB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="../../_images/geopandas_33_1.png" src="../../_images/geopandas_33_1.png" />
+<img alt="../../_images/geopandas_35_1.png" src="../../_images/geopandas_35_1.png" />
 </div>
 </div>
 <p>Mapa de coropletas con una paleta de colores del sitio <a class="reference external" href="https://colorbrewer2.org/">ColorBrewer</a>, creado por <a class="reference external" href="https://en.wikipedia.org/wiki/Cynthia_Brewer">Cynthia Brewer</a>, y un esquema de clasificación basado en <a class="reference external" href="https://es.wikipedia.org/wiki/Cuantil">cuantiles</a>.</p>
@@ -1570,7 +1584,7 @@ memory usage: 8.4+ KB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="../../_images/geopandas_35_1.png" src="../../_images/geopandas_35_1.png" />
+<img alt="../../_images/geopandas_37_1.png" src="../../_images/geopandas_37_1.png" />
 </div>
 </div>
 <p>Mapa con múltiples capas.</p>
@@ -1591,7 +1605,7 @@ memory usage: 8.4+ KB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="../../_images/geopandas_37_1.png" src="../../_images/geopandas_37_1.png" />
+<img alt="../../_images/geopandas_39_1.png" src="../../_images/geopandas_39_1.png" />
 </div>
 </div>
 <section id="ejercicios">
@@ -2283,7 +2297,7 @@ memory usage: 8.4+ KB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="../../_images/geopandas_49_1.png" src="../../_images/geopandas_49_1.png" />
+<img alt="../../_images/geopandas_51_1.png" src="../../_images/geopandas_51_1.png" />
 </div>
 </div>
 </section>
@@ -2623,7 +2637,7 @@ memory usage: 8.4+ KB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="../../_images/geopandas_53_1.png" src="../../_images/geopandas_53_1.png" />
+<img alt="../../_images/geopandas_55_1.png" src="../../_images/geopandas_55_1.png" />
 </div>
 </div>
 <p>Ahora, ambas capas pueden mostrarse en un mismo mapa.</p>
@@ -2641,7 +2655,7 @@ memory usage: 8.4+ KB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="../../_images/geopandas_55_1.png" src="../../_images/geopandas_55_1.png" />
+<img alt="../../_images/geopandas_57_1.png" src="../../_images/geopandas_57_1.png" />
 </div>
 </div>
 </section>
@@ -3089,7 +3103,7 @@ memory usage: 1.6+ MB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="../../_images/geopandas_60_1.png" src="../../_images/geopandas_60_1.png" />
+<img alt="../../_images/geopandas_62_1.png" src="../../_images/geopandas_62_1.png" />
 </div>
 </div>
 <p>Seguidamente, se cuenta la cantidad de especies que hay en cada ASP.</p>
@@ -3762,7 +3776,7 @@ memory usage: 1.6+ MB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="../../_images/geopandas_65_1.png" src="../../_images/geopandas_65_1.png" />
+<img alt="../../_images/geopandas_67_1.png" src="../../_images/geopandas_67_1.png" />
 </div>
 </div>
 </section>
