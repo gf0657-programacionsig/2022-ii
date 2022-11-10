@@ -25,6 +25,7 @@ parts:
     - file: contenido/4/modelos-estandares-datos-geoespaciales
     - file: contenido/4/geopandas
     - file: contenido/4/folium    
+    - file: contenido/4/raster    
   - caption: EVALUACIONES
     chapters:  
     - file: contenido/6/examen_corto-01
