@@ -2,7 +2,7 @@
 
 
 ## Fecha
-Lunes 14 de noviembre de 2022
+Jueves 17 de noviembre de 2022
 
 ## Temas a evaluar
 - [Modelos y estándares de datos geoespaciales](https://gf0657-programacionsig.github.io/2022-ii/contenido/4/modelos-estandares-datos-geoespaciales.html)
