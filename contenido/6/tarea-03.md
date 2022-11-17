@@ -1,7 +1,7 @@
 # Tarea 03
 
 ## Fecha y hora límite de entrega
-Jueves 24 de noviembre de 2022, 05:59 a.m.
+Jueves 24 de noviembre de 2022, 04:59 a.m.
 
 ## Objetivos
 Cada estudiante debe mostrar que es capaz de:
