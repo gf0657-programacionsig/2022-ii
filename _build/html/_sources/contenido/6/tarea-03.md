@@ -31,7 +31,6 @@ Debe desarrollar un programa en Python, como un cuaderno de notas de Jupyter, qu
 
 - [Registros de presencia de felinos de Costa Rica, agrupados por la Infraestructura Mundial de Información en Biodiversidad (GBIF)](https://doi.org/10.15468/dl.dwpgps).
 - [Áreas silvestres protegidas (ASP) de Costa Rica, publicadas por el Sistema Nacional de Áreas de Conservación (Sinac) en el Sistema Nacional de Información Territorial (SNIT)](https://www.snitcr.go.cr/ico_servicios_ogc_info?k=bm9kbzo6NDA=&nombre=SINAC).
-- [Capa raster de WorldClim de altitud de Costa Rica en resolución de 30 x 30 segundos](https://github.com/gf0657-programacionsig/2022-ii/blob/main/contenido/4/datos/worldclim/altitud.tif). ([Enlace al sitio de WorldClim](https://www.worldclim.org/)).
 
 Debe cargar los datos con Python y prepararlos mediante:
 
@@ -46,10 +45,9 @@ Luego, debe implementar las siguientes salidas:
 
 2.  Un gráfico *sunburst* que muestre las cantidades de registros de presencia por género (nivel interior) y por especie (nivel exterior).
 
-3.  Un mapa que muestre las siguientes cinco capas:
+3.  Un mapa que muestre las siguientes cuatro capas:
 
 -   Dos capas base (ej. OpenStreetMap).
--   Capa raster de altitud de Costa Rica.
 -   Capa de polígonos de ASP de Costa Rica. La ventana emergente (*popup*) debe mostrar el nombre del ASP al hacer clic sobre el polígono.
 -   Capa de puntos de registros de presencia de felinos. La ventana emergente (*popup*) debe mostrar el nombre de la especie, la provincia, la localidad y la fecha.
 
