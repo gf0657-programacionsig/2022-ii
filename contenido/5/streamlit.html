@@ -533,20 +533,26 @@ title="Print to PDF"
 </section>
 <section id="instalacion">
 <h2>Instalación<a class="headerlink" href="#instalacion" title="Permalink to this headline">#</a></h2>
-<p>Puede instalarse mediante pip o mediante conda:</p>
+<p>Puede instalarse mediante pip, conda o mamba:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Con pip</span>
 pip install streamlit
 
 <span class="c1"># Con conda</span>
 conda install -c conda-forge streamlit
+
+<span class="c1"># Con mamba</span>
+mamba install -c conda-forge streamlit
 </pre></div>
 </div>
-<p>También se recomienda instalar el paquete <a class="reference external" href="https://github.com/randyzwitch/streamlit-folium">streamlit-folium</a>:</p>
+<p>También se recomienda instalar el paquete <a class="reference external" href="https://github.com/randyzwitch/streamlit-folium">streamlit-folium</a> y el paquete <a class="reference external" href="https://pygeos.readthedocs.io/">pygeos</a>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Con pip</span>
-pip install streamlit-folium
+pip install pygeos streamlit-folium
 
 <span class="c1"># Con conda</span>
-conda install -c conda-forge streamlit-folium
+conda install -c conda-forge pygeos streamlit-folium
+
+<span class="c1"># Con mamba</span>
+mamba install -c conda-forge pygeos streamlit-folium
 </pre></div>
 </div>
 </section>
@@ -563,8 +569,8 @@ conda install -c conda-forge streamlit-folium
 </section>
 <section id="ejemplo-de-aplicacion-streamlit">
 <h2>Ejemplo de aplicación Streamlit<a class="headerlink" href="#ejemplo-de-aplicacion-streamlit" title="Permalink to this headline">#</a></h2>
-<p>En <a class="reference external" href="https://share.streamlit.io/mfvargas/visualizacion-biodiversidad-streamlit/main/principal.py">https://share.streamlit.io/mfvargas/visualizacion-biodiversidad-streamlit/main/principal.py</a> se publicó una aplicación desarrollada, a modo de ejemplo, con Streamlit, la cual incluye visualizaciones de datos en formato tabular, gráfico y geoespacial.</p>
-<p>El código fuente está disponible en <a class="reference external" href="https://github.com/mfvargas/visualizacion-biodiversidad-streamlit">https://github.com/mfvargas/visualizacion-biodiversidad-streamlit</a>.</p>
+<p>En <a class="reference external" href="https://mfvargas-ejemplo.streamlit.app/">https://mfvargas-ejemplo.streamlit.app/</a> se publicó una aplicación desarrollada, a modo de ejemplo, con Streamlit, la cual incluye visualizaciones de datos en formato tabular, gráfico y geoespacial.</p>
+<p>El código fuente está disponible en <a class="reference external" href="https://github.com/mfvargas/ejemplo-streamlit">https://github.com/mfvargas/ejemplo-streamlit</a>.</p>
 </section>
 </section>
 
