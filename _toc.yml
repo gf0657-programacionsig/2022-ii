@@ -26,6 +26,9 @@ parts:
     - file: contenido/4/geopandas
     - file: contenido/4/folium    
     - file: contenido/4/raster    
+  - caption: 5 - VISUALIZACIÓN Y ANÁLISIS AVANZADOS
+    chapters:  
+    - file: contenido/5/streamlit
   - caption: EVALUACIONES
     chapters:  
     - file: contenido/6/examen_corto-01
