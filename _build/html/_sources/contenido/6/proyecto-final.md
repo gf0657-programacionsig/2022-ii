@@ -29,8 +29,8 @@ Esta tarea puede realizarse en parejas o de manera individual. Si es en pareja, 
 
 ### Conjuntos de datos de entrada
 1. Un archivo CSV con registros de presencia de especies de Costa Rica, que seleccione el usuario, que siga el estándar [Darwin Core (DwC)](https://dwc.tdwg.org/terms/). Este tipo de archivos puede obtenerse en el portal de la Infraestructura Mundial de Información en Biodiversidad (GBIF) ([https://www.gbif.org/occurrence/search](https://www.gbif.org/occurrence/search)). Ejemplos:
-    - [Registros de presencia de felinos de Costa Rica](datos/felinos.csv)
-    - [Registros de presencia de murciélagos de Costa Rica](datos/murcielagos.csv)
+    - [Registros de presencia de felinos de Costa Rica](https://github.com/gf0657-programacionsig/2022-ii/blob/main/contenido/6/datos/felinos.csv)
+    - [Registros de presencia de murciélagos de Costa Rica](https://github.com/gf0657-programacionsig/2022-ii/blob/main/contenido/6/datos/murcielagos.csv)
 
 2. Un archivo GeoJSON con [polígonos de cantones de Costa Rica, publicados por el Instituto Geográfico Nacional (IGN) en el Sistema Nacional de Información Territorial (SNIT)](https://www.snitcr.go.cr/ico_servicios_ogc_info?k=bm9kbzo6MjY=&nombre=IGN%20Cartograf%C3%ADa%201:5mil).
 
