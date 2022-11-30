@@ -38,3 +38,4 @@ parts:
     - file: contenido/6/tarea-02
     - file: contenido/6/examen_corto-04    
     - file: contenido/6/tarea-03    
+    - file: contenido/6/proyecto-final    
